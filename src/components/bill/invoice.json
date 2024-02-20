@@ -1,0 +1,122 @@
+{
+    "invoices": [
+      {
+        "Trạng thái": "Hóa đơn mới",
+        "Kết quả kiểm tra hóa đơn": "Đã cấp mã hóa đơn",
+        "Mẫu_số": "1",
+        "Ký hiệu": "C23TPA",
+        "Số": "5877",
+        "Tên hóa đơn": "HOÁ ĐƠN GIÁ TRỊ GIA TĂNG",
+        "Ngày thành lập": "Ngày 14 tháng 01 năm 2023",
+        "MCCQT:": "00EEB743E8B9EA4971B331F257E20C1A81",
+        "Ngày": "14",
+        "tháng": "01",
+        "năm": "2023",
+        "Tên người bán:": "CÔNG TY TNHH P.A VIỆT NAM",
+        "Mã số thuế:": "0302431595",
+        "Địa chỉ:": "833 Lê Hồng Phong, Phường 12, Quận 10, Thành phố Hồ Chí Minh, Việt Nam",
+        "Điện thoại:": "02822317777",
+        "Số tài khoản:": "35144929   Ngân hàng TMCP Á Châu, phòng giao dịch Sư Vạn Hạnh, Q.10, TP.HCM",
+        "Tên người mua:": "Công ty TNHH Một Thành viên Công nghệ và Truyền thông 3I",
+        "Họ tên người mua:": "",
+        "Mã số thuế: buyer": "0104113262",
+        "Địa chỉ: buyer": "Nhà B1- 4- khu đô thị 54 Hạ Đình, ngõ 85 Hạ Đình, Phường Thanh Xuân Trung, Quận Thanh Xuân, thành phố Hà Nội, Việt Nam",
+        "Số tài khoản: buyer": "   ",
+        "Hình thức thanh toán:": "Tiền mặt/Chuyển khoản",
+        "Đơn vị tiền tệ:": "VND",
+        "Số bảng kê:": "",
+        "Ngày bảng kê:": "",
+        "tables": [
+          {
+            "rows": [
+              {
+                "STT": "1",
+                "Tính chất": "Hàng hóa, dịch vụ",
+                "Tên hàng hóa, dịch vụ": "DỊCH VỤ TÊN MIỀN VÀ DỊCH VỤ GIÁ TRỊ GIA TĂNG INTERNET",
+                "Đơn vị tính": "",
+                "Số lượng": "1",
+                "Đơn giá": "39.000",
+                "Chiết khấu": "0",
+                "Thuế suất": "10%",
+                "Thành tiền chưa có thuế GTGT": "39.000"
+              },
+              {
+                "STT": "2",
+                "Tính chất": "Hàng hóa, dịch vụ",
+                "Tên hàng hóa, dịch vụ": "DỊCH VỤ TÊN MIỀN VÀ DỊCH VỤ GIÁ TRỊ GIA TĂNG INTERNET",
+                "Đơn vị tính": "",
+                "Số lượng": "1",
+                "Đơn giá": "9.000",
+                "Chiết khấu": "0",
+                "Thuế suất": "10%",
+                "Thành tiền chưa có thuế GTGT": "9.000"
+              },
+              {
+                "STT": "3",
+                "Tính chất": "Hàng hóa, dịch vụ",
+                "Tên hàng hóa, dịch vụ": "DỊCH VỤ TÊN MIỀN VÀ DỊCH VỤ GIÁ TRỊ GIA TĂNG INTERNET",
+                "Đơn vị tính": "",
+                "Số lượng": "1",
+                "Đơn giá": "199.000",
+                "Chiết khấu": "0",
+                "Thuế suất": "10%",
+                "Thành tiền chưa có thuế GTGT": "199.000"
+              },
+              {
+                "STT": "4",
+                "Tính chất": "Hàng hóa, dịch vụ",
+                "Tên hàng hóa, dịch vụ": "DỊCH VỤ TÊN MIỀN VÀ DỊCH VỤ GIÁ TRỊ GIA TĂNG INTERNET",
+                "Đơn vị tính": "",
+                "Số lượng": "1",
+                "Đơn giá": "10.000",
+                "Chiết khấu": "0",
+                "Thuế suất": "10%",
+                "Thành tiền chưa có thuế GTGT": "10.000"
+              }
+            ]
+          },
+          {
+            "rows": [
+              {
+                "STT": "1",
+                "Tên loại phí": "",
+                "Tiền phí": "0"
+              }
+            ]
+          },
+          {
+            "rows": [
+              {
+                "Thuế suất": "10%",
+                "Tổng tiền chưa thuế": "39.000",
+                "Tổng tiền thuế": "3.900"
+              },
+              {
+                "Thuế suất": "10%",
+                "Tổng tiền chưa thuế": "9.000",
+                "Tổng tiền thuế": "900"
+              },
+              {
+                "Thuế suất": "10%",
+                "Tổng tiền chưa thuế": "199.000",
+                "Tổng tiền thuế": "19.900"
+              },
+              {
+                "Thuế suất": "10%",
+                "Tổng tiền chưa thuế": "10.000",
+                "Tổng tiền thuế": "1.000"
+              }
+            ]
+          },
+          {
+            "Tổng tiền chưa thuế\n(Tổng cộng thành tiền chưa có thuế)": "257.000",
+            "Tổng tiền thuế (Tổng cộng tiền thuế)": "25.700",
+            "Tổng tiền phí": "",
+            "Tổng tiền chiết khấu thương mại": "0",
+            "Tổng tiền thanh toán bằng số": "282.700",
+            "Tổng tiền thanh toán bằng chữ": "Hai trăm tám mươi hai nghìn bảy trăm đồng chẵn"
+          }
+        ]
+      }
+    ]
+  }

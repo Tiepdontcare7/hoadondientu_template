@@ -1,24 +1,29 @@
 import { Tabs } from 'antd';
 import BillElectronic from './BillElectronic';
-import { dataBill } from './Databill';
+import generateMultipleRandomInvoices from '../../utils/bill';
 
-const items = [
-    {
-        key: '1',
-        label: 'Hóa đơn điện tử',
-        children: <BillElectronic data={dataBill} />,
-    },
-    {
-        key: '2',
-        label: 'Hóa đơn điện tử khởi tạo từ máy tính tiền',
-        children: <BillElectronic />,
-    }
-];
 
 const BillTable = () => {
+    // console.log(dataBill)
+    const invoices = generateMultipleRandomInvoices(10);
+    // console.log(invoices)
+
     const onChange = (key) => {
         console.log(key);
     };
+
+    const items = [
+        {
+            key: '1',
+            label: 'Hóa đơn điện tử',
+            children: <BillElectronic data={invoices} />,
+        },
+        {
+            key: '2',
+            label: 'Hóa đơn điện tử khởi tạo từ máy tính tiền',
+            children: <BillElectronic />,
+        }
+    ];
 
     return (
         <>
