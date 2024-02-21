@@ -63,74 +63,74 @@ const BillElectronic = (props) => {
                         {
                             // eslint-disable-next-line react/prop-types
                             props.data
+                                // eslint-disable-next-line react/prop-types
                                 ? props.data?.map((item, index) => {
-                                      // console.log(item)
-                                      return (
-                                          <tr
-                                              key={index}
-                                              className={`cursor-pointer py-3 ${
-                                                  index === selectedRow
-                                                      ? "bg-neutral-200"
-                                                      : ""
-                                              }`}
-                                              onClick={() =>
-                                                  handleRowClick(index)
-                                              }
-                                          >
-                                              <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
-                                                  {index + 1}
-                                              </td>
-                                              <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
-                                                  {item.Ký_hiệu}
-                                              </td>
-                                              <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
-                                                  {item.Mã_số_thuế_buyer}
-                                              </td>
-                                              <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
-                                                  {item.Ngày_thành_lập}
-                                              </td>
-                                              <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
-                                                  {item.Tên_người_bán}
-                                              </td>
-                                              <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
-                                                  {
-                                                      item.tables[0].rows[0]
-                                                          .Đơn_giá
-                                                  }
-                                              </td>
-                                              <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
-                                                  {
-                                                      item.tables[0].rows[0]
-                                                          .Đơn_giá
-                                                  }
-                                              </td>
-                                              <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
-                                                  {
-                                                      item.tables[0].rows[0]
-                                                          .Thành_tiền_chưa_có_thuế_GTGT
-                                                  }
-                                              </td>
-                                              <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
-                                                  {
-                                                      item.tables[0].rows[0]
-                                                          .Đơn_giá
-                                                  }
-                                              </td>
-                                              <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
-                                                  {item.Trạng_thái}
-                                              </td>
-                                              <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
-                                                  {item.Hình_thức_thanh_toán}
-                                              </td>
-                                              <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
-                                                  Xem danh sách hóa đơn
-                                              </td>
-                                              <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
-                                                  Thông tin liên quan
-                                              </td>
-                                          </tr>
-                                      );
-                                  })
+                                    // console.log(item)
+                                    return (
+                                        <tr
+                                            key={index}
+                                            className={`cursor-pointer py-3 ${index === selectedRow
+                                                    ? "bg-neutral-200"
+                                                    : ""
+                                                }`}
+                                            onClick={() =>
+                                                handleRowClick(index)
+                                            }
+                                        >
+                                            <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
+                                                {index + 1}
+                                            </td>
+                                            <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
+                                                {item.Ký_hiệu}
+                                            </td>
+                                            <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
+                                                {item.Mã_số_thuế_buyer}
+                                            </td>
+                                            <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
+                                                {item.Ngày_thành_lập}
+                                            </td>
+                                            <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
+                                                {item.Tên_người_bán}
+                                            </td>
+                                            <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
+                                                {
+                                                    item.tables[0].rows[0]
+                                                        .Đơn_giá
+                                                }
+                                            </td>
+                                            <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
+                                                {
+                                                    item.tables[0].rows[0]
+                                                        .Đơn_giá
+                                                }
+                                            </td>
+                                            <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
+                                                {
+                                                    item.tables[0].rows[0]
+                                                        .Thành_tiền_chưa_có_thuế_GTGT
+                                                }
+                                            </td>
+                                            <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
+                                                {
+                                                    item.tables[0].rows[0]
+                                                        .Đơn_giá
+                                                }
+                                            </td>
+                                            <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
+                                                {item.Trạng_thái}
+                                            </td>
+                                            <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
+                                                {item.Hình_thức_thanh_toán}
+                                            </td>
+                                            <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
+                                                Xem danh sách hóa đơn
+                                            </td>
+                                            <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
+                                                Thông tin liên quan
+                                            </td>
+                                        </tr>
+                                    );
+                                })
                                 : undefined
                         }
                     </tbody>
