@@ -39,7 +39,7 @@ const HomePage = () => (
     >
       <a onClick={(e) => e.preventDefault()}>
         <Space className='my-4'>
-          <img src='../public/ic_ql_tao_lap.svg' className='w-5' />
+          <img src='/ic_ql_tao_lap.svg' className='w-5' />
           <span className='font-semibold text-base'>Tra cứu</span>
           <CaretDownOutlined />
         </Space>
