@@ -30,21 +30,25 @@ const items = [
 
 const HomePage = () => (
   <div className='grid grid-cols-7 bg-[#FBF4EC]'>
-    <Dropdown
-      menu={{
-        items,
-      }}
-      trigger={['click']}
-      className='cursor-pointer ml-10'
-    >
-      <a onClick={(e) => e.preventDefault()}>
-        <Space className='my-4'>
-          <img src='/ic_ql_tao_lap.svg' className='w-5' />
-          <span className='font-semibold text-base'>Tra cứu</span>
-          <CaretDownOutlined />
-        </Space>
-      </a>
-    </Dropdown>
+    <div>
+      <div>
+          <Dropdown
+            menu={{
+              items,
+            }}
+            trigger={['click']}
+            className='cursor-pointer ml-10'
+          >
+            <a onClick={(e) => e.preventDefault()}>
+              <Space className='my-4'>
+                <img src='/ic_ql_tao_lap.svg' className='w-5' />
+                <span className='font-semibold text-base'>Tra cứu</span>
+                <CaretDownOutlined />
+              </Space>
+            </a>
+          </Dropdown>
+      </div>
+    </div>
   </div>
 );
 export default HomePage;

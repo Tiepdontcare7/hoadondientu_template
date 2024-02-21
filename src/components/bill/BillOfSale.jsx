@@ -94,9 +94,9 @@ const BillOfSale = () => {
                         <div className="my-3">
                             <label className="w-[25%]  px-2">Ngày lập hóa đơn (*)
                             </label>
-                            <span className='mr-2'> Từ ngày</span>
+                            <span className='mr-2' id='tngay'> Từ ngày</span>
                             <DatePicker defaultValue={dayjs('01/01/2015', dateFormatList[0])} format={dateFormatList} />
-                            <span className='mx-2'> Đến ngày</span>
+                            <span className='mx-2' id='dngay'> Đến ngày</span>
                             <DatePicker defaultValue={dayjs('01/01/2015', dateFormatList[0])} format={dateFormatList} />
                         </div>
                         <div>
