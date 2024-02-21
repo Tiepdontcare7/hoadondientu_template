@@ -1,13 +1,16 @@
-import dayjs from "dayjs";
-import { DatePicker } from "antd";
-import { useContext, useState } from "react";
-import { Pagination } from "antd";
-import BillTable from "./BillTable";
-import { BsFileEarmark } from "react-icons/bs";
-import { Select } from "antd";
-import { BillContext } from "../../context/BillContext";
-import { Modal } from "antd";
-import generateMultipleRandomInvoices from "../../utils/bill";
+import dayjs from 'dayjs';
+import { DatePicker } from 'antd';
+import { useContext, useState } from 'react';
+import { Pagination } from 'antd';
+import BillTable from './BillTable';
+import { BsPrinter } from "react-icons/bs";
+import { FaFileInvoice } from "react-icons/fa";
+import { CiExport } from "react-icons/ci";
+import { GrView } from "react-icons/gr";
+import { Select } from 'antd';
+import { BillContext } from '../../context/BillContext';
+import { Modal } from 'antd';
+import generateMultipleRandomInvoices from '../../utils/bill';
 
 const BillBuying = () => {
     const { idBill } = useContext(BillContext);
@@ -67,39 +70,17 @@ const BillBuying = () => {
                             </select>
                         </div>
                         <div>
-                            <label className="w-[20%]  px-2">
-                                Kết quả kiểm tra (*)
-                            </label>
+                            <label className="w-[25%]  px-2">Kết quả kiểm tra  (*)</label>
                             <select className="w-[70%] border-b ml-5 ">
-                                <option>Tất cả</option>
-                                <option>Tổng cục thuế đã nhận</option>
-                                <option>
-                                    Đang tiến hành kiểm tra điều kiện cấp mã
-                                </option>
-                                <option>
-                                    CQT từ chối hóa đơn theo từng lần phát sinh
-                                </option>
-                                <option>Hóa đơn đủ điều kiện cấp mã</option>
-                                <option>
-                                    Hóa đơn không đủ điều kiện cấp mã
-                                </option>
                                 <option>Đã cấp mã hóa đơn</option>
                                 <option>Tổng cục thuế đã nhận không mã</option>
-                                <option>
-                                    Đã kiểm tra định kỳ HĐĐT không có mã
-                                </option>
-                                <option>
-                                    Tổng cục thuế đã nhận hóa đơn có mã khởi tạo
-                                    từ máy tính tiền
-                                </option>
+                                <option>Tổng cục thuế đã nhận hóa đơn có mã khởi tạo từ máy tính tiền</option>
+
                             </select>
                         </div>
                         <div className="my-3">
-                            <label className="w-[20%]  px-2">Số hóa đơn</label>
-                            <input
-                                id="shdon"
-                                className="w-[70%] border-b ml-5 "
-                            />
+                            <label className="w-[25%]  px-2">Số hóa đơn</label>
+                            <input id='shdon' className="w-[70%] border-b ml-5 " />
                         </div>
                         <div>
                             <label className="w-[25%]  px-2">
@@ -110,17 +91,11 @@ const BillBuying = () => {
                     </aside>
                     <main className="py-3 w-1/2">
                         <div>
-                            <label className="w-[20%]  px-2">
-                                CCCD người mua
-                            </label>
-                            <input
-                                id="nmcccd"
-                                className="w-[70%] border-b ml-5 "
-                            />
+                            <label className="w-[25%]  px-2">CCCD người mua</label>
+                            <input id="nmcccd" className="w-[70%] border-b ml-5 " type="text" ></input>
                         </div>
                         <div className="my-3">
-                            <label className="w-[20%]  px-2">
-                                Ngày lập hóa đơn (*)
+                            <label className="w-[25%]  px-2">Ngày lập hóa đơn (*)
                             </label>
                             <span className="mr-2"> Từ ngày</span>
                             <DatePicker
@@ -140,9 +115,7 @@ const BillBuying = () => {
                             />
                         </div>
                         <div>
-                            <label className="w-[20%]  px-2">
-                                Ký hiệu mẫu số hóa đơn
-                            </label>
+                            <label className="w-[25%]  px-2">Ký hiệu mẫu số hóa đơn</label>
                             <Select
                                 defaultValue=""
                                 style={{ width: 440 }}
@@ -176,13 +149,8 @@ const BillBuying = () => {
                             />
                         </div>
                         <div className="my-3">
-                            <label className="w-[20%]  px-2">
-                                Ký hiệu hóa đơn
-                            </label>
-                            <input
-                                id="khhdon"
-                                className="w-[60%] border-b ml-5 "
-                            />
+                            <label className="w-[25%]  px-2">Ký hiệu hóa đơn</label>
+                            <input id="khhdon" className="w-[70%] border-b ml-5 " type="text"></input>
                         </div>
                     </main>
                 </section>
@@ -204,31 +172,18 @@ const BillBuying = () => {
                         total={30}
                     />
 
-                    <div className="flex gap-x-[20px] items-center pl-[20px]">
-                        <span
-                            onClick={viewBill}
-                            title="Xem hoa đơn"
-                            className="border p-[8px] border-[#000] rounded cursor-pointer hover:bg-slate-500 hover:text-white"
-                        >
-                            <BsFileEarmark />
+                    <div className='flex gap-x-[20px] items-center pl-[20px]'>
+                        <span onClick={viewBill} title='Xem hoa đơn' className='border p-[8px] border-[#000] rounded cursor-pointer hover:bg-slate-500 hover:text-white'>
+                            <GrView />
                         </span>
-                        <span
-                            title="In hóa đơn"
-                            className="border p-[8px] border-[#000] rounded cursor-pointer hover:bg-slate-500 hover:text-white"
-                        >
-                            <BsFileEarmark />
+                        <span title='In hóa đơn' className='border p-[8px] border-[#000] rounded cursor-pointer hover:bg-slate-500 hover:text-white'>
+                            <BsPrinter />
                         </span>
-                        <span
-                            title="Xuất hóa đơn"
-                            className="border p-[8px] border-[#000] rounded cursor-pointer hover:bg-slate-500 hover:text-white"
-                        >
-                            <BsFileEarmark />
+                        <span title='Xuất hóa đơn' className='border p-[8px] border-[#000] rounded cursor-pointer hover:bg-slate-500 hover:text-white'>
+                            <FaFileInvoice />
                         </span>
-                        <span
-                            title="Xuất xml"
-                            className="border p-[8px] border-[#000] rounded cursor-pointer hover:bg-slate-500 hover:text-white"
-                        >
-                            <BsFileEarmark />
+                        <span title='Xuất xml' className='border p-[8px] border-[#000] rounded cursor-pointer hover:bg-slate-500 hover:text-white'>
+                            <CiExport />
                         </span>
                     </div>
                 </div>

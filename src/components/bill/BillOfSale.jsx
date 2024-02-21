@@ -3,7 +3,10 @@ import { DatePicker } from 'antd';
 import { useContext, useState } from 'react';
 import { Pagination } from 'antd';
 import BillTable from './BillTable';
-import { BsFileEarmark } from "react-icons/bs";
+import { BsPrinter } from "react-icons/bs";
+import { FaFileInvoice } from "react-icons/fa";
+import { CiExport } from "react-icons/ci";
+import { GrView } from "react-icons/gr";
 import { Select } from 'antd';
 import { BillContext } from '../../context/BillContext';
 import { Modal } from 'antd';
@@ -44,11 +47,11 @@ const BillOfSale = () => {
                 <section className="flex gap-4 mx-10 pt-3  justify-between">
                     <aside className=" w-1/2 py-3">
                         <div>
-                            <label className="w-[20%]  px-2">MST người mua</label>
-                            <input id='nmmst' className="w-[70%] border-b ml-5 " />
+                            <label className="w-[25%]  px-2">MST người mua</label>
+                            <input id="nmmst" data-__meta="[object Object]" data-__field="[object Object]" className="w-[70%] border-b ml-5 " type="text" value=""></input>
                         </div>
                         <div className="my-3">
-                            <label className="w-[20%]  px-2">Trạng thái hóa đơn  (*)</label>
+                            <label className="w-[25%]  px-2">Trạng thái hóa đơn  (*)</label>
                             <select className="w-[70%] border-b ml-5 ">
                                 <option>Tất cả</option>
                                 <option>Hóa đơn mới</option>
@@ -60,7 +63,7 @@ const BillOfSale = () => {
                             </select>
                         </div>
                         <div>
-                            <label className="w-[20%]  px-2">Kết quả kiểm tra  (*)</label>
+                            <label className="w-[25%]  px-2">Kết quả kiểm tra  (*)</label>
                             <select className="w-[70%] border-b ml-5 ">
                                 <option>Tất cả</option>
                                 <option>Tổng cục thuế đã nhận</option>
@@ -75,7 +78,7 @@ const BillOfSale = () => {
                             </select>
                         </div>
                         <div className="my-3">
-                            <label className="w-[20%]  px-2">Số hóa đơn</label>
+                            <label className="w-[25%]  px-2">Số hóa đơn</label>
                             <input id='shdon' className="w-[70%] border-b ml-5 " />
                         </div>
                         <div>
@@ -85,11 +88,11 @@ const BillOfSale = () => {
                     </aside>
                     <main className="py-3 w-1/2">
                         <div>
-                            <label className="w-[20%]  px-2">CCCD người mua</label>
+                            <label className="w-[25%]  px-2">CCCD người mua</label>
                             <input id='nmcccd' className="w-[70%] border-b ml-5 " />
                         </div>
                         <div className="my-3">
-                            <label className="w-[20%]  px-2">Ngày lập hóa đơn (*)
+                            <label className="w-[25%]  px-2">Ngày lập hóa đơn (*)
                             </label>
                             <span className='mr-2'> Từ ngày</span>
                             <DatePicker defaultValue={dayjs('01/01/2015', dateFormatList[0])} format={dateFormatList} />
@@ -97,7 +100,7 @@ const BillOfSale = () => {
                             <DatePicker defaultValue={dayjs('01/01/2015', dateFormatList[0])} format={dateFormatList} />
                         </div>
                         <div>
-                            <label className="w-[20%]  px-2">Ký hiệu mẫu số hóa đơn</label>
+                            <label className="w-[25%]  px-2">Ký hiệu mẫu số hóa đơn</label>
                             <Select
                                 defaultValue=""
                                 style={{ width: 440 }}
@@ -131,7 +134,7 @@ const BillOfSale = () => {
                             />
                         </div>
                         <div className="my-3">
-                            <label className="w-[20%]  px-2">Ký hiệu hóa đơn</label>
+                            <label className="w-[25%]  px-2">Ký hiệu hóa đơn</label>
                             <input id='khhdon' className="w-[60%] border-b ml-5 " />
                         </div>
                     </main>
@@ -149,16 +152,16 @@ const BillOfSale = () => {
 
                     <div className='flex gap-x-[20px] items-center pl-[20px]'>
                         <span onClick={viewBill} title='Xem hoa đơn' className='border p-[8px] border-[#000] rounded cursor-pointer hover:bg-slate-500 hover:text-white'>
-                            <BsFileEarmark />
+                            <GrView />
                         </span>
                         <span title='In hóa đơn' className='border p-[8px] border-[#000] rounded cursor-pointer hover:bg-slate-500 hover:text-white'>
-                            <BsFileEarmark />
+                            <BsPrinter />
                         </span>
                         <span title='Xuất hóa đơn' className='border p-[8px] border-[#000] rounded cursor-pointer hover:bg-slate-500 hover:text-white'>
-                            <BsFileEarmark />
+                            <FaFileInvoice />
                         </span>
                         <span title='Xuất xml' className='border p-[8px] border-[#000] rounded cursor-pointer hover:bg-slate-500 hover:text-white'>
-                            <BsFileEarmark />
+                            <CiExport />
                         </span>
                     </div>
                 </div>
