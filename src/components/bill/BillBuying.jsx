@@ -1,0 +1,309 @@
+import dayjs from 'dayjs';
+import { DatePicker } from 'antd';
+import { useContext, useState } from 'react';
+import { Pagination } from 'antd';
+import BillTable from './BillTable';
+import { BsFileEarmark } from "react-icons/bs";
+import { Select } from 'antd';
+import { BillContext } from '../../context/BillContext';
+import { Modal } from 'antd';
+
+const BillBuying = () => {
+    const { idBill } = useContext(BillContext)
+    const [current, setCurrent] = useState(1);
+    const [open, setOpen] = useState(false);
+    const dateFormatList = ['DD/MM/YYYY', 'DD/MM/YY', 'DD-MM-YYYY', 'DD-MM-YY'];
+
+    const handleChange = (value) => {
+        console.log(`selected ${value}`);
+    };
+
+    const onChange = (page) => {
+        console.log(page);
+        setCurrent(page);
+    };
+
+    const viewBill = () => {
+        if (idBill) {
+            // alert('hii')
+            setOpen(true)
+
+        }
+    }
+
+    return (
+        <div>
+            <div>
+                Danh sách hóa đơn điện tử mua vào
+            </div>
+            <div>
+                <section className="flex gap-4 mx-10 pt-3  justify-between">
+                    <aside className=" w-1/2 py-3">
+                        <div>
+                            <label className="w-[20%]  px-2">MST người mua</label>
+                            <input id='nmmst' className="w-[70%] border-b ml-5 " />
+                        </div>
+                        <div className="my-3">
+                            <label className="w-[20%]  px-2">Trạng thái hóa đơn  (*)</label>
+                            <select className="w-[70%] border-b ml-5 ">
+                                <option>Tất cả</option>
+                                <option>Hóa đơn mới</option>
+                                <option>Hóa đơn thay thế</option>
+                                <option>Hóa đơn điều chỉnh</option>
+                                <option>Hóa đơn đã bị thay thế</option>
+                                <option>Hóa đơn đã bị điều chỉnh</option>
+                                <option>Hóa đơn đã bị hủy</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label className="w-[20%]  px-2">Kết quả kiểm tra  (*)</label>
+                            <select className="w-[70%] border-b ml-5 ">
+                                <option>Tất cả</option>
+                                <option>Tổng cục thuế đã nhận</option>
+                                <option>Đang tiến hành kiểm tra điều kiện cấp mã</option>
+                                <option>CQT từ chối hóa đơn theo từng lần phát sinh</option>
+                                <option>Hóa đơn đủ điều kiện cấp mã</option>
+                                <option>Hóa đơn không đủ điều kiện cấp mã</option>
+                                <option>Đã cấp mã hóa đơn</option>
+                                <option>Tổng cục thuế đã nhận không mã</option>
+                                <option>Đã kiểm tra định kỳ HĐĐT không có mã</option>
+                                <option>Tổng cục thuế đã nhận hóa đơn có mã khởi tạo từ máy tính tiền</option>
+                            </select>
+                        </div>
+                        <div className="my-3">
+                            <label className="w-[20%]  px-2">Số hóa đơn</label>
+                            <input id='shdon' className="w-[70%] border-b ml-5 " />
+                        </div>
+                        <div>
+                            <label className="w-[25%]  px-2">Hóa đơn ủy nhiệm</label>
+                            <input type="checkbox" className=" border-b  " />
+                        </div>
+                    </aside>
+                    <main className="py-3 w-1/2">
+                        <div>
+                            <label className="w-[20%]  px-2">CCCD người mua</label>
+                            <input id='nmcccd' className="w-[70%] border-b ml-5 " />
+                        </div>
+                        <div className="my-3">
+                            <label className="w-[20%]  px-2">Ngày lập hóa đơn (*)
+                            </label>
+                            <span className='mr-2'> Từ ngày</span>
+                            <DatePicker defaultValue={dayjs('01/01/2015', dateFormatList[0])} format={dateFormatList} />
+                            <span className='mx-2'> Đến ngày</span>
+                            <DatePicker defaultValue={dayjs('01/01/2015', dateFormatList[0])} format={dateFormatList} />
+                        </div>
+                        <div>
+                            <label className="w-[20%]  px-2">Ký hiệu mẫu số hóa đơn</label>
+                            <Select
+                                defaultValue=""
+                                style={{ width: 440 }}
+                                onChange={handleChange}
+                                options={[
+                                    {
+                                        label: '1',
+                                        value: '1',
+                                    },
+                                    {
+                                        label: '2',
+                                        value: '2',
+                                    },
+                                    {
+                                        label: '3',
+                                        value: '3',
+                                    },
+                                    {
+                                        label: '4',
+                                        value: '4',
+                                    },
+                                    {
+                                        label: '5',
+                                        value: '5',
+                                    },
+                                    {
+                                        label: '6',
+                                        value: '6',
+                                    },
+                                ]}
+                            />
+                        </div>
+                        <div className="my-3">
+                            <label className="w-[20%]  px-2">Ký hiệu hóa đơn</label>
+                            <input id='khhdon' className="w-[60%] border-b ml-5 " />
+                        </div>
+                    </main>
+
+                </section>
+                <div>
+                    <div className='flex gap-5 justify-center'>
+                        <button className='bg-[#915715] text-white px-3 py-1 rounded-[5px]'>Tìm kiếm</button>
+                        <button className='bg-[#915715] text-white px-3 py-1 rounded-[5px]'>Bỏ tìm kiếm</button>
+                    </div>
+                </div>
+
+                <div className='mt-14 flex justify-end px-[80px]'>
+                    <Pagination current={current} onChange={onChange} total={30} />
+
+                    <div className='flex gap-x-[20px] items-center pl-[20px]'>
+                        <span onClick={viewBill} title='Xem hoa đơn' className='border p-[8px] border-[#000] rounded cursor-pointer hover:bg-slate-500 hover:text-white'>
+                            <BsFileEarmark />
+                        </span>
+                        <span title='In hóa đơn' className='border p-[8px] border-[#000] rounded cursor-pointer hover:bg-slate-500 hover:text-white'>
+                            <BsFileEarmark />
+                        </span>
+                        <span title='Xuất hóa đơn' className='border p-[8px] border-[#000] rounded cursor-pointer hover:bg-slate-500 hover:text-white'>
+                            <BsFileEarmark />
+                        </span>
+                        <span title='Xuất xml' className='border p-[8px] border-[#000] rounded cursor-pointer hover:bg-slate-500 hover:text-white'>
+                            <BsFileEarmark />
+                        </span>
+                    </div>
+                </div>
+
+                <BillTable />
+            </div>
+
+
+            {/* Modal */}
+            <Modal
+                centered
+                open={open}
+                onOk={() => setOpen(false)}
+                onCancel={() => setOpen(false)}
+                width={1000}
+            >
+                <div className="flex justify-center items-center h-auto bg-gray-200 text-gray-900 ">
+                    <div className="rounded-md relative w-full shadow-2xl p-3 bg-[url('https://hoadondientu.gdt.gov.vn/static/images/viewinvoice-bg.jpg')] ">
+                        <div className="border px-4 py-4">
+                            <div className="py-2 flex justify-between">
+                                <div className="text-center text-xl font-bold"><img src="../qr.jpg" /></div>
+                                <div className=" text-base font-bold text-left">
+                                    <div>Mẫu số 1</div>
+                                    <div>Ký hiệu: C23TDK</div>
+                                    <div>Số: 2771</div>
+                                </div>
+                            </div>
+                            <div className="text-center">
+                                <h2 className="font-bold text-3xl">HOÁ ĐƠN GIÁ TRỊ GIA TĂNG</h2>
+                                <p className=" text-base my-2">Ngày
+                                    05
+                                    tháng
+                                    11
+                                    năm
+                                    2023</p>
+                                <p className=" text-base">MCCQT:
+                                    00FB8169531B234F77B5960B8D491FDF96</p>
+                            </div>
+                            <div className="border-double border-y  border-l-0 border-r-0 border-gray-900 my-3 text-base py-2">
+                                <p className="">Tên người bán: CÔNG TY CỔ PHẦN AKA HOUSE</p>
+                                <p className="">Mã số thuế: 0314294897</p>
+                                <p className="">Địa chỉ: 77 Trần Nhân Tôn, Phường 9, Quận 5, TP.HCM, VN</p>
+                                <p className="">Điện thoại: </p>
+                                <p className="">Số tài khoản: </p>
+                            </div>
+                            <div>
+                                <p className="">Tên người mua:CÔNG TY TNHH MỘT THÀNH VIÊN CÔNG NGHỆ VÀ TRUYỀN THÔNG 3I</p>
+                                <p className="">Họ tên người mua: </p>
+                                <p className="">Mã số thuế: 0104113262</p>
+                                <p className="">Địa chỉ:  Nhà B1- 4- khu đô thị 54 Hạ Đình, ngõ 85 Hạ Đình, Phường Thanh Xuân Trung, Quận Thanh Xuân, Thành phố Hà Nội, Việt Nam </p>
+                                <p className="">Số tài khoản: </p>
+                                <p className="">Hình thức thanh toán: Tiền mặt/Chuyển khoản </p>
+                                <p className="">Đơn vị tiền tệ: VND </p>
+                                <div className="flex justify-around ">
+                                    <p className="">Số bảng kê: </p>
+                                    <p className="">Ngày bảng kê: </p>
+                                </div>
+                                <div className="overflow-x-auto py-3">
+                                    <table className="min-w-full divide-y-2 divide-gray-200 bg-white text-sm">
+                                        <thead className="ltr:text-left rtl:text-right">
+                                            <tr>
+                                                <th className=" border px-3 py-2 font-medium text-gray-900">STT</th>
+                                                <th className=" border px-3 py-2 font-medium text-gray-900">Tính chất</th>
+                                                <th className=" border px-3 py-2 font-medium text-gray-900">	Tên hàng hóa, dịch vụ</th>
+                                                <th className=" border px-3 py-2 font-medium text-gray-900">Đơn vị tính</th>
+                                                <th className=" border px-3 py-2 font-medium text-gray-900">Số lượng</th>
+                                                <th className=" border px-3 py-2 font-medium text-gray-900">Đơn giá</th>
+                                                <th className=" border px-3 py-2 font-medium text-gray-900">Chiết khấu</th>
+                                                <th className=" border px-3 py-2 font-medium text-gray-900">Thuế suất</th>
+                                                <th className=" border px-3 py-2 font-medium text-gray-900">Thành tiền chưa có thuế GTGT</th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody className="divide-y divide-gray-200">
+                                            <tr className="border">
+                                                <td className=" border px-3 py-2 font-medium text-gray-900">1</td>
+                                                <td className=" border px-3 py-2 text-gray-700">Hàng hóa, dịch vụ</td>
+                                                <td className=" border px-3 py-2 text-gray-700">Khăn giấy ướt</td>
+                                                <td className=" border px-3 py-2 text-gray-700">Phần</td>
+                                                <td className=" border px-3 py-2 font-medium text-gray-900">1</td>
+                                                <td className=" border px-3 py-2 text-gray-700">3.000</td>
+                                                <td className=" border px-3 py-2 text-gray-700">0</td>
+                                                <td className=" border px-3 py-2 text-gray-700">8%</td>
+                                                <td className=" border px-3 py-2 font-medium text-gray-900">3.000</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div className="flex gap-2">
+                                    <div className="overflow-x-auto py-3">
+                                        <table className="min-w-full divide-y-2 divide-gray-200 bg-white text-sm">
+                                            <thead className="ltr:text-left rtl:text-right">
+                                                <tr>
+                                                    <th className=" border px-3 py-2 font-medium text-gray-900">Thuế suất</th>
+                                                    <th className=" border px-3 py-2 font-medium text-gray-900">Tổng tiền chưa thuế	</th>
+                                                    <th className=" border px-3 py-2 font-medium text-gray-900">Tổng tiền thuế</th>
+                                                </tr>
+                                            </thead>
+
+                                            <tbody className="divide-y divide-gray-200">
+                                                <tr className="border">
+                                                    <td className=" border px-3 py-2 font-medium text-gray-900">8%</td>
+                                                    <td className=" border px-3 py-2 text-gray-700">292.000</td>
+                                                    <td className=" border px-3 py-2 text-gray-700">23.360</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                    <div className="overflow-x-auto py-3">
+                                        <table className="min-w-full divide-y-2 divide-gray-200 bg-white text-sm">
+                                            <thead className="ltr:text-left rtl:text-right">
+                                                <tr>
+                                                    <th className=" border px-3 py-2 font-medium text-gray-900">Tổng tiền chưa thuế
+                                                        (Tổng cộng thành tiền chưa có thuế)</th>
+                                                    <th className=" border px-3 py-2 font-medium text-gray-900">292.000	</th>
+                                                </tr>
+                                            </thead>
+
+                                            <tbody className="divide-y divide-gray-200">
+                                                <tr className="border">
+                                                    <td className=" border px-3 py-2 font-medium text-gray-900">Tổng giảm trừ không chịu thuế</td>
+                                                    <td className=" border px-3 py-2 text-gray-700"></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="text-medium flex justify-around border-t border-[black] pt-4">
+                                <div>
+                                    <h3>NGƯỜI MUA HÀNG</h3>
+                                    <p>(Chữ ký số (nếu có))</p>
+                                </div>
+                                <div>
+                                    <h3>NGƯỜI BÁN HÀNG</h3>
+                                    <p>(Chữ ký điện tử, chữ ký số)</p>
+                                </div>
+                            </div>
+                            <div className="text-center mt-40">
+                                <footer>(Cần kiểm tra, đối chiếu khi lập, nhận hóa đơn)</footer>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </Modal>
+        </div>
+    )
+}
+
+export default BillBuying
