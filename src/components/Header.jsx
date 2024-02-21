@@ -1,11 +1,14 @@
 import { useEffect, useState } from 'react';
 import { Modal } from 'antd';
 import { IoReload } from "react-icons/io5";
+import { useNavigate } from 'react-router-dom';
+import { Form, Input } from 'antd';
 
 const Header = () => {
     const [isModalOpen, setIsModalOpen] = useState([false, false]);
     const [captchaText, setCaptchaText] = useState('');
     const [userInput, setUserInput] = useState('');
+    const next = useNavigate();
 
     const toggleModal = (idx, target) => {
         setIsModalOpen((p) => {
@@ -43,13 +46,15 @@ const Header = () => {
         generateCaptcha();
     }, []);
 
-    // Xử lý khi người dùng submit form
-    const handleSubmit = (event) => {
-        event.preventDefault();
+
+    const onFinish = (values) => {
+        console.log('Success:', values);
 
         if (userInput.toUpperCase() === captchaText.toUpperCase()) {
-            alert('Captcha hợp lệ');
+            alert('Đăng nhập thành công!')
             // Xử lý khi captcha hợp lệ
+            next('/home')
+            toggleModal(0, false)
         } else {
             alert('Captcha không đúng. Vui lòng thử lại.');
             // Xử lý khi captcha không hợp lệ
@@ -63,7 +68,7 @@ const Header = () => {
             {/* <!-- Navigation--> */}
             <nav className="bg-[url('https://hoadondientu.gdt.gov.vn/static/images/bg_hd.png')] navbar navbar-expand-lg navbar-light bg-white z-10 fixed-top py-3 shadow-sm" id="mainNav">
                 <div className="container px-4 px-lg-5">
-                    <a href="#page-top">
+                    <a href="/">
                         <img src="/NTT_Logo.png" alt="logo" />
                     </a>
                     <button className="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span className="navbar-toggler-icon"></span></button>
@@ -89,16 +94,42 @@ const Header = () => {
                 styles={modalStyles}
             >
                 <div className="mx-auto max-w-screen-xl px-4 py-3 sm:px-6 lg:px-8">
-                    <form onSubmit={handleSubmit} action="#" className="mx-auto mb-0 mt-4 max-w-md space-y-4">
-                        <div className=' grid grid-cols-2 gap-4'>
+                    <Form
+
+                        onFinish={onFinish}
+                        autoComplete="off"
+                    >
+                        <div className='grid grid-cols-2 gap-4'>
                             <div>
                                 <label htmlFor="username" className='mb-2'>Tên đăng nhập</label>
-                                <input id='username' type="text" className="w-full rounded-sm border-gray-200 p-2 pe-12 text-sm shadow-sm" />
+                                <Form.Item
+                                    id="username"
+                                    name="username"
+                                    rules={[
+                                        {
+                                            required: true,
+                                            message: 'Please input your username!',
+                                        },
+                                    ]}
+                                >
+                                    <Input />
+                                </Form.Item>
                             </div>
 
                             <div>
                                 <label htmlFor="password" className='mb-2'>Mật khẩu</label>
-                                <input id='password' type="password" className="w-full rounded-sm border-gray-200 p-2 pe-12 text-sm shadow-sm" />
+                                <Form.Item
+                                    id="password"
+                                    name="password"
+                                    rules={[
+                                        {
+                                            required: true,
+                                            message: 'Please input your password!',
+                                        },
+                                    ]}
+                                >
+                                    <Input.Password />
+                                </Form.Item>
                             </div>
 
                             <div>
@@ -126,7 +157,7 @@ const Header = () => {
                                 </button>
                             </div>
                         </div>
-                    </form>
+                    </Form>
                 </div>
 
             </Modal>

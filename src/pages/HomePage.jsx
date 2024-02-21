@@ -45,22 +45,6 @@ const HomePage = () => (
         </Space>
       </a>
     </Dropdown>
-
-    <Dropdown
-      menu={{
-        items,
-      }}
-      trigger={['click']}
-      className='cursor-pointer ml-10'
-    >
-      <a onClick={(e) => e.preventDefault()}>
-        <Space className='my-4'>
-          <img src='../public/ic_ql_tao_lap.svg' className='w-5' />
-          <span className='font-semibold text-base'>Tra cứu</span>
-          <CaretDownOutlined />
-        </Space>
-      </a>
-    </Dropdown>
   </div>
 );
 export default HomePage;

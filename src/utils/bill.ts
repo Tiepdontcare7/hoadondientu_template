@@ -2,8 +2,8 @@ function generateRandomInvoice() {
     const statusOptions = ["Hóa đơn mới", "Hóa đơn đã xác nhận", "Hóa đơn đã thanh toán"];
     const msts = ["1", "2", "3", "4", "5"];
     const kyhieus = ["C23TPA", "D45UVB", "K67LMN"];
-    const ngays = ["31", "30", "29"];
-    const thangs = ["01", "02", "03"];
+    const ngays = ["31", "30", "29", "28", "27", "26", "25", "24", "23", "22", "21", "20", "19", "18", "17", "16", "15", "14", "13", "12", "11", "10", "09", "08", "07", "06", "05", "04", "03", "02", "01"];
+    const thangs = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"];
     const nam = "2023"; // Năm cố định
 
     const tenNguoiMua = ["Nguyễn Văn A", "Trần Thị B", "Lê Minh C"];
