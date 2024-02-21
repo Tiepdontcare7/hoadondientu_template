@@ -7,9 +7,12 @@ import { BsFileEarmark } from "react-icons/bs";
 import { Select } from 'antd';
 import { BillContext } from '../../context/BillContext';
 import { Modal } from 'antd';
+import generateMultipleRandomInvoices from '../../utils/bill';
 
 const BillOfSale = () => {
     const { idBill } = useContext(BillContext)
+    const [dataBill, setDataBill] = useState(null);
+    const invoices = generateMultipleRandomInvoices(10);
     const [current, setCurrent] = useState(1);
     const [open, setOpen] = useState(false);
     const dateFormatList = ['DD/MM/YYYY', 'DD/MM/YY', 'DD-MM-YYYY', 'DD-MM-YY'];
@@ -25,11 +28,12 @@ const BillOfSale = () => {
 
     const viewBill = () => {
         if (idBill) {
-            // alert('hii')
+            setDataBill(invoices[idBill])
             setOpen(true)
-
         }
     }
+
+    console.log(dataBill)
 
     return (
         <div>
@@ -177,37 +181,32 @@ const BillOfSale = () => {
                             <div className="py-2 flex justify-between">
                                 <div className="text-center text-xl font-bold"><img src="../qr.jpg" /></div>
                                 <div className=" text-base font-bold text-left">
-                                    <div>Mẫu số 1</div>
-                                    <div>Ký hiệu: C23TDK</div>
-                                    <div>Số: 2771</div>
+                                    <div>Mẫu số {dataBill?.Mẫu_số}</div>
+                                    <div>Ký hiệu: {dataBill?.Ký_hiệu}</div>
+                                    <div>Số: {dataBill?.Số}</div>
                                 </div>
                             </div>
                             <div className="text-center">
                                 <h2 className="font-bold text-3xl">HOÁ ĐƠN GIÁ TRỊ GIA TĂNG</h2>
-                                <p className=" text-base my-2">Ngày
-                                    05
-                                    tháng
-                                    11
-                                    năm
-                                    2023</p>
+                                <p className=" text-base my-2">{dataBill?.Ngày_thành_lập}</p>
                                 <p className=" text-base">MCCQT:
-                                    00FB8169531B234F77B5960B8D491FDF96</p>
+                                    {dataBill?.MCCQT}</p>
                             </div>
                             <div className="border-double border-y  border-l-0 border-r-0 border-gray-900 my-3 text-base py-2">
-                                <p className="">Tên người bán: CÔNG TY CỔ PHẦN AKA HOUSE</p>
-                                <p className="">Mã số thuế: 0314294897</p>
-                                <p className="">Địa chỉ: 77 Trần Nhân Tôn, Phường 9, Quận 5, TP.HCM, VN</p>
-                                <p className="">Điện thoại: </p>
-                                <p className="">Số tài khoản: </p>
+                                <p className="">Tên người bán: {dataBill?.Tên_người_bán}</p>
+                                <p className="">Mã số thuế: {dataBill?.Mã_số_thuế}</p>
+                                <p className="">Địa chỉ: {dataBill?.Địa_chỉ}</p>
+                                <p className="">Điện thoại: {dataBill?.Điện_thoại}</p>
+                                <p className="">Số tài khoản:  {dataBill?.Số_tài_khoản}</p>
                             </div>
                             <div>
                                 <p className="">Tên người mua:CÔNG TY TNHH MỘT THÀNH VIÊN CÔNG NGHỆ VÀ TRUYỀN THÔNG 3I</p>
-                                <p className="">Họ tên người mua: </p>
-                                <p className="">Mã số thuế: 0104113262</p>
-                                <p className="">Địa chỉ:  Nhà B1- 4- khu đô thị 54 Hạ Đình, ngõ 85 Hạ Đình, Phường Thanh Xuân Trung, Quận Thanh Xuân, Thành phố Hà Nội, Việt Nam </p>
-                                <p className="">Số tài khoản: </p>
-                                <p className="">Hình thức thanh toán: Tiền mặt/Chuyển khoản </p>
-                                <p className="">Đơn vị tiền tệ: VND </p>
+                                <p className="">Họ tên người mua: {dataBill?.Tên_người_mua}</p>
+                                <p className="">Mã số thuế: {dataBill?.Mã_số_thuế_buyer}</p>
+                                <p className="">Địa chỉ:  {dataBill?.Địa_chỉ_buyer}</p>
+                                <p className="">Số tài khoản: {dataBill?.Số}</p>
+                                <p className="">Hình thức thanh toán: {dataBill?.Hình_thức_thanh_toán} </p>
+                                <p className="">Đơn vị tiền tệ: {dataBill?.Đơn_vị_tiền_tệ} </p>
                                 <div className="flex justify-around ">
                                     <p className="">Số bảng kê: </p>
                                     <p className="">Ngày bảng kê: </p>
@@ -229,17 +228,23 @@ const BillOfSale = () => {
                                         </thead>
 
                                         <tbody className="divide-y divide-gray-200">
-                                            <tr className="border">
-                                                <td className=" border px-3 py-2 font-medium text-gray-900">1</td>
-                                                <td className=" border px-3 py-2 text-gray-700">Hàng hóa, dịch vụ</td>
-                                                <td className=" border px-3 py-2 text-gray-700">Khăn giấy ướt</td>
-                                                <td className=" border px-3 py-2 text-gray-700">Phần</td>
-                                                <td className=" border px-3 py-2 font-medium text-gray-900">1</td>
-                                                <td className=" border px-3 py-2 text-gray-700">3.000</td>
-                                                <td className=" border px-3 py-2 text-gray-700">0</td>
-                                                <td className=" border px-3 py-2 text-gray-700">8%</td>
-                                                <td className=" border px-3 py-2 font-medium text-gray-900">3.000</td>
-                                            </tr>
+                                            {dataBill?.tables[0]?.rows?.map((item, i) => {
+                                                return (
+                                                    <tr key={i} className="border">
+                                                        <td className=" border px-3 py-2 font-medium text-gray-900">{item?.STT}</td>
+                                                        <td className=" border px-3 py-2 text-gray-700">{item?.Tính_chất}</td>
+                                                        <td className=" border px-3 py-2 text-gray-700">{item?.Tên_hàng_hóa_dịch_vụ}</td>
+                                                        <td className=" border px-3 py-2 text-gray-700">Phần</td>
+                                                        <td className=" border px-3 py-2 font-medium text-gray-900">1</td>
+                                                        <td className=" border px-3 py-2 text-gray-700">{item?.Đơn_giá}</td>
+                                                        <td className=" border px-3 py-2 text-gray-700">{item?.Chiết_khấu}</td>
+                                                        <td className=" border px-3 py-2 text-gray-700">{item?.Thuế_suất}</td>
+                                                        <td className=" border px-3 py-2 font-medium text-gray-900">{item?.Đơn_giá}</td>
+                                                    </tr>
+
+                                                )
+                                            })}
+
                                         </tbody>
                                     </table>
                                 </div>
@@ -271,14 +276,14 @@ const BillOfSale = () => {
                                                 <tr>
                                                     <th className=" border px-3 py-2 font-medium text-gray-900">Tổng tiền chưa thuế
                                                         (Tổng cộng thành tiền chưa có thuế)</th>
-                                                    <th className=" border px-3 py-2 font-medium text-gray-900">292.000	</th>
+                                                    <th className=" border px-3 py-2 font-medium text-gray-900">{dataBill?.tables[3]?.Tổng_tiền_thanh_toán_bằng_số}	</th>
                                                 </tr>
                                             </thead>
 
                                             <tbody className="divide-y divide-gray-200">
                                                 <tr className="border">
                                                     <td className=" border px-3 py-2 font-medium text-gray-900">Tổng giảm trừ không chịu thuế</td>
-                                                    <td className=" border px-3 py-2 text-gray-700"></td>
+                                                    <td className=" border px-3 py-2 text-gray-700">{dataBill?.tables[3]?.Tổng_tiền_thuế}</td>
                                                 </tr>
                                             </tbody>
                                         </table>

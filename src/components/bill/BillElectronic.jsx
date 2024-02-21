@@ -45,22 +45,23 @@ const BillElectronic = (props) => {
                         {
                             // eslint-disable-next-line react/prop-types
                             props.data ? props.data?.map((item, index) => {
+                                // console.log(item)
                                 return (
                                     <tr key={index}
-                                        className={`cursor-pointer py-3 ${item.id === selectedRow ? 'bg-neutral-200' : ''}`}
-                                        onClick={() => handleRowClick(item.id)}>
+                                        className={`cursor-pointer py-3 ${index === selectedRow ? 'bg-neutral-200' : ''}`}
+                                        onClick={() => handleRowClick(index)}>
 
-                                        <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">{item.id}</td>
-                                        <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">{item.kyhieumauso}</td>
-                                        <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">{item.sohoadon}</td>
-                                        <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">{item.ngaylap}</td>
-                                        <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">{item.thongtinhoadon}</td>
-                                        <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">{item.tongtienchuathue}</td>
-                                        <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">{item.tongtienthue}</td>
-                                        <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">{item.tongtienchietkhauthuongmai}</td>
-                                        <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">{item.tongtienthanhtoan}</td>
-                                        <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">{item.trangthaihoadon}</td>
-                                        <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">{item.ketquakiemtrahoadon}</td>
+                                        <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">{index + 1}</td>
+                                        <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">{item.Ký_hiệu}</td>
+                                        <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">{item.Mã_số_thuế_buyer}</td>
+                                        <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">{item.Ngày_thành_lập}</td>
+                                        <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">{item.Tên_người_bán}</td>
+                                        <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">{item.tables[0].rows[0].Đơn_giá}</td>
+                                        <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">{item.tables[0].rows[0].Đơn_giá}</td>
+                                        <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">{Number(item.tables[0].rows[0].Thành_tiền_chưa_có_thuế_GTGT) + 10000}</td>
+                                        <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">{item.tables[0].rows[0].Đơn_giá}</td>
+                                        <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">{item.Trạng_thái}</td>
+                                        <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">{item.Hình_thức_thanh_toán}</td>
                                         <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">Xem danh sách hóa đơn</td>
                                         <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">Thông tin liên quan</td>
                                     </tr>
