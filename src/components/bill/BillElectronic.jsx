@@ -68,7 +68,6 @@ const BillElectronic = (props) => {
                                 )
                             }) : undefined
                         }
-
                     </tbody>
                 </table>
             </div>
