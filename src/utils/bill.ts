@@ -46,9 +46,9 @@ function generateRandomInvoice() {
         Ký_hiệu: randomChoice(kyhieus),
         Số: randomNumber(10000, 99999).toString(),
         Tên_hóa_đơn: "HOÁ ĐƠN GIÁ TRỊ GIA TĂNG",
-        Ngày_thành_lập: `Ngày ${randomChoice(ngays)} tháng ${randomChoice(
+        Ngày_thành_lập: `${randomChoice(ngays)}/${randomChoice(
             thangs
-        )} năm ${nam}`,
+        )}/${nam}`,
         MCCQT: "007B9D81AB83154DCF9B848736FBE6E53D",
         Ngày: randomChoice(ngays),
         tháng: randomChoice(thangs),

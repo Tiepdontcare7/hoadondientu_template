@@ -157,9 +157,11 @@ const Header = () => {
                     <Form onFinish={onFinish} autoComplete="off">
                         <div className="grid grid-cols-2 gap-4">
                             <div>
-                                <label htmlFor="username" className="mb-2">
-                                    Tên đăng nhập
-                                </label>
+                                <div className="ant-col ant-col-24 ant-form-item-label">
+                                    <label htmlFor="username" className="mb-2">
+                                        Tên đăng nhập
+                                    </label>
+                                </div>
                                 <Form.Item
                                     id="username"
                                     name="username"
@@ -198,33 +200,44 @@ const Header = () => {
                                 <label htmlFor="text" className="mb-2">
                                     Mã captcha
                                 </label>
-                                <img
-                                    className="filter grayscale"
-                                    src={`https://dummyimage.com/200x38/444/fff&text=${captchaText}`}
-                                    alt="Captcha"
-                                />
 
-                                <span
-                                    className="cursor-pointer text-[20px] relative text-white bottom-8 left-[170px] inline-block"
-                                    onClick={generateCaptcha}
-                                >
-                                    <IoReload />
-                                </span>
+                                <div className="Captcha__ImageWrapper-sc-1up1k1e-0 hkCCjI">
+                                    <img
+                                        className="filter grayscale Captcha__Image-sc-1up1k1e-1 cmYBSe"
+                                        src={`https://dummyimage.com/200x38/444/fff&text=${captchaText}`}
+                                        alt="captcha"
+                                    />
+
+                                    <button
+                                        className="cursor-pointer text-[20px] relative text-white bottom-8 left-[170px] inline-block ant-btn ButtonAnt__IconButton-sc-p5q16s-1 kgBiib ant-btn-icon-only"
+                                        onClick={generateCaptcha}
+                                    >
+                                        <i className="anticon"><IoReload /></i>
+                                    </button>
+                                </div>
                             </div>
 
                             <div>
-                                <label htmlFor="cvalue" className="mb-2">
-                                    Nhập mã captcha
-                                </label>
-                                <input
-                                    id="cvalue"
-                                    type="text"
-                                    value={userInput}
-                                    onChange={(event) =>
-                                        setUserInput(event.target.value)
-                                    }
-                                    className="w-full rounded-sm border-gray-200 p-2 pe-12 text-sm shadow-sm"
-                                />
+                                <div className="ant-col ant-col-24 ant-form-item-label">
+                                    <label htmlFor="cvalue" className="mb-2">
+                                        Nhập mã captcha
+                                    </label>
+                                </div>
+                                <div className="ant-col ant-col-24 ant-form-item-control-wrapper">
+                                    <div className="ant-form-item-control">
+                                        <span className="ant-form-item-children">
+                                            <input
+                                                id="cvalue"
+                                                type="text"
+                                                value={userInput}
+                                                onChange={(event) =>
+                                                    setUserInput(event.target.value)
+                                                }
+                                                className="w-full rounded-sm border-gray-200 p-2 pe-12 text-sm shadow-sm ant-input Input-sc-16b2ylx-0 ggIKll"
+                                            />
+                                        </span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
@@ -232,14 +245,14 @@ const Header = () => {
                             <p className="text-sm text-[#936639]">
                                 Quên mật khẩu
                             </p>
-                            <div className="flex justify-center mt-3">
-                                <button
-                                    type="submit"
-                                    className="inline-block rounded-sm shadow-sm bg-[#936639] px-4 py-2 text-sm font-medium text-white"
-                                >
-                                    Đăng nhập
-                                </button>
-                            </div>
+                        </div>
+                        <div className="flex justify-center mt-3">
+                            <button
+                                type="submit"
+                                className="inline-block rounded-sm shadow-sm bg-[#936639] px-4 py-2 text-sm font-medium text-white"
+                            >
+                                Đăng nhập
+                            </button>
                         </div>
                     </Form>
                 </div>
