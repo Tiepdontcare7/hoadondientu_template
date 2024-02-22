@@ -66,12 +66,92 @@ const BillOfSale = () => {
                             <input id='nmcccd' className="w-[70%] border-b ml-5 " />
                         </div>
                         <div className="my-3">
-                            <label className="w-[25%]  px-2">Ngày lập hóa đơn (*)
-                            </label>
+                            {/* <label className="w-[25%]  px-2">Ngày lập hóa đơn (*)
+                            </label> */}
+                            {/* <label className="w-[25%]  px-2">Ngày lập hóa đơn&nbsp;<span style={{ color: 'red' }}>(*)</span></label>
                             <span className='mr-2' id='tngay'> Từ ngày</span>
-                            <DatePicker defaultValue={dayjs('01/01/2015', dateFormatList[0])} format={dateFormatList} />
+                            <DatePicker style={{ borderBottom: '1px solid #ccc',  // Border bottom
+                                                borderLeft: 'none',               // No left border
+                                                borderRight: 'none',              // No right border
+                                                borderTop: 'none',                // No top border
+                                                borderRadius: '0'                 // No border radius
+                                                }} defaultValue={dayjs().subtract(30, 'days')} format={dateFormatList} />
                             <span className='mx-2' id='dngay'> Đến ngày</span>
-                            <DatePicker defaultValue={dayjs('01/01/2015', dateFormatList[0])} format={dateFormatList} />
+                            <DatePicker style={{ borderBottom: '1px solid #ccc',  // Border bottom
+                                                borderLeft: 'none',               // No left border
+                                                borderRight: 'none',              // No right border
+                                                borderTop: 'none',                // No top border
+                                                borderRadius: '0'                 // No border radius
+                                                }} defaultValue={dayjs()} format={dateFormatList} /> */}
+                            <div className="ant-row">
+                                {/* Label cho Ngày lập hóa đơn */}
+                                <div className="ant-col ant-col-6 Form__ColLabel-sc-9ty27c-0 dQoyFl" style={{ paddingLeft: 6, paddingRight: 6}}>
+                                    <label>Ngày lập hóa đơn&nbsp;<span style={{ color: 'red' }}>(*)</span></label>
+                                </div>
+
+                                {/* Phần chọn Từ ngày và Đến ngày */}
+                                <div className="ant-col ant-col-18" style={{ paddingLeft: 175, paddingRight: 6, }}>
+                                    {/* Hàng chứa Từ ngày */}
+                                    <div className="ant-row" style={{marginTop: "-22px"}}>
+                                        <div className="ant-col ant-col-8 Form__ColLabel-sc-9ty27c-0 dQoyFl">
+                                            <label>Từ ngày</label>
+                                        </div>
+                                        <div className="ant-col ant-col-16" style={{paddingLeft: 70,marginTop: "-30px"}}>
+                                            <div className="ant-row ant-form-item Form__NoMarginBottomItem-sc-9ty27c-1 dpgfQK">
+                                                <div className="ant-col ant-form-item-control-wrapper">
+                                                    <div className="ant-form-item-control has-success">
+                                                        <span className="ant-form-item-children">
+                                                            {/* DatePicker cho Từ ngày */}
+                                                            <span id="tngay" className="DatePicker__BorderBottomDatePicker-sc-1aaey2t-4 csgOby ant-calendar-picker">
+                                                                <div>
+                                                                    <DatePicker style={{
+                                                                        borderBottom: '1px solid #ccc',  // Đường line dưới
+                                                                        borderLeft: 'none',               // Không có đường line bên trái
+                                                                        borderRight: 'none',              // Không có đường line bên phải
+                                                                        borderTop: 'none',                // Không có đường line phía trên
+                                                                        borderRadius: '0'                 // Không có đường cong
+                                                                    }} defaultValue={dayjs().subtract(30, 'days')} format={dateFormatList}/>
+                                                                </div>
+                                                            </span>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {/* Hàng chứa Đến ngày */}
+                                    <div className="ant-row"style={{ paddingLeft: 230, paddingRight: 6 }}>
+                                        <div className="ant-col ant-col-8 Form__ColLabel-sc-9ty27c-0 dQoyFl" style={{marginTop: "-22px"}}>
+                                            <label>Đến ngày</label>
+                                        </div>
+                                        <div className="ant-col ant-col-16" style={{paddingLeft: 75,marginTop: "-30px"}}>
+                                            <div className="ant-row ant-form-item Form__NoMarginBottomItem-sc-9ty27c-1 dpgfQK">
+                                                <div className="ant-col ant-form-item-control-wrapper">
+                                                    <div className="ant-form-item-control has-success">
+                                                        <span className="ant-form-item-children">
+                                                            {/* DatePicker cho Đến ngày */}
+                                                            <span id="dngay" className="DatePicker__BorderBottomDatePicker-sc-1aaey2t-4 csgOby ant-calendar-picker">
+                                                                <div>
+                                                                    <DatePicker style={{
+                                                                        borderBottom: '1px solid #ccc',  // Đường line dưới
+                                                                        borderLeft: 'none',               // Không có đường line bên trái
+                                                                        borderRight: 'none',              // Không có đường line bên phải
+                                                                        borderTop: 'none',                // Không có đường line phía trên
+                                                                        borderRadius: '0'                 // Không có đường cong
+                                                                    }} defaultValue={dayjs()} format={dateFormatList} />
+                                                                </div>
+                                                            </span>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
                         </div>
                         <div>
                             <label className="w-[25%]  px-2">Ký hiệu mẫu số hóa đơn</label>
