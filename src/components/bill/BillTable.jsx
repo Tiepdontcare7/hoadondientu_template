@@ -91,40 +91,302 @@ const BillTable = () => {
             >
                 <div className="flex justify-center items-center h-auto bg-gray-200 text-gray-900 ">
                     <div className="rounded-md relative w-full shadow-2xl p-3 bg-[url('https://hoadondientu.gdt.gov.vn/static/images/viewinvoice-bg.jpg')] ">
-                        <div className="border px-4 py-4">
-                            <div className="py-2 flex justify-between">
+                        <div className="heading-content border px-4 py-4">
+                            <div className="top-content py-2 flex justify-between">
                                 <div className="text-center text-xl font-bold"><img src="../qr.jpg" /></div>
-                                <div className=" text-base font-bold text-left">
-                                    <div>Mẫu số {dataBill?.Mẫu_số}</div>
-                                    <div>Ký hiệu: {dataBill?.Ký_hiệu}</div>
-                                    <div>Số: {dataBill?.Số}</div>
+                                <div className="code-content text-base font-bold text-left">
+                                    <b className='code-ms'>Mẫu số {dataBill?.Mẫu_số}</b>
+                                    <b className='code-ms'>Ký hiệu: {dataBill?.Ký_hiệu}</b>
+                                    <b className='code-ms'>Số: {dataBill?.Số}</b>
                                 </div>
                             </div>
-                            <div className="text-center">
-                                <h2 className="font-bold text-3xl">HOÁ ĐƠN GIÁ TRỊ GIA TĂNG</h2>
-                                <p className=" text-base my-2">{dataBill?.Ngày_thành_lập}</p>
-                                <p className=" text-base">MCCQT:
-                                    {dataBill?.MCCQT}</p>
+
+                            <div className="title-heading text-center">
+                                <h2 className="main-title font-bold text-3xl">HOÁ ĐƠN GIÁ TRỊ GIA TĂNG</h2>
+                                <p className='day'>
+                                    <div className='ant-row-flex ant-row-flex-center day'>
+                                        <div className='ant-col ant-col-24'>
+                                            <div className='ant-row-flex ant-row-flex-center flex justify-center'>
+                                                <div>01</div> /
+                                                <div>02</div> /
+                                                <div>2025</div>
+                                            </div>
+
+                                            <div className='ant-row-flex ant-row-flex-center'>
+                                                <div className='ant-col '>
+                                                    <div className='styles__DataItemStyle-sc-v1ei30-1 cdheZW flex justify-center'>
+                                                        <div><span>MCCQT: </span></div>
+                                                        <div>
+                                                            <div>{dataBill?.MCCQT}</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </p>
+                                {/* <p className=" text-base my-2">{dataBill?.Ngày_thành_lập}</p> */}
+                                {/* <p className=" text-base">MCCQT:
+                                    {dataBill?.MCCQT}</p> */}
                             </div>
-                            <div className="border-double border-y  border-l-0 border-r-0 border-gray-900 my-3 text-base py-2">
-                                <p className="">Tên người bán: {dataBill?.Tên_người_bán}</p>
-                                <p className="">Mã số thuế: {dataBill?.Mã_số_thuế}</p>
-                                <p className="">Địa chỉ: {dataBill?.Địa_chỉ}</p>
-                                <p className="">Điện thoại: {dataBill?.Điện_thoại}</p>
-                                <p className="">Số tài khoản:  {dataBill?.Số_tài_khoản}</p>
+
+                            <div className="vip-divide"></div>
+
+                            <div className="content-info border-double border-y  border-l-0 border-r-0 border-gray-900 my-3 text-base py-2">
+                                <ul>
+                                    <li >
+                                        <div className='styles__DataItemStyle-sc-v1ei30-1 cdheZW'>
+                                            <div className='class="styles__DataItemStyle-sc-v1ei30-1 cdheZW flex'>
+                                                <div className='di-label'>
+                                                    <span>
+                                                        Tên người bán:
+                                                    </span>
+                                                </div>
+                                                <div>
+                                                    <div className='di-value'>
+                                                        {dataBill?.Tên_người_bán}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+
+                                    <li >
+                                        <div className='styles__DataItemStyle-sc-v1ei30-1 cdheZW'>
+                                            <div className='class="styles__DataItemStyle-sc-v1ei30-1 cdheZW flex'>
+                                                <div className='di-label'>
+                                                    <span>
+                                                        Mã số thuế:
+                                                    </span>
+                                                </div>
+                                                <div>
+                                                    <div className='di-value'>
+                                                        {dataBill?.Mã_số_thuế}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+
+                                    <li >
+                                        <div className='styles__DataItemStyle-sc-v1ei30-1 cdheZW'>
+                                            <div className='class="styles__DataItemStyle-sc-v1ei30-1 cdheZW flex'>
+                                                <div className='di-label'>
+                                                    <span>
+                                                        Địa chỉ:
+                                                    </span>
+                                                </div>
+                                                <div>
+                                                    <div className='di-value'>
+                                                        {dataBill?.Địa_chỉ}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+
+
+                                    <li >
+                                        <div className='styles__DataItemStyle-sc-v1ei30-1 cdheZW'>
+                                            <div className='class="styles__DataItemStyle-sc-v1ei30-1 cdheZW flex'>
+                                                <div className='di-label'>
+                                                    <span>
+                                                        Điện thoại:
+                                                    </span>
+                                                </div>
+                                                <div>
+                                                    <div className='di-value'>
+                                                        {dataBill?.Điện_thoại}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+
+                                    <li >
+                                        <div className='styles__DataItemStyle-sc-v1ei30-1 cdheZW'>
+                                            <div className='class="styles__DataItemStyle-sc-v1ei30-1 cdheZW flex'>
+                                                <div className='di-label'>
+                                                    <span>
+                                                        Số tài khoản:
+                                                    </span>
+                                                </div>
+                                                <div>
+                                                    <div className='di-value'>
+                                                        {dataBill?.Số_tài_khoản}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+
+                                    <br />
+
+                                    <li >
+                                        <div className='styles__DataItemStyle-sc-v1ei30-1 cdheZW'>
+                                            <div className='class="styles__DataItemStyle-sc-v1ei30-1 cdheZW flex'>
+                                                <div className='di-label'>
+                                                    <span>
+                                                        Tên người mua:
+                                                    </span>
+                                                </div>
+                                                <div>
+                                                    <div className='di-value'>
+                                                        CÔNG TY TNHH MỘT THÀNH VIÊN CÔNG NGHỆ VÀ TRUYỀN THÔNG 3I
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+
+                                    <li >
+                                        <div className='styles__DataItemStyle-sc-v1ei30-1 cdheZW'>
+                                            <div className='class="styles__DataItemStyle-sc-v1ei30-1 cdheZW flex'>
+                                                <div className='di-label'>
+                                                    <span>
+                                                        Họ tên người mua:
+                                                    </span>
+                                                </div>
+                                                <div>
+                                                    <div className='di-value'>
+                                                        {dataBill?.Tên_người_mua}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+
+                                    <li >
+                                        <div className='styles__DataItemStyle-sc-v1ei30-1 cdheZW'>
+                                            <div className='class="styles__DataItemStyle-sc-v1ei30-1 cdheZW flex'>
+                                                <div className='di-label'>
+                                                    <span>
+                                                        Mã số thuế:
+                                                    </span>
+                                                </div>
+                                                <div>
+                                                    <div className='di-value'>
+                                                        {dataBill?.Mã_số_thuế_buyer}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+
+                                    <li >
+                                        <div className='styles__DataItemStyle-sc-v1ei30-1 cdheZW'>
+                                            <div className='class="styles__DataItemStyle-sc-v1ei30-1 cdheZW flex'>
+                                                <div className='di-label'>
+                                                    <span>
+                                                        Địa chỉ:
+                                                    </span>
+                                                </div>
+                                                <div>
+                                                    <div className='di-value'>
+                                                        {dataBill?.Địa_chỉ_buyer}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+
+                                    <li >
+                                        <div className='styles__DataItemStyle-sc-v1ei30-1 cdheZW'>
+                                            <div className='class="styles__DataItemStyle-sc-v1ei30-1 cdheZW flex'>
+                                                <div className='di-label'>
+                                                    <span>
+                                                        Số tài khoản:
+                                                    </span>
+                                                </div>
+                                                <div>
+                                                    <div className='di-value'>
+                                                        {dataBill?.Số}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+
+                                    <li >
+                                        <div className='styles__DataItemStyle-sc-v1ei30-1 cdheZW'>
+                                            <div className='class="styles__DataItemStyle-sc-v1ei30-1 cdheZW flex'>
+                                                <div className='di-label'>
+                                                    <span>
+                                                        Hình thức thanh toán:
+                                                    </span>
+                                                </div>
+                                                <div>
+                                                    <div className='di-value'>
+                                                        {dataBill?.Hình_thức_thanh_toán}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+
+                                    <li >
+                                        <div className='styles__DataItemStyle-sc-v1ei30-1 cdheZW'>
+                                            <div className='class="styles__DataItemStyle-sc-v1ei30-1 cdheZW flex'>
+                                                <div className='di-label'>
+                                                    <span>
+                                                        Đơn vị tiền tệ:
+                                                    </span>
+                                                </div>
+                                                <div>
+                                                    <div className='di-value'>
+                                                        {dataBill?.Đơn_vị_tiền_tệ}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+
+                                    <li >
+                                        <div className='styles__DataItemStyle-sc-v1ei30-1 cdheZW'>
+                                            <div className='class="styles__DataItemStyle-sc-v1ei30-1 cdheZW flex'>
+                                                <div className='di-label'>
+                                                    <span>
+                                                        Đơn vị tiền tệ:
+                                                    </span>
+                                                </div>
+                                                <div>
+                                                    <div className='di-value'>
+                                                        {dataBill?.Đơn_vị_tiền_tệ}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+
+                                    <li >
+                                        <div className='ant-row'>
+                                            <div className='ant-col ant-col-12 flex'>
+                                                <div className='styles__DataItemStyle-sc-v1ei30-1 cdheZW'>
+                                                    {/* <div> */}
+                                                    <div className='di-label'>
+                                                        <span>
+                                                            Số bảng kê:
+                                                        </span>
+                                                    </div>
+                                                    <div className='di-value'>
+                                                        <div></div>
+                                                    </div>
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                    </li>
+
+
+                                </ul>
                             </div>
                             <div>
-                                <p className="">Tên người mua:CÔNG TY TNHH MỘT THÀNH VIÊN CÔNG NGHỆ VÀ TRUYỀN THÔNG 3I</p>
-                                <p className="">Họ tên người mua: {dataBill?.Tên_người_mua}</p>
-                                <p className="">Mã số thuế: {dataBill?.Mã_số_thuế_buyer}</p>
-                                <p className="">Địa chỉ:  {dataBill?.Địa_chỉ_buyer}</p>
-                                <p className="">Số tài khoản: {dataBill?.Số}</p>
-                                <p className="">Hình thức thanh toán: {dataBill?.Hình_thức_thanh_toán} </p>
-                                <p className="">Đơn vị tiền tệ: {dataBill?.Đơn_vị_tiền_tệ} </p>
                                 <div className="flex justify-around ">
                                     <p className="">Số bảng kê: </p>
                                     <p className="">Ngày bảng kê: </p>
                                 </div>
+
+
                                 <div className="overflow-x-auto py-3">
                                     <table className="min-w-full divide-y-2 divide-gray-200 bg-white text-sm">
                                         <thead className="ltr:text-left rtl:text-right">
