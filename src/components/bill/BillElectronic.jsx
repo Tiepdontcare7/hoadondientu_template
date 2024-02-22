@@ -10,6 +10,19 @@ const BillElectronic = (props) => {
         setSelectedRow(index === selectedRow ? null : index);
         setIdBill(index);
     };
+    // eslint-disable-next-line react/prop-types
+    // console.log(props.data)
+
+    function formatCurrency(price) {
+        const formatter = new Intl.NumberFormat("vi-VN", {
+            style: "currency",
+            currency: "VND",
+            minimumFractionDigits: 0,
+        });
+    
+        // Sử dụng hàm format của formatter để định dạng giá
+        return formatter.format(price);
+    }
 
     return (
         <>
@@ -22,6 +35,9 @@ const BillElectronic = (props) => {
                             </th>
                             <th className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
                                 Ký hiệu mẫu số
+                            </th>
+                            <th className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
+                                Ký hiệu hóa đơn
                             </th>
                             <th className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
                                 Số hóa đơn
@@ -42,7 +58,13 @@ const BillElectronic = (props) => {
                                 Tổng tiền chiết khấu thương mại
                             </th>
                             <th className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
+                                Tổng tiền phí
+                            </th>
+                            <th className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
                                 Tổng tiền thanh toán
+                            </th>
+                            <th className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
+                                Đơn vị tiền tệ
                             </th>
                             <th className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
                                 Trạng thái hóa đơn
@@ -70,8 +92,8 @@ const BillElectronic = (props) => {
                                         <tr
                                             key={index}
                                             className={`cursor-pointer py-3 ${index === selectedRow
-                                                    ? "bg-neutral-200"
-                                                    : ""
+                                                ? "bg-neutral-200"
+                                                : ""
                                                 }`}
                                             onClick={() =>
                                                 handleRowClick(index)
@@ -82,6 +104,9 @@ const BillElectronic = (props) => {
                                             </td>
                                             <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
                                                 {item.Ký_hiệu}
+                                            </td>
+                                            <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
+                                                {item.Số}
                                             </td>
                                             <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
                                                 {item.Mã_số_thuế_buyer}
@@ -112,9 +137,17 @@ const BillElectronic = (props) => {
                                             </td>
                                             <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
                                                 {
+                                                    formatCurrency(Math.floor(Math.random() * 10000))
+                                                }
+                                            </td>
+                                            <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
+                                                {
                                                     item.tables[0].rows[0]
                                                         .Đơn_giá
                                                 }
+                                            </td>
+                                            <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
+                                                VND
                                             </td>
                                             <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
                                                 {item.Trạng_thái}
