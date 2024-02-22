@@ -372,6 +372,18 @@ const BillTable = () => {
                                                         <div></div>
                                                     </div>
                                                 </div>
+
+                                                <div className='styles__DataItemStyle-sc-v1ei30-1 cdheZW'>
+                                                    {/* <div> */}
+                                                    <div className='di-label'>
+                                                        <span>
+                                                            Ngày bảng kê:
+                                                        </span>
+                                                    </div>
+                                                    <div className='di-value'>
+                                                        <div></div>
+                                                    </div>
+                                                </div>
                                                 
                                             </div>
                                         </div>
@@ -381,14 +393,14 @@ const BillTable = () => {
                                 </ul>
                             </div>
                             <div>
-                                <div className="flex justify-around ">
+                                {/* <div className="flex justify-around ">
                                     <p className="">Số bảng kê: </p>
                                     <p className="">Ngày bảng kê: </p>
-                                </div>
+                                </div> */}
 
 
                                 <div className="overflow-x-auto py-3">
-                                    <table className="min-w-full divide-y-2 divide-gray-200 bg-white text-sm">
+                                    <table className="res-tb min-w-full divide-y-2 divide-gray-200 bg-white text-sm">
                                         <thead className="ltr:text-left rtl:text-right">
                                             <tr>
                                                 <th className=" border px-3 py-2 font-medium text-gray-900">STT</th>
