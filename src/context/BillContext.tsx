@@ -1,13 +1,28 @@
-import React, { createContext, useState } from 'react'
+import React, { createContext, useState } from "react";
+import ToastMessage from "../components/ToastMessage";
 
-export const BillContext = createContext({})
+export const BillContext = createContext({});
 
 const BillProvider = ({ children }) => {
-    const [idBill, setIdBill] = useState(0)
-    
-    return <BillContext.Provider value={{ idBill, setIdBill }}>
-        {children}
-    </BillContext.Provider>
-}
+    const [idBill, setIdBill] = useState(0);
+    const [isToasting, setIsToasting] = useState(false);
+    const [toastMessage, setToastMessage] = useState("");
 
-export default BillProvider
+    return (
+        <BillContext.Provider
+            value={{
+                idBill,
+                setIdBill,
+                isToasting,
+                setIsToasting,
+                toastMessage,
+                setToastMessage,
+            }}
+        >
+            {children}
+            {isToasting && <ToastMessage />}
+        </BillContext.Provider>
+    );
+};
+
+export default BillProvider;
