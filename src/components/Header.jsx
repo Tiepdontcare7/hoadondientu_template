@@ -1,15 +1,17 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Modal } from "antd";
 import { IoReload } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
 import { Form, Input } from "antd";
-import { toast } from "react-toastify";
+import { BillContext } from "../context/BillContext";
 
 const Header = () => {
     const [isModalOpen, setIsModalOpen] = useState([false, false]);
     const [captchaText, setCaptchaText] = useState("");
     const [userInput, setUserInput] = useState("");
     const next = useNavigate();
+
+    const { setIsToasting, setToastMessage } = useContext(BillContext);
 
     const toggleModal = (idx, target) => {
         setIsModalOpen((p) => {
@@ -54,14 +56,20 @@ const Header = () => {
         console.log("Success:", values);
 
         if (userInput.toUpperCase() === captchaText.toUpperCase()) {
-            toast.success("Đăng nhập thành công!");
             // Xử lý khi captcha hợp lệ
-            next("/home");
-            toggleModal(0, false);
+            if (values.username === "123456" && values.password === "123456") {
+                // Xử lý nếu nhập đúng username và password (fix cứng username và password là 123456)
+                next("/home");
+                toggleModal(0, false);
+            } else {
+                // Xử lý khi nhập sai username hoặc password
+                setIsToasting(true);
+                setToastMessage("Tên đăng nhập hoặc mật khẩu không đúng");
+            }
         } else {
-            // alert("Captcha không đúng. Vui lòng thử lại.");
-            toast.error("Đăng nhập không thành công");
-
+            // Toast error message
+            setIsToasting(true);
+            setToastMessage("Mã captcha không đúng.");
             generateCaptcha(); // Tạo lại captcha mới
         }
         setUserInput("");
@@ -137,7 +145,9 @@ const Header = () => {
                                     className="nav-link text-[20px] text-black"
                                     href="#"
                                 >
-                                    Đăng nhập
+                                    <div className="ant-col home-header-menu-item">
+                                        <span>Đăng nhập</span>
+                                    </div>
                                 </a>
                             </li>
                         </ul>
