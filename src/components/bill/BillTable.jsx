@@ -15,9 +15,11 @@ const BillTable = () => {
     const invoices = generateMultipleRandomInvoices(10);
     const [current, setCurrent] = useState(1);
     const [open, setOpen] = useState(false);
+    const [activeKey, setActiveKey] = useState("1");
 
     const onChange = (key) => {
         console.log(key);
+        setActiveKey(key);
     };
 
     const items = [
@@ -170,6 +172,7 @@ const BillTable = () => {
                 />
             </div>
             <div></div>
+
             {/* Modal */}
             <Modal
                 centered

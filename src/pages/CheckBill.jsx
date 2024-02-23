@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useState } from "react";
 import BillBuying from "../components/bill/BillBuying";
 import BillOfSale from "../components/bill/BillOfSale";
@@ -40,6 +41,7 @@ const CheckBill = () => {
                     ))}
                     {/* </div> */}
                   </div>
+
                   <div></div>
                 </div>
               </div>
@@ -65,6 +67,8 @@ const CheckBill = () => {
                 {/* <Tabs id={null} defaultActiveKey="1" items={items} onChange={onChange} /> */}
 
                 <CustomTabs items={items} activeKey={activeKey} onChange={onChange} />
+
+                <div></div>
 
                 {activeKey === "1" && <BillOfSale />}
                 {activeKey === "2" && <BillBuying />}
