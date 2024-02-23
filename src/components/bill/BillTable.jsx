@@ -91,15 +91,15 @@ const BillTable = () => {
             >
                 <div className="flex justify-center items-center h-auto bg-gray-200 text-gray-900 ">
                     <div className="rounded-md relative w-full shadow-2xl p-3 bg-[url('https://hoadondientu.gdt.gov.vn/static/images/viewinvoice-bg.jpg')] ">
-                        <div className="heading-content border px-4 py-4">
-                            <div className="top-content py-2 flex justify-between">
-                                <div className="text-center text-xl font-bold"><img src="../qr.jpg" /></div>
-                                <div className="code-content text-base font-bold text-left">
-                                    <b className='code-ms'>Mẫu số {dataBill?.Mẫu_số}</b>
-                                    <b className='code-ms'>Ký hiệu: {dataBill?.Ký_hiệu}</b>
-                                    <b className='code-ms'>Số: {dataBill?.Số}</b>
-                                </div>
+                        <div className="top-content py-2 flex justify-between">
+                            <div className="text-center text-xl font-bold"><img src="../qr.jpg" /></div>
+                            <div className="code-content text-base font-bold text-left">
+                                <b className='code-ms'>Mẫu số {dataBill?.Mẫu_số}</b>
+                                <b className='code-ms'>Ký hiệu: {dataBill?.Ký_hiệu}</b>
+                                <b className='code-ms'>Số: {dataBill?.Số}</b>
                             </div>
+                        </div>
+                        <div className="heading-content border px-4 py-4">
 
                             <div className="title-heading text-center">
                                 <h2 className="main-title font-bold text-3xl">HOÁ ĐƠN GIÁ TRỊ GIA TĂNG</h2>
@@ -384,7 +384,7 @@ const BillTable = () => {
                                                         <div></div>
                                                     </div>
                                                 </div>
-                                                
+
                                             </div>
                                         </div>
                                     </li>
