@@ -138,17 +138,20 @@ const Header = () => {
                                 Danh sách TCTN
                             </a>
                         </div>
-                        <div className="nav-item">
-                            <a
-                                onClick={() => toggleModal(0, true)}
+                        <div
+                            onClick={() => toggleModal(0, true)}
+                            className="nav-item text-[20px] text-black hover:cursor-pointer"
+                        >
+                            {/* <a
                                 className="nav-link text-[20px] text-black"
                                 href="#"
-                            >
-                                <span>Đăng nhập</span>
-                            </a>
+                            > */}
+                            <span>Đăng nhập</span>
+                            {/* </a> */}
                         </div>
                     </div>
                 </div>
+                <div className="mt-[1px]"></div>
             </header>
 
             <Modal

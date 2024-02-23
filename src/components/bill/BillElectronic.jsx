@@ -167,6 +167,7 @@ const BillElectronic = (props) => {
                     </tbody>
                 </table>
             </div> */}
+           
 
             <div className="ant-table-wrapper Table__TableStyled-sc-1qus7rx-1 iNojWa">
                 <div className="ant-spin-nested-loading">
@@ -569,6 +570,7 @@ const BillElectronic = (props) => {
                                             </thead>
                                         </table>
                                     </div>
+
                                     <div
                                         // tabIndex={-1}
                                         className="ant-table-body"
@@ -581,7 +583,7 @@ const BillElectronic = (props) => {
                                             className="ant-table-fixed"
                                             style={{ width: 300 }}
                                         >
-                                            <colgroup>
+                                            {/* <colgroup>
                                                 <col
                                                     style={{
                                                         width: 65,
@@ -678,7 +680,7 @@ const BillElectronic = (props) => {
                                                         minWidth: 170,
                                                     }}
                                                 />
-                                            </colgroup>
+                                            </colgroup> */}
                                             <tbody className="ant-table-tbody">
 
                                                 {

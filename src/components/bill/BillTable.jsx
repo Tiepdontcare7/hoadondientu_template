@@ -50,24 +50,20 @@ const BillTable = () => {
 
     return (
         <>
-            <main className='ant-col ant-col-24'>
-                <div></div>
+            <div className='ant-col ant-col-24'>
                 <div className='ant-row-flex ant-row-flex-space-between ant-row-flex-middle mt-14 flex justify-end px-[80px]'>
                     <Pagination current={current} onChange={onChange1} total={30} />
+
                     <div className='flex gap-x-[20px] items-center pl-[20px]'>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
                         <div className='ant-col'>
-                            <button onClick={viewBill} title='Xem hoa đơn' className='border p-[8px] border-[#000] rounded cursor-pointer hover:bg-slate-500 hover:text-white'>
+                            <span onClick={viewBill} title='Xem hoa đơn' className='border p-[8px] border-[#000] rounded cursor-pointer hover:bg-slate-500 hover:text-white'>
                                 {/* <GrView /> */}
                                 <button type='button' className='ant-btn ButtonAnt__IconButton-sc-p5q16s-1 kgBiib ant-btn-icon-only'>
                                     <i className='anticon'>
                                         <svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" width="11.82" height="11.82" viewBox="0 0 11.82 11.82"><g id="Layer_1" data-name="Layer 1"><path id="Path_53170" data-name="Path 53170" d="M.55,5.91a5.36,5.36,0,1,1,5.36,5.36A5.36,5.36,0,0,1,.55,5.91ZM0,5.91A5.91,5.91,0,1,0,5.91,0,5.91,5.91,0,0,0,0,5.91Z" fill="#444"></path><path id="Path_53171" data-name="Path 53171" d="M4,4.6a6.06,6.06,0,0,0-.53.4,7.27,7.27,0,0,0-.95.91,7.27,7.27,0,0,0,.95.91A6.06,6.06,0,0,0,4,7.18,2.33,2.33,0,0,1,4,4.6Z" fill="#444"></path><path id="Path_53172" data-name="Path 53172" d="M8.41,5a6.06,6.06,0,0,0-.52-.37,2.33,2.33,0,0,1,0,2.57,6.06,6.06,0,0,0,.52-.37,7.26,7.26,0,0,0,.95-.91A7.27,7.27,0,0,0,8.41,5Z" fill="#444"></path><path id="Path_53173" data-name="Path 53173" d="M5.94,4A1.93,1.93,0,1,0,7.87,5.89,1.93,1.93,0,0,0,5.94,4Zm0,3A1.09,1.09,0,1,1,7,5.89,1.09,1.09,0,0,1,5.94,7Z" fill="#444"></path><path id="Path_53174" data-name="Path 53174" d="M5.94,5.2a.69.69,0,1,0,.69.69A.69.69,0,0,0,5.94,5.2Z" fill="#444"></path><path id="Path_53175" data-name="Path 53175" d="M6.45,2.78l-.07.4A2.75,2.75,0,0,1,8,4l.3-.27a3.16,3.16,0,0,0-1.85-.95Z" fill="#444"></path><path id="Path_53176" data-name="Path 53176" d="M5.42,2.78a3.16,3.16,0,0,0-1.81,1l.3.27a2.75,2.75,0,0,1,1.58-.86Z" fill="#444"></path><path id="Path_53177" data-name="Path 53177" d="M8,7.74a2.75,2.75,0,0,1-1.58.86l.07.4A3.16,3.16,0,0,0,8.26,8Z" fill="#444"></path><path id="Path_53178" data-name="Path 53178" d="M3.91,7.74,3.61,8A3.16,3.16,0,0,0,5.42,9l.07-.4a2.75,2.75,0,0,1-1.58-.86Z" fill="#444"></path></g></svg>
                                     </i>
                                 </button>
-                            </button>
+                            </span>
                         </div>
 
                         <span title='In hóa đơn' className='border p-[8px] border-[#000] rounded cursor-pointer hover:bg-slate-500 hover:text-white'>
@@ -81,10 +77,11 @@ const BillTable = () => {
                         </span>
                     </div>
                 </div>
+                {/* List icon */}
 
-                <Tabs className='ant-tabs ant-tabs-top Tabs-sc-1nufobv-0 iMcRvz ant-tabs-line' defaultActiveKey="1" items={items} onChange={onChange} />
-            </main>
-
+                <Tabs id={null} className='ant-tabs ant-tabs-top Tabs-sc-1nufobv-0 iMcRvz ant-tabs-line' defaultActiveKey="1" items={items} onChange={onChange} />
+            </div>
+            <div></div>
             {/* Modal */}
             <Modal
                 centered
@@ -95,15 +92,15 @@ const BillTable = () => {
             >
                 <div className="flex justify-center items-center h-auto bg-gray-200 text-gray-900 ">
                     <div className="rounded-md relative w-full shadow-2xl p-3 bg-[url('https://hoadondientu.gdt.gov.vn/static/images/viewinvoice-bg.jpg')] ">
-                        <div className="heading-content border px-4 py-4">
-                            <div className="top-content py-2 flex justify-between">
-                                <div className="text-center text-xl font-bold"><img src="../qr.jpg" /></div>
-                                <div className="code-content text-base font-bold text-left">
-                                    <b className='code-ms'>Mẫu số {dataBill?.Mẫu_số}</b>
-                                    <b className='code-ms'>Ký hiệu: {dataBill?.Ký_hiệu}</b>
-                                    <b className='code-ms'>Số: {dataBill?.Số}</b>
-                                </div>
+                        <div className="top-content py-2 flex justify-between">
+                            <div className="text-center text-xl font-bold"><img src="../qr.jpg" /></div>
+                            <div className="code-content text-base font-bold text-left">
+                                <b className='code-ms'>Mẫu số {dataBill?.Mẫu_số}</b>
+                                <b className='code-ms'>Ký hiệu: {dataBill?.Ký_hiệu}</b>
+                                <b className='code-ms'>Số: {dataBill?.Số}</b>
                             </div>
+                        </div>
+                        <div className="heading-content border px-4 py-4">
 
                             <div className="title-heading text-center">
                                 <h2 className="main-title font-bold text-3xl">HOÁ ĐƠN GIÁ TRỊ GIA TĂNG</h2>
@@ -377,6 +374,18 @@ const BillTable = () => {
                                                     </div>
                                                 </div>
 
+                                                <div className='styles__DataItemStyle-sc-v1ei30-1 cdheZW'>
+                                                    {/* <div> */}
+                                                    <div className='di-label'>
+                                                        <span>
+                                                            Ngày bảng kê:
+                                                        </span>
+                                                    </div>
+                                                    <div className='di-value'>
+                                                        <div></div>
+                                                    </div>
+                                                </div>
+
                                             </div>
                                         </div>
                                     </li>
@@ -385,14 +394,14 @@ const BillTable = () => {
                                 </ul>
                             </div>
                             <div>
-                                <div className="flex justify-around ">
+                                {/* <div className="flex justify-around ">
                                     <p className="">Số bảng kê: </p>
                                     <p className="">Ngày bảng kê: </p>
-                                </div>
+                                </div> */}
 
 
                                 <div className="overflow-x-auto py-3">
-                                    <table className="min-w-full divide-y-2 divide-gray-200 bg-white text-sm">
+                                    <table className="res-tb min-w-full divide-y-2 divide-gray-200 bg-white text-sm">
                                         <thead className="ltr:text-left rtl:text-right">
                                             <tr>
                                                 <th className=" border px-3 py-2 font-medium text-gray-900">STT</th>
