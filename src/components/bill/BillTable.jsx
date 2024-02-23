@@ -87,7 +87,7 @@ const BillTable = () => {
                 {activeKey === "2" && <BillElectronic data={invoices} />}
 
 
-<div>hihi</div>
+                {/* <div>hihi</div> */}
                 <div className='ant-row-flex ant-row-flex-space-between ant-row-flex-middle mt-14 flex justify-end px-[80px]'>
                     <Pagination current={current} onChange={onChange1} total={30} />
 
@@ -118,6 +118,7 @@ const BillTable = () => {
             </div>
             <div></div>
             {/* Modal */}
+            
             <Modal
                 centered
                 open={open}
