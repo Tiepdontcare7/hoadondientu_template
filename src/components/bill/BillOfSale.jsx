@@ -13,16 +13,14 @@ const BillOfSale = () => {
     // console.log(dataBill)
 
     return (
-        <div>
+        <>
             <div>
-                <div></div>
-
-                <div>
+                <h3>
                     Danh sách hóa đơn điện tử bán ra
-                </div>
+                </h3>
                 <div>
                     <div></div>
-    
+                    <div></div>
                     <div>
                         <section className="flex gap-4 mx-10 pt-3  justify-between">
                             <aside className=" w-1/2 py-3">
@@ -94,7 +92,7 @@ const BillOfSale = () => {
                                         <div className="ant-col ant-col-6 Form__ColLabel-sc-9ty27c-0 dQoyFl" style={{ paddingLeft: 6, paddingRight: 6 }}>
                                             <label>Ngày lập hóa đơn&nbsp;<span style={{ color: 'red' }}>(*)</span></label>
                                         </div>
-    
+
                                         {/* Phần chọn Từ ngày và Đến ngày */}
                                         <div className="ant-col ant-col-18" style={{ paddingLeft: 175, paddingRight: 6, }}>
                                             {/* Hàng chứa Từ ngày */}
@@ -125,7 +123,7 @@ const BillOfSale = () => {
                                                     </div>
                                                 </div>
                                             </div>
-    
+
                                             {/* Hàng chứa Đến ngày */}
                                             <div className="ant-row" style={{ paddingLeft: 230, paddingRight: 6 }}>
                                                 <div className="ant-col ant-col-8 Form__ColLabel-sc-9ty27c-0 dQoyFl" style={{ marginTop: "-22px" }}>
@@ -156,8 +154,8 @@ const BillOfSale = () => {
                                             </div>
                                         </div>
                                     </div>
-    
-    
+
+
                                 </div>
                                 <div>
                                     <label className="w-[25%]  px-2">Ký hiệu mẫu số hóa đơn</label>
@@ -198,22 +196,30 @@ const BillOfSale = () => {
                                     <input id='khhdon' className="w-[60%] border-b ml-5 " />
                                 </div>
                             </main>
-    
+
                         </section>
-    
+
                         <div>
-                            <div className='flex gap-5 justify-center'>
-                                <button className='bg-[#915715] text-white px-3 py-1 rounded-[5px]'>Tìm kiếm</button>
-                                <button className='bg-[#915715] text-white px-3 py-1 rounded-[5px]'>Bỏ tìm kiếm</button>
+                            <div>
+                                <div>
+                                    <form>
+                                        <div></div>
+                                        <div></div>
+                                        <div className='flex gap-5 justify-center'>
+                                            <div> <button className='bg-[#915715] text-white px-3 py-1 rounded-[5px]'>Tìm kiếm</button></div>
+                                            <div> <button className='bg-[#915715] text-white px-3 py-1 rounded-[5px]'>Bỏ tìm kiếm</button></div>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
                         </div>
-    
+
                         <BillTable />
                     </div>
                 </div>
+                <div></div>
             </div>
-            <div></div>
-        </div>
+        </>
     )
 }
 
