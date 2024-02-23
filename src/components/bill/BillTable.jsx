@@ -1,35 +1,31 @@
+import { useState } from 'react';
 import { Tabs } from 'antd';
 import BillElectronic from './BillElectronic';
 import generateMultipleRandomInvoices from '../../utils/bill';
 
+const { TabPane } = Tabs;
 
 const BillTable = () => {
-    // console.log(dataBill)
     const invoices = generateMultipleRandomInvoices(10);
-    // console.log(invoices)
+    const [activeTab, setActiveTab] = useState('1');
 
     const onChange = (key) => {
         console.log(key);
+        setActiveTab(key);
     };
-
-    const items = [
-        {
-            key: '1',
-            label: 'Hóa đơn điện tử',
-            children: <BillElectronic data={invoices} />,
-        },
-        {
-            key: '2',
-            label: 'Hóa đơn điện tử khởi tạo từ máy tính tiền',
-            children: <BillElectronic />,
-        }
-    ];
 
     return (
         <>
-            <Tabs defaultActiveKey="1" items={items} onChange={onChange} />
+            <Tabs defaultActiveKey="1" activeKey={activeTab} onChange={onChange}>
+                <TabPane tab="Hóa đơn điện tử" key="1">
+                    <BillElectronic data={invoices} />
+                </TabPane>
+                <TabPane tab="Hóa đơn điện tử khởi tạo từ máy tính tiền" key="2">
+                    <BillElectronic />
+                </TabPane>
+            </Tabs>
         </>
-    )
+    );
 }
 
-export default BillTable
+export default BillTable;

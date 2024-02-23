@@ -3,7 +3,7 @@ import { Dropdown, Space } from 'antd';
 
 const items = [
   {
-    label: <a href="/check-bill">Tra cứu hóa đơn</a>,
+    label: <a href="/tra-cuu/tra-cuu-hoa-don">Tra cứu hóa đơn</a>,
     key: '0',
   },
   {
