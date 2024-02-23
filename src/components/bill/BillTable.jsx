@@ -77,8 +77,9 @@ const BillTable = () => {
                         </span>
                     </div>
                 </div>
+                {/* List icon */}
 
-                <Tabs className='ant-tabs ant-tabs-top Tabs-sc-1nufobv-0 iMcRvz ant-tabs-line' defaultActiveKey="1" items={items} onChange={onChange} />
+                <Tabs id={null} className='ant-tabs ant-tabs-top Tabs-sc-1nufobv-0 iMcRvz ant-tabs-line' defaultActiveKey="1" items={items} onChange={onChange} />
             </div>
 
             {/* Modal */}

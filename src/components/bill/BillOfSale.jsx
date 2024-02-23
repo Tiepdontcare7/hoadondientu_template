@@ -203,9 +203,6 @@ const BillOfSale = () => {
 
                 <BillTable />
             </div>
-
-
-
         </div>
     )
 }
