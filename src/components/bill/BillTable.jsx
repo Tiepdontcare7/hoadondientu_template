@@ -4,7 +4,7 @@ import generateMultipleRandomInvoices from "../../utils/bill";
 import { BsPrinter } from "react-icons/bs";
 import { FaFileInvoice } from "react-icons/fa";
 import { CiExport } from "react-icons/ci";
-import { useContext, useState } from "react";
+import { useContext, useMemo, useState } from "react";
 import { Pagination } from "antd";
 import { BillContext } from "../../context/BillContext";
 import { Modal } from "antd";
@@ -12,13 +12,12 @@ import { Modal } from "antd";
 const BillTable = () => {
     const { idBill } = useContext(BillContext);
     const [dataBill, setDataBill] = useState(null);
-    const invoices = generateMultipleRandomInvoices(10);
+    const invoices = useMemo(() => generateMultipleRandomInvoices(10 ), []);
     const [current, setCurrent] = useState(1);
     const [open, setOpen] = useState(false);
     const [activeKey, setActiveKey] = useState("1");
 
     const onChange = (key) => {
-        console.log(key);
         setActiveKey(key);
     };
 
@@ -73,15 +72,12 @@ const BillTable = () => {
     };
 
     const onChange1 = (page) => {
-        console.log(page);
         setCurrent(page);
     };
 
     const viewBill = () => {
-        if (idBill) {
             setDataBill(invoices[idBill]);
             setOpen(true);
-        }
     };
 
     return (
