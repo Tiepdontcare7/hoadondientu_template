@@ -167,7 +167,7 @@ const BillElectronic = (props) => {
                     </tbody>
                 </table>
             </div> */}
-            <div></div>
+           
 
             <div className="ant-table-wrapper Table__TableStyled-sc-1qus7rx-1 iNojWa">
                 <div className="ant-spin-nested-loading">

@@ -16,6 +16,7 @@ const BillOfSale = () => {
         <div>
             <div>
                 <div></div>
+
                 <div>
                     Danh sách hóa đơn điện tử bán ra
                 </div>

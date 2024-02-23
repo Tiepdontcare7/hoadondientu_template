@@ -29,6 +29,7 @@ const CheckBill = () => {
                 <div>
 
                   <div className="custom-tabs flex">
+                    {/* <div className="custom-tabs flex"> */}
                     {items?.map((item) => (
                       <div
                         key={item.key}
@@ -38,6 +39,7 @@ const CheckBill = () => {
                         <span>{item.label}</span>
                       </div>
                     ))}
+                    {/* </div> */}
                   </div>
 
                   <div></div>

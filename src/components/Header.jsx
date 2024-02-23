@@ -162,6 +162,7 @@ const Header = () => {
                 footer=""
                 styles={modalStyles}
             >
+
                 {/* <div className="mx-auto max-w-screen-xl px-4 py-3 sm:px-6 lg:px-8"> */}
                 <Form onFinish={onFinish} autoComplete="off">
                     <div className="grid grid-cols-2 gap-4">
@@ -210,6 +211,7 @@ const Header = () => {
                                 </div>
 
                                 <div className="Captcha__ImageWrapper-sc-1up1k1e-0 hkCCjI">
+
                                     <div>
                                         <span>
                                             <div>
@@ -269,6 +271,7 @@ const Header = () => {
                                 Đăng nhập
                             </button>
                         </div>
+
                     </div>
                 </Form>
                 {/* </div> */}
