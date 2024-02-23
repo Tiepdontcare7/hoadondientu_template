@@ -9,9 +9,9 @@ const BaseLayout = () => {
                 <div id="__next">
                     <section>
                         <Header />
-                        <div className="pt-[100px] min-h-[90vh] px-[70px] bg-no-repeat bg-[url('https://hoadondientu.gdt.gov.vn/static/images/viewinvoice-bg.jpg')]">
+                        <section className="pt-[100px] min-h-[90vh] px-[70px] bg-no-repeat bg-[url('https://hoadondientu.gdt.gov.vn/static/images/viewinvoice-bg.jpg')]">
                             <Outlet />
-                        </div>
+                        </section>
                     </section>
                 </div>
             </BillProvider>

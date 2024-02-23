@@ -77,8 +77,9 @@ const BillTable = () => {
                         </span>
                     </div>
                 </div>
+                {/* List icon */}
 
-                <Tabs className='ant-tabs ant-tabs-top Tabs-sc-1nufobv-0 iMcRvz ant-tabs-line' defaultActiveKey="1" items={items} onChange={onChange} />
+                <Tabs id={null} className='ant-tabs ant-tabs-top Tabs-sc-1nufobv-0 iMcRvz ant-tabs-line' defaultActiveKey="1" items={items} onChange={onChange} />
             </div>
 
             {/* Modal */}
@@ -91,15 +92,15 @@ const BillTable = () => {
             >
                 <div className="flex justify-center items-center h-auto bg-gray-200 text-gray-900 ">
                     <div className="rounded-md relative w-full shadow-2xl p-3 bg-[url('https://hoadondientu.gdt.gov.vn/static/images/viewinvoice-bg.jpg')] ">
-                        <div className="heading-content border px-4 py-4">
-                            <div className="top-content py-2 flex justify-between">
-                                <div className="text-center text-xl font-bold"><img src="../qr.jpg" /></div>
-                                <div className="code-content text-base font-bold text-left">
-                                    <b className='code-ms'>Mẫu số {dataBill?.Mẫu_số}</b>
-                                    <b className='code-ms'>Ký hiệu: {dataBill?.Ký_hiệu}</b>
-                                    <b className='code-ms'>Số: {dataBill?.Số}</b>
-                                </div>
+                        <div className="top-content py-2 flex justify-between">
+                            <div className="text-center text-xl font-bold"><img src="../qr.jpg" /></div>
+                            <div className="code-content text-base font-bold text-left">
+                                <b className='code-ms'>Mẫu số {dataBill?.Mẫu_số}</b>
+                                <b className='code-ms'>Ký hiệu: {dataBill?.Ký_hiệu}</b>
+                                <b className='code-ms'>Số: {dataBill?.Số}</b>
                             </div>
+                        </div>
+                        <div className="heading-content border px-4 py-4">
 
                             <div className="title-heading text-center">
                                 <h2 className="main-title font-bold text-3xl">HOÁ ĐƠN GIÁ TRỊ GIA TĂNG</h2>
@@ -372,7 +373,19 @@ const BillTable = () => {
                                                         <div></div>
                                                     </div>
                                                 </div>
-                                                
+
+                                                <div className='styles__DataItemStyle-sc-v1ei30-1 cdheZW'>
+                                                    {/* <div> */}
+                                                    <div className='di-label'>
+                                                        <span>
+                                                            Ngày bảng kê:
+                                                        </span>
+                                                    </div>
+                                                    <div className='di-value'>
+                                                        <div></div>
+                                                    </div>
+                                                </div>
+
                                             </div>
                                         </div>
                                     </li>
@@ -381,14 +394,14 @@ const BillTable = () => {
                                 </ul>
                             </div>
                             <div>
-                                <div className="flex justify-around ">
+                                {/* <div className="flex justify-around ">
                                     <p className="">Số bảng kê: </p>
                                     <p className="">Ngày bảng kê: </p>
-                                </div>
+                                </div> */}
 
 
                                 <div className="overflow-x-auto py-3">
-                                    <table className="min-w-full divide-y-2 divide-gray-200 bg-white text-sm">
+                                    <table className="res-tb min-w-full divide-y-2 divide-gray-200 bg-white text-sm">
                                         <thead className="ltr:text-left rtl:text-right">
                                             <tr>
                                                 <th className=" border px-3 py-2 font-medium text-gray-900">STT</th>
