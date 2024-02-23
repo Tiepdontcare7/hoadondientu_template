@@ -13,10 +13,11 @@ const BillOfSale = () => {
     // console.log(dataBill)
 
     return (
-        <div>
-            <div>
+        <>
+            <div></div>
+            <h3>
                 Danh sách hóa đơn điện tử bán ra
-            </div>
+            </h3>
             <div>
                 <section className="flex gap-4 mx-10 pt-3  justify-between">
                     <aside className=" w-1/2 py-3">
@@ -85,18 +86,18 @@ const BillOfSale = () => {
                                                 }} defaultValue={dayjs()} format={dateFormatList} /> */}
                             <div className="ant-row">
                                 {/* Label cho Ngày lập hóa đơn */}
-                                <div className="ant-col ant-col-6 Form__ColLabel-sc-9ty27c-0 dQoyFl" style={{ paddingLeft: 6, paddingRight: 6}}>
+                                <div className="ant-col ant-col-6 Form__ColLabel-sc-9ty27c-0 dQoyFl" style={{ paddingLeft: 6, paddingRight: 6 }}>
                                     <label>Ngày lập hóa đơn&nbsp;<span style={{ color: 'red' }}>(*)</span></label>
                                 </div>
 
                                 {/* Phần chọn Từ ngày và Đến ngày */}
                                 <div className="ant-col ant-col-18" style={{ paddingLeft: 175, paddingRight: 6, }}>
                                     {/* Hàng chứa Từ ngày */}
-                                    <div className="ant-row" style={{marginTop: "-22px"}}>
+                                    <div className="ant-row" style={{ marginTop: "-22px" }}>
                                         <div className="ant-col ant-col-8 Form__ColLabel-sc-9ty27c-0 dQoyFl">
                                             <label>Từ ngày</label>
                                         </div>
-                                        <div className="ant-col ant-col-16" style={{paddingLeft: 70,marginTop: "-30px"}}>
+                                        <div className="ant-col ant-col-16" style={{ paddingLeft: 70, marginTop: "-30px" }}>
                                             <div className="ant-row ant-form-item Form__NoMarginBottomItem-sc-9ty27c-1 dpgfQK">
                                                 <div className="ant-col ant-form-item-control-wrapper">
                                                     <div className="ant-form-item-control has-success">
@@ -110,7 +111,7 @@ const BillOfSale = () => {
                                                                         borderRight: 'none',              // Không có đường line bên phải
                                                                         borderTop: 'none',                // Không có đường line phía trên
                                                                         borderRadius: '0'                 // Không có đường cong
-                                                                    }} defaultValue={dayjs().subtract(30, 'days')} format={dateFormatList}/>
+                                                                    }} defaultValue={dayjs().subtract(30, 'days')} format={dateFormatList} />
                                                                 </div>
                                                             </span>
                                                         </span>
@@ -121,11 +122,11 @@ const BillOfSale = () => {
                                     </div>
 
                                     {/* Hàng chứa Đến ngày */}
-                                    <div className="ant-row"style={{ paddingLeft: 230, paddingRight: 6 }}>
-                                        <div className="ant-col ant-col-8 Form__ColLabel-sc-9ty27c-0 dQoyFl" style={{marginTop: "-22px"}}>
+                                    <div className="ant-row" style={{ paddingLeft: 230, paddingRight: 6 }}>
+                                        <div className="ant-col ant-col-8 Form__ColLabel-sc-9ty27c-0 dQoyFl" style={{ marginTop: "-22px" }}>
                                             <label>Đến ngày</label>
                                         </div>
-                                        <div className="ant-col ant-col-16" style={{paddingLeft: 75,marginTop: "-30px"}}>
+                                        <div className="ant-col ant-col-16" style={{ paddingLeft: 75, marginTop: "-30px" }}>
                                             <div className="ant-row ant-form-item Form__NoMarginBottomItem-sc-9ty27c-1 dpgfQK">
                                                 <div className="ant-col ant-form-item-control-wrapper">
                                                     <div className="ant-form-item-control has-success">
@@ -195,15 +196,34 @@ const BillOfSale = () => {
 
                 </section>
                 <div>
-                    <div className='flex gap-5 justify-center'>
-                        <button className='bg-[#915715] text-white px-3 py-1 rounded-[5px]'>Tìm kiếm</button>
-                        <button className='bg-[#915715] text-white px-3 py-1 rounded-[5px]'>Bỏ tìm kiếm</button>
+                    <div></div>
+                    <div></div>
+                    <div>
+                        <div>
+                            <div>
+                                <div>
+                                    <form>
+                                        <div></div>
+                                        <div></div>
+                                        <div className='flex gap-5 justify-center'>
+                                            <div> <button className='bg-[#915715] text-white px-3 py-1 rounded-[5px]'>Tìm kiếm</button></div>
+                                            <div><button className='bg-[#915715] text-white px-3 py-1 rounded-[5px]'>Bỏ tìm kiếm</button></div>
+                                        </div>
+                                    </form>
+                                </div>
+
+
+                            </div>
+                        </div>
+                        <div> <BillTable /></div>
+
                     </div>
                 </div>
 
-                <BillTable />
+                <div></div>
             </div>
-        </div>
+
+        </>
     )
 }
 
