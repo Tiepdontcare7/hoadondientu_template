@@ -78,9 +78,9 @@ const Header = () => {
     return (
         <>
             {/* <!-- Navigation--> */}
-            <nav
+            <header
                 className="bg-[url('https://hoadondientu.gdt.gov.vn/static/images/bg_hd.png')] navbar navbar-expand-lg navbar-light bg-white z-10 fixed-top py-3 shadow-sm"
-                id="mainNav"
+                // id="mainNav"
             >
                 <div className="container px-4 px-lg-5">
                     <a href="/">
@@ -97,64 +97,59 @@ const Header = () => {
                     >
                         <span className="navbar-toggler-icon"></span>
                     </button>
-                    <div className=" navbar-collapse" id="navbarResponsive">
-                        <ul className="navbar-nav ms-auto my-2 my-lg-0">
-                            <li className="nav-item">
-                                <a
-                                    className="nav-link text-[20px] text-black"
-                                    href="/"
-                                >
-                                    Trang chủ
-                                </a>
-                            </li>
-                            <li className="nav-item">
-                                <a
-                                    className="nav-link text-[20px] text-black"
-                                    href=""
-                                >
-                                    Giới thiệu
-                                </a>
-                            </li>
-                            <li className="nav-item">
-                                <a
-                                    className="nav-link text-[20px] text-black"
-                                    href=""
-                                >
-                                    Hỗ trợ
-                                </a>
-                            </li>
-                            <li className="nav-item">
-                                <a
-                                    className="nav-link text-[20px] text-black"
-                                    href=""
-                                >
-                                    Liên hệ
-                                </a>
-                            </li>
-                            <li className="nav-item">
-                                <a
-                                    className="nav-link text-[20px] text-black"
-                                    href=""
-                                >
-                                    Danh sách TCTN
-                                </a>
-                            </li>
-                            <li className="nav-item">
-                                <a
-                                    onClick={() => toggleModal(0, true)}
-                                    className="nav-link text-[20px] text-black"
-                                    href="#"
-                                >
-                                    <div className="ant-col home-header-menu-item">
-                                        <span>Đăng nhập</span>
-                                    </div>
-                                </a>
-
-                            </li>
-                        </ul>
+                    <div className="navbar-nav ms-auto my-2 my-lg-0">
+                        <div className="nav-item">
+                            <a
+                                className="nav-link text-[20px] text-black"
+                                href="/"
+                            >
+                                Trang chủ
+                            </a>
+                        </div>
+                        <div className="nav-item">
+                            <a
+                                className="nav-link text-[20px] text-black"
+                                href=""
+                            >
+                                Giới thiệu
+                            </a>
+                        </div>
+                        <div className="nav-item">
+                            <a
+                                className="nav-link text-[20px] text-black"
+                                href=""
+                            >
+                                Hỗ trợ
+                            </a>
+                        </div>
+                        <div className="nav-item">
+                            <a
+                                className="nav-link text-[20px] text-black"
+                                href=""
+                            >
+                                Liên hệ
+                            </a>
+                        </div>
+                        <div className="nav-item">
+                            <a
+                                className="nav-link text-[20px] text-black"
+                                href=""
+                            >
+                                Danh sách TCTN
+                            </a>
+                        </div>
+                        <div className="nav-item">
+                            <a
+                                onClick={() => toggleModal(0, true)}
+                                className="nav-link text-[20px] text-black"
+                                href="#"
+                            >
+                                <span>Đăng nhập</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </nav>
+            </header>
 
             <Modal
                 title="Đăng nhập"
@@ -164,90 +159,102 @@ const Header = () => {
                 footer=""
                 styles={modalStyles}
             >
-                    <Form onFinish={onFinish} autoComplete="off" className="mx-auto max-w-screen-xl px-4 py-3 sm:px-6 lg:px-8">
-                        <div className="grid grid-cols-2 gap-4">
-                            <div>
-                                <div className="ant-col ant-col-24 ant-form-item-label">
-                                    <label htmlFor="username" className="mb-2">
-                                        Tên đăng nhập
-                                    </label>
-                                </div>
-                                <Form.Item
-                                    id="username"
-                                    name="username"
-                                    rules={[
-                                        {
-                                            required: true,
-                                            message:
-                                                "Please input your username!",
-                                        },
-                                    ]}
-                                >
-                                    <Input />
-                                </Form.Item>
-                            </div>
 
-                            <div>
-                                <label htmlFor="password" className="mb-2">
-                                    Mật khẩu
+                {/* <div className="mx-auto max-w-screen-xl px-4 py-3 sm:px-6 lg:px-8"> */}
+                <Form onFinish={onFinish} autoComplete="off">
+                    <div className="grid grid-cols-2 gap-4">
+                        <div>
+                            <div className="ant-col ant-col-24 ant-form-item-label">
+                                <label htmlFor="username" className="mb-2">
+                                    Tên đăng nhập
                                 </label>
-                                <Form.Item
-                                    id="password"
-                                    name="password"
-                                    rules={[
-                                        {
-                                            required: true,
-                                            message:
-                                                "Please input your password!",
-                                        },
-                                    ]}
-                                >
-                                    <Input.Password />
-                                </Form.Item>
                             </div>
+                            <Form.Item
+                                id="username"
+                                name="username"
+                                rules={[
+                                    {
+                                        required: true,
+                                        message: "Please input your username!",
+                                    },
+                                ]}
+                            >
+                                <Input />
+                            </Form.Item>
+                        </div>
 
+                        <div>
+                            <label htmlFor="password" className="mb-2">
+                                Mật khẩu
+                            </label>
+                            <Form.Item
+                                id="password"
+                                name="password"
+                                rules={[
+                                    {
+                                        required: true,
+                                        message: "Please input your password!",
+                                    },
+                                ]}
+                            >
+                                <Input.Password />
+                            </Form.Item>
+                        </div>
+
+                        <div>
                             <div>
-                                <label htmlFor="text" className="mb-2">
+                                <div htmlFor="text" className="mb-2">
                                     Mã captcha
-                                </label>
+                                </div>
 
                                 <div className="Captcha__ImageWrapper-sc-1up1k1e-0 hkCCjI">
-                                    <img src={`https://dummyimage.com/200x38/444/fff&text=${captchaText}`}
-                                        alt="captcha"
-                                        className="Captcha__Image-sc-1up1k1e-1 cmYBSe" />
+
+                                    <div>
+                                        <span>
+                                            <div>
+                                                <img
+                                                    className="filter grayscale Captcha__Image-sc-1up1k1e-1 cmYBSe"
+                                                    src={`https://dummyimage.com/200x38/444/fff&text=${captchaText}`}
+                                                    alt="captcha"
+                                                />
+                                            </div>
+                                        </span>
+                                    </div>
+
                                     <button
                                         className="cursor-pointer text-[20px] relative text-white bottom-8 left-[170px] inline-block ant-btn ButtonAnt__IconButton-sc-p5q16s-1 kgBiib ant-btn-icon-only"
                                         onClick={generateCaptcha}
                                     >
-                                        <i className="anticon"><IoReload /></i>
+                                        <i className="anticon">
+                                            <IoReload />
+                                        </i>
                                     </button>
-                                </div>
-                            </div>
-
-                            <div>
-                                <div className="ant-col ant-col-24 ant-form-item-label">
-                                    <label htmlFor="cvalue" className="mb-2">
-                                        Nhập mã captcha
-                                    </label>
-                                </div>
-                                <div className="ant-col ant-col-24 ant-form-item-control-wrapper">
-                                    <div className="ant-form-item-control">
-                                        <span className="ant-form-item-children">
-                                            <input
-                                                id="cvalue"
-                                                type="text"
-                                                value={userInput}
-                                                onChange={(event) =>
-                                                    setUserInput(event.target.value)
-                                                }
-                                                className="w-full rounded-sm border-gray-200 p-2 pe-12 text-sm shadow-sm ant-input Input-sc-16b2ylx-0 ggIKll"
-                                            />
-                                        </span>
-                                    </div>
                                 </div>
                             </div>
                         </div>
 
+                        <div>
+                            <div className="ant-col ant-col-24 ant-form-item-label">
+                                <label htmlFor="cvalue" className="mb-2">
+                                    Nhập mã captcha
+                                </label>
+                            </div>
+                            <div className="ant-col ant-col-24 ant-form-item-control-wrapper">
+                                <div className="ant-form-item-control">
+                                    <span className="ant-form-item-children">
+                                        <input
+                                            id="cvalue"
+                                            type="text"
+                                            value={userInput}
+                                            onChange={(event) =>
+                                                setUserInput(event.target.value)
+                                            }
+                                            className="w-full rounded-sm border-gray-200 p-2 pe-12 text-sm shadow-sm ant-input Input-sc-16b2ylx-0 ggIKll"
+                                        />
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
                         <div>
                             <p className="text-sm text-[#936639]">
                                 Quên mật khẩu
@@ -261,7 +268,10 @@ const Header = () => {
                                 Đăng nhập
                             </button>
                         </div>
-                    </Form>
+
+                    </div>
+                </Form>
+                {/* </div> */}
             </Modal>
         </>
     );

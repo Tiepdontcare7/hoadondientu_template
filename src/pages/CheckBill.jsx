@@ -22,7 +22,13 @@ const items = [
 const CheckBill = () => {
   return (
     <>
-      <Tabs defaultActiveKey="1" items={items} onChange={onChange} />
+      <main>
+        <div>
+          <div>
+            <Tabs id={null} defaultActiveKey="1" items={items} onChange={onChange} />
+          </div>
+        </div>
+      </main>
 
       {/* <main className="styles__ContentWrapper-sc-1mp373d-1 hPlCCR ant-layout-content">
         <div className="styles__PageWrapper-sc-eevgvg-1 bKhKhj">
