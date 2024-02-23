@@ -1,15 +1,17 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Modal } from "antd";
 import { IoReload } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
 import { Form, Input } from "antd";
-import { toast } from "react-toastify";
+import { BillContext } from "../context/BillContext";
 
 const Header = () => {
     const [isModalOpen, setIsModalOpen] = useState([false, false]);
     const [captchaText, setCaptchaText] = useState("");
     const [userInput, setUserInput] = useState("");
     const next = useNavigate();
+
+    const { setIsToasting, setToastMessage } = useContext(BillContext);
 
     const toggleModal = (idx, target) => {
         setIsModalOpen((p) => {
@@ -54,14 +56,20 @@ const Header = () => {
         console.log("Success:", values);
 
         if (userInput.toUpperCase() === captchaText.toUpperCase()) {
-            toast.success("Đăng nhập thành công!");
             // Xử lý khi captcha hợp lệ
-            next("/home");
-            toggleModal(0, false);
+            if (values.username === "123456" && values.password === "123456") {
+                // Xử lý nếu nhập đúng username và password (fix cứng username và password là 123456)
+                next("/home");
+                toggleModal(0, false);
+            } else {
+                // Xử lý khi nhập sai username hoặc password
+                setIsToasting(true);
+                setToastMessage("Tên đăng nhập hoặc mật khẩu không đúng");
+            }
         } else {
-            // alert("Captcha không đúng. Vui lòng thử lại.");
-            toast.error("Đăng nhập không thành công");
-
+            // Toast error message
+            setIsToasting(true);
+            setToastMessage("Mã captcha không đúng.");
             generateCaptcha(); // Tạo lại captcha mới
         }
         setUserInput("");
@@ -137,7 +145,9 @@ const Header = () => {
                                     className="nav-link text-[20px] text-black"
                                     href="#"
                                 >
-                                    <div className="ant-col home-header-menu-item"><span>Đăng nhập</span></div>
+                                    <div className="ant-col home-header-menu-item">
+                                        <span>Đăng nhập</span>
+                                    </div>
                                 </a>
 
                             </li>
@@ -154,13 +164,14 @@ const Header = () => {
                 footer=""
                 styles={modalStyles}
             >
-                <div className="mx-auto max-w-screen-xl px-4 py-3 sm:px-6 lg:px-8">
-                    <Form onFinish={onFinish} autoComplete="off">
+                    <Form onFinish={onFinish} autoComplete="off" className="mx-auto max-w-screen-xl px-4 py-3 sm:px-6 lg:px-8">
                         <div className="grid grid-cols-2 gap-4">
                             <div>
-                                <label htmlFor="username" className="mb-2">
-                                    Tên đăng nhập
-                                </label>
+                                <div className="ant-col ant-col-24 ant-form-item-label">
+                                    <label htmlFor="username" className="mb-2">
+                                        Tên đăng nhập
+                                    </label>
+                                </div>
                                 <Form.Item
                                     id="username"
                                     name="username"
@@ -199,33 +210,41 @@ const Header = () => {
                                 <label htmlFor="text" className="mb-2">
                                     Mã captcha
                                 </label>
-                                <img
-                                    className="filter grayscale"
-                                    src={`https://dummyimage.com/200x38/444/fff&text=${captchaText}`}
-                                    alt="Captcha"
-                                />
 
-                                <span
-                                    className="cursor-pointer text-[20px] relative text-white bottom-8 left-[170px] inline-block"
-                                    onClick={generateCaptcha}
-                                >
-                                    <IoReload />
-                                </span>
+                                <div className="Captcha__ImageWrapper-sc-1up1k1e-0 hkCCjI">
+                                    <img src={`https://dummyimage.com/200x38/444/fff&text=${captchaText}`}
+                                        alt="captcha"
+                                        className="Captcha__Image-sc-1up1k1e-1 cmYBSe" />
+                                    <button
+                                        className="cursor-pointer text-[20px] relative text-white bottom-8 left-[170px] inline-block ant-btn ButtonAnt__IconButton-sc-p5q16s-1 kgBiib ant-btn-icon-only"
+                                        onClick={generateCaptcha}
+                                    >
+                                        <i className="anticon"><IoReload /></i>
+                                    </button>
+                                </div>
                             </div>
 
                             <div>
-                                <label htmlFor="cvalue" className="mb-2">
-                                    Nhập mã captcha
-                                </label>
-                                <input
-                                    id="cvalue"
-                                    type="text"
-                                    value={userInput}
-                                    onChange={(event) =>
-                                        setUserInput(event.target.value)
-                                    }
-                                    className="w-full rounded-sm border-gray-200 p-2 pe-12 text-sm shadow-sm"
-                                />
+                                <div className="ant-col ant-col-24 ant-form-item-label">
+                                    <label htmlFor="cvalue" className="mb-2">
+                                        Nhập mã captcha
+                                    </label>
+                                </div>
+                                <div className="ant-col ant-col-24 ant-form-item-control-wrapper">
+                                    <div className="ant-form-item-control">
+                                        <span className="ant-form-item-children">
+                                            <input
+                                                id="cvalue"
+                                                type="text"
+                                                value={userInput}
+                                                onChange={(event) =>
+                                                    setUserInput(event.target.value)
+                                                }
+                                                className="w-full rounded-sm border-gray-200 p-2 pe-12 text-sm shadow-sm ant-input Input-sc-16b2ylx-0 ggIKll"
+                                            />
+                                        </span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
@@ -233,17 +252,16 @@ const Header = () => {
                             <p className="text-sm text-[#936639]">
                                 Quên mật khẩu
                             </p>
-                            <div className="flex justify-center mt-3">
-                                <button
-                                    type="submit"
-                                    className="inline-block rounded-sm shadow-sm bg-[#936639] px-4 py-2 text-sm font-medium text-white"
-                                >
-                                    Đăng nhập
-                                </button>
-                            </div>
+                        </div>
+                        <div className="flex justify-center mt-3">
+                            <button
+                                type="submit"
+                                className="inline-block rounded-sm shadow-sm bg-[#936639] px-4 py-2 text-sm font-medium text-white"
+                            >
+                                Đăng nhập
+                            </button>
                         </div>
                     </Form>
-                </div>
             </Modal>
         </>
     );
