@@ -4,15 +4,15 @@ import generateMultipleRandomInvoices from "../../utils/bill";
 import { BsPrinter } from "react-icons/bs";
 import { FaFileInvoice } from "react-icons/fa";
 import { CiExport } from "react-icons/ci";
-import { useContext, useMemo, useState } from "react";
+import { useContext, useEffect, useMemo, useState } from "react";
 import { Pagination } from "antd";
 import { BillContext } from "../../context/BillContext";
 import { Modal } from "antd";
 
 const BillTable = () => {
-    const { idBill } = useContext(BillContext);
+    const { idBill, setIdBill } = useContext(BillContext);
     const [dataBill, setDataBill] = useState(null);
-    const invoices = useMemo(() => generateMultipleRandomInvoices(10 ), []);
+    const invoices = useMemo(() => generateMultipleRandomInvoices(10), []);
     const [current, setCurrent] = useState(1);
     const [open, setOpen] = useState(false);
     const [activeKey, setActiveKey] = useState("1");
@@ -76,9 +76,15 @@ const BillTable = () => {
     };
 
     const viewBill = () => {
+        if (idBill) {
             setDataBill(invoices[idBill]);
             setOpen(true);
+        }
     };
+
+    useEffect(() => {
+        return () => setIdBill(0);
+    }, [setIdBill]);
 
     return (
         <>
@@ -97,11 +103,15 @@ const BillTable = () => {
                             <div></div>
                             <div></div>
                             <div></div>
-                            <div className="ant-col">
+                            <div className={``}>
                                 <span
                                     onClick={viewBill}
                                     title="Xem hoa đơn"
-                                    className="border p-[8px] border-[#000] rounded cursor-pointer hover:bg-slate-500 hover:text-white"
+                                    className={`${
+                                        idBill
+                                            ? "cursor-pointer hover:bg-slate-500 hover:text-white"
+                                            : "cursor-not-allowed select-none"
+                                    } border p-[8px] border-[#000] rounded `}
                                 >
                                     {/* <GrView /> */}
                                     <button
