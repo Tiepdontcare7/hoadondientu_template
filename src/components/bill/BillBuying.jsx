@@ -149,7 +149,7 @@ const BillBuying = () => {
                                 Ký hiệu mẫu số hóa đơn
                             </label>
                             <Select
-                                defaultValue=""
+                                // defaultValue=""
                                 style={{ width: 440 }}
                                 onChange={handleChange}
                                 options={[

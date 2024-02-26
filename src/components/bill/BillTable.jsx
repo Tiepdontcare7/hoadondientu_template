@@ -10,6 +10,7 @@ import { BillContext } from "../../context/BillContext";
 import { Modal } from "antd";
 
 const BillTable = () => {
+
     const { idBill } = useContext(BillContext);
     const [dataBill, setDataBill] = useState(null);
     const invoices = useMemo(() => generateMultipleRandomInvoices(10 ), []);
@@ -204,6 +205,7 @@ const BillTable = () => {
                     </div>
                     {/* List icon */}
                 </div>
+                
                 <div className="ant-col ant-col-24">
                     {/* <Tabs id={null} className='ant-tabs ant-tabs-top Tabs-sc-1nufobv-0 iMcRvz ant-tabs-line' defaultActiveKey="1" items={items} onChange={onChange} /> */}
                     <CustomTabs

@@ -5,6 +5,7 @@ export const BillContext = createContext({});
 
 const BillProvider = ({ children }) => {
     const [idBill, setIdBill] = useState(0);
+    const [idTab, setIdTab] = useState(1);
     const [isToasting, setIsToasting] = useState(false);
     const [toastMessage, setToastMessage] = useState("");
 
@@ -13,6 +14,8 @@ const BillProvider = ({ children }) => {
             value={{
                 idBill,
                 setIdBill,
+                idTab,
+                setIdTab,
                 isToasting,
                 setIsToasting,
                 toastMessage,

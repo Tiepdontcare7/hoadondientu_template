@@ -26,7 +26,7 @@ const BillOfSale = () => {
                             <aside className=" w-1/2 py-3">
                                 <div>
                                     <label className="w-[25%]  px-2">MST người mua</label>
-                                    <input id="nmmst" data-__meta="[object Object]" data-__field="[object Object]" className="w-[70%] border-b ml-5 " type="text" value=""></input>
+                                    <input id="nmmst" data-__meta="[object Object]" data-__field="[object Object]" className="w-[70%] border-b ml-5 " type="text"></input>
                                 </div>
                                 <div className="my-3">
                                     <label className="w-[25%]  px-2">Trạng thái hóa đơn  (*)</label>
@@ -160,7 +160,7 @@ const BillOfSale = () => {
                                 <div>
                                     <label className="w-[25%]  px-2">Ký hiệu mẫu số hóa đơn</label>
                                     <Select
-                                        defaultValue=""
+                                        // defaultValue=""
                                         style={{ width: 440 }}
                                         onChange={handleChange}
                                         options={[
