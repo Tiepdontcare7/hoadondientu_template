@@ -37,7 +37,7 @@ const BillTable = () => {
 
     const CustomTabs = ({ items, activeKey, onChange }) => {
         return (
-            <>
+            // <>
                 <div>
                     <div>
                         <div>
@@ -47,11 +47,10 @@ const BillTable = () => {
                                         {items?.map((item) => (
                                             <div
                                                 key={item.key}
-                                                className={`custom-tab ${
-                                                    activeKey === item.key
+                                                className={`custom-tab ${activeKey === item.key
                                                         ? "active"
                                                         : ""
-                                                } border py-2 px-2 mt-4 mb-4 cursor-pointer`}
+                                                    } border py-2 px-2 mt-4 mb-4 cursor-pointer`}
                                                 onClick={() =>
                                                     onChange(item.key)
                                                 }
@@ -67,7 +66,7 @@ const BillTable = () => {
                         </div>
                     </div>
                 </div>
-            </>
+            // </>
         );
     };
 
@@ -107,11 +106,10 @@ const BillTable = () => {
                                 <span
                                     onClick={viewBill}
                                     title="Xem hoa đơn"
-                                    className={`${
-                                        idBill
+                                    className={`${idBill
                                             ? "cursor-pointer hover:bg-slate-500 hover:text-white"
                                             : "cursor-not-allowed select-none"
-                                    } border p-[8px] border-[#000] rounded `}
+                                        } border p-[8px] border-[#000] rounded `}
                                 >
                                     {/* <GrView /> */}
                                     <button
@@ -214,16 +212,14 @@ const BillTable = () => {
                     </div>
                     {/* List icon */}
                 </div>
-                
+
                 <div className="ant-col ant-col-24">
-                    {/* <Tabs id={null} className='ant-tabs ant-tabs-top Tabs-sc-1nufobv-0 iMcRvz ant-tabs-line' defaultActiveKey="1" items={items} onChange={onChange} /> */}
                     <CustomTabs
                         items={items}
                         activeKey={activeKey}
                         onChange={onChange}
                     />
-                    {activeKey === "1" && <BillElectronic data={invoices} />}
-                    {activeKey === "2" && <BillElectronic data={invoices} />}
+                    {activeKey === "1" ? <BillElectronic data={invoices} /> : <BillElectronic data={invoices} />}
                 </div>
             </div>
             <div></div>

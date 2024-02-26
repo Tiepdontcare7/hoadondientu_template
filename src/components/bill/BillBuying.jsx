@@ -12,6 +12,7 @@ const BillBuying = () => {
     return (
         <div>
             <div>Danh sách hóa đơn điện tử mua vào</div>
+
             <div>
                 <section className="flex gap-4 mx-10 pt-3  justify-between">
                     <aside className=" w-1/2 py-3">
@@ -192,6 +193,9 @@ const BillBuying = () => {
                         </div>
                     </main>
                 </section>
+
+                <div></div>
+                
                 <div>
                     <div className="flex gap-5 justify-center">
                         <button className="bg-[#915715] text-white px-3 py-1 rounded-[5px]">

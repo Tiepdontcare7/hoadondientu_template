@@ -64,8 +64,6 @@ const CheckBill = () => {
           <div>
             <div>
               <div>
-                {/* <Tabs id={null} defaultActiveKey="1" items={items} onChange={onChange} /> */}
-
                 <CustomTabs items={items} activeKey={activeKey} onChange={onChange} />
 
                 <div></div>
