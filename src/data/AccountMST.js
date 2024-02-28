@@ -1,38 +1,38 @@
 export const Account = [
     {
         "username": "EritreaAdeline",
-        "password": "12345"
+        "password": "06042001@Adua."
     },
     {
         "username": "IranLily",
-        "password": "12345"
+        "password": "06042001@Adua."
     },
     {
         "username": "EthiopiaDennis",
-        "password": "12345"
+        "password": "06042001@Adua."
     },
     {
         "username": "CuraçaoNell",
-        "password": "12345"
+        "password": "06042001@Adua."
     },
     {
         "username": "MicronesiaCaroline",
-        "password": "12345"
+        "password": "06042001@Adua."
     },
     {
         "username": "IsleofManLydia",
-        "password": "12345"
+        "password": "06042001@Adua."
     },
     {
         "username": "MongoliaHoward",
-        "password": "12345"
+        "password": "06042001@Adua."
     },
     {
         "username": "LiechtensteinTeresa",
-        "password": "12345"
+        "password": "06042001@Adua."
     },
     {
         "username": "LaosMable",
-        "password": "12345"
+        "password": "06042001@Adua."
     }
 ]
