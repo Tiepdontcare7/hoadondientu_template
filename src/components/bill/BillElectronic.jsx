@@ -169,7 +169,6 @@ const BillElectronic = (props) => {
                 </table>
             </div> */}
 
-
             <div></div>
             <div>
                 {/* <div></div>
@@ -178,7 +177,6 @@ const BillElectronic = (props) => {
                 <div></div>
                 <div></div>
                 <div></div> */}
-
 
                 <div>
                     <div></div>
@@ -190,7 +188,7 @@ const BillElectronic = (props) => {
                                     <div className="ant-table-content">
                                         <div className="ant-table-scroll">
                                             <div
-                                                className="ant-table-header ant-table-hide-scrollbar"
+                                                className="ant-table-header ant-table-hide-scrollbar mb-2"
                                                 style={{
                                                     marginBottom: "-17px",
                                                     paddingBottom: 0,
@@ -305,7 +303,8 @@ const BillElectronic = (props) => {
                                                             <th
                                                                 className="ant-table-align-center ant-table-row-cell-break-word"
                                                                 style={{
-                                                                    textAlign: "center",
+                                                                    textAlign:
+                                                                        "center",
                                                                 }}
                                                             >
                                                                 <span className="ant-table-header-column">
@@ -320,16 +319,19 @@ const BillElectronic = (props) => {
                                                             <th
                                                                 className="ant-table-align-center ant-table-row-cell-break-word"
                                                                 style={{
-                                                                    textAlign: "center",
+                                                                    textAlign:
+                                                                        "center",
                                                                 }}
                                                             >
                                                                 <span className="ant-table-header-column">
                                                                     <div>
                                                                         <span className="ant-table-column-title">
                                                                             <span>
-                                                                                Ký hiệu
+                                                                                Ký
+                                                                                hiệu
                                                                                 <br />
-                                                                                mẫu số
+                                                                                mẫu
+                                                                                số
                                                                             </span>
                                                                         </span>
                                                                         <span className="ant-table-column-sorter" />
@@ -339,16 +341,19 @@ const BillElectronic = (props) => {
                                                             <th
                                                                 className="ant-table-align-center ant-table-row-cell-break-word"
                                                                 style={{
-                                                                    textAlign: "center",
+                                                                    textAlign:
+                                                                        "center",
                                                                 }}
                                                             >
                                                                 <span className="ant-table-header-column">
                                                                     <div>
                                                                         <span className="ant-table-column-title">
                                                                             <span>
-                                                                                Ký hiệu
+                                                                                Ký
+                                                                                hiệu
                                                                                 <br />
-                                                                                hóa đơn
+                                                                                hóa
+                                                                                đơn
                                                                             </span>
                                                                         </span>
                                                                         <span className="ant-table-column-sorter" />
@@ -358,13 +363,16 @@ const BillElectronic = (props) => {
                                                             <th
                                                                 className="ant-table-align-center ant-table-row-cell-break-word"
                                                                 style={{
-                                                                    textAlign: "center",
+                                                                    textAlign:
+                                                                        "center",
                                                                 }}
                                                             >
                                                                 <span className="ant-table-header-column">
                                                                     <div>
                                                                         <span className="ant-table-column-title">
-                                                                            Số hóa đơn
+                                                                            Số
+                                                                            hóa
+                                                                            đơn
                                                                         </span>
                                                                         <span className="ant-table-column-sorter" />
                                                                     </div>
@@ -373,13 +381,15 @@ const BillElectronic = (props) => {
                                                             <th
                                                                 className="ant-table-align-center ant-table-row-cell-break-word"
                                                                 style={{
-                                                                    textAlign: "center",
+                                                                    textAlign:
+                                                                        "center",
                                                                 }}
                                                             >
                                                                 <span className="ant-table-header-column">
                                                                     <div>
                                                                         <span className="ant-table-column-title">
-                                                                            Ngày lập
+                                                                            Ngày
+                                                                            lập
                                                                         </span>
                                                                         <span className="ant-table-column-sorter" />
                                                                     </div>
@@ -388,14 +398,18 @@ const BillElectronic = (props) => {
                                                             <th
                                                                 className="ant-table-align-center ant-table-row-cell-break-word"
                                                                 style={{
-                                                                    textAlign: "center",
+                                                                    textAlign:
+                                                                        "center",
                                                                 }}
                                                             >
                                                                 <span className="ant-table-header-column">
                                                                     <div>
                                                                         <span className="ant-table-column-title">
                                                                             <span>
-                                                                                Thông tin hóa đơn
+                                                                                Thông
+                                                                                tin
+                                                                                hóa
+                                                                                đơn
                                                                             </span>
                                                                         </span>
                                                                         <span className="ant-table-column-sorter" />
@@ -405,16 +419,19 @@ const BillElectronic = (props) => {
                                                             <th
                                                                 className="ant-table-align-center ant-table-row-cell-break-word"
                                                                 style={{
-                                                                    textAlign: "center",
+                                                                    textAlign:
+                                                                        "center",
                                                                 }}
                                                             >
                                                                 <span className="ant-table-header-column">
                                                                     <div>
                                                                         <span className="ant-table-column-title">
                                                                             <span>
-                                                                                Tổng tiền
+                                                                                Tổng
+                                                                                tiền
                                                                                 <br />
-                                                                                chưa thuế
+                                                                                chưa
+                                                                                thuế
                                                                             </span>
                                                                         </span>
                                                                         <span className="ant-table-column-sorter" />
@@ -424,13 +441,16 @@ const BillElectronic = (props) => {
                                                             <th
                                                                 className="ant-table-align-center ant-table-row-cell-break-word"
                                                                 style={{
-                                                                    textAlign: "center",
+                                                                    textAlign:
+                                                                        "center",
                                                                 }}
                                                             >
                                                                 <span className="ant-table-header-column">
                                                                     <div>
                                                                         <span className="ant-table-column-title">
-                                                                            Tổng tiền thuế
+                                                                            Tổng
+                                                                            tiền
+                                                                            thuế
                                                                         </span>
                                                                         <span className="ant-table-column-sorter" />
                                                                     </div>
@@ -439,18 +459,22 @@ const BillElectronic = (props) => {
                                                             <th
                                                                 className="ant-table-align-center ant-table-row-cell-break-word"
                                                                 style={{
-                                                                    textAlign: "center",
+                                                                    textAlign:
+                                                                        "center",
                                                                 }}
                                                             >
                                                                 <span className="ant-table-header-column">
                                                                     <div>
                                                                         <span className="ant-table-column-title">
                                                                             <span>
-                                                                                Tổng tiền
+                                                                                Tổng
+                                                                                tiền
                                                                                 <br />
-                                                                                chiết khấu
+                                                                                chiết
+                                                                                khấu
                                                                                 <br />
-                                                                                thương mại
+                                                                                thương
+                                                                                mại
                                                                             </span>
                                                                         </span>
                                                                         <span className="ant-table-column-sorter" />
@@ -460,14 +484,17 @@ const BillElectronic = (props) => {
                                                             <th
                                                                 className="ant-table-align-center ant-table-row-cell-break-word"
                                                                 style={{
-                                                                    textAlign: "center",
+                                                                    textAlign:
+                                                                        "center",
                                                                 }}
                                                             >
                                                                 <span className="ant-table-header-column">
                                                                     <div>
                                                                         <span className="ant-table-column-title">
                                                                             <span>
-                                                                                Tổng tiền phí
+                                                                                Tổng
+                                                                                tiền
+                                                                                phí
                                                                             </span>
                                                                         </span>
                                                                         <span className="ant-table-column-sorter" />
@@ -477,16 +504,19 @@ const BillElectronic = (props) => {
                                                             <th
                                                                 className="ant-table-align-center ant-table-row-cell-break-word"
                                                                 style={{
-                                                                    textAlign: "center",
+                                                                    textAlign:
+                                                                        "center",
                                                                 }}
                                                             >
                                                                 <span className="ant-table-header-column">
                                                                     <div>
                                                                         <span className="ant-table-column-title">
                                                                             <span>
-                                                                                Tổng tiền
+                                                                                Tổng
+                                                                                tiền
                                                                                 <br />
-                                                                                thanh toán
+                                                                                thanh
+                                                                                toán
                                                                             </span>
                                                                         </span>
                                                                         <span className="ant-table-column-sorter" />
@@ -496,16 +526,19 @@ const BillElectronic = (props) => {
                                                             <th
                                                                 className="ant-table-align-center ant-table-row-cell-break-word"
                                                                 style={{
-                                                                    textAlign: "center",
+                                                                    textAlign:
+                                                                        "center",
                                                                 }}
                                                             >
                                                                 <span className="ant-table-header-column">
                                                                     <div>
                                                                         <span className="ant-table-column-title">
                                                                             <span>
-                                                                                Đơn vị
+                                                                                Đơn
+                                                                                vị
                                                                                 <br />
-                                                                                tiền tệ
+                                                                                tiền
+                                                                                tệ
                                                                             </span>
                                                                         </span>
                                                                         <span className="ant-table-column-sorter" />
@@ -515,16 +548,19 @@ const BillElectronic = (props) => {
                                                             <th
                                                                 className="ant-table-align-center ant-table-row-cell-break-word"
                                                                 style={{
-                                                                    textAlign: "center",
+                                                                    textAlign:
+                                                                        "center",
                                                                 }}
                                                             >
                                                                 <span className="ant-table-header-column">
                                                                     <div>
                                                                         <span className="ant-table-column-title">
                                                                             <span>
-                                                                                Trạng thái
+                                                                                Trạng
+                                                                                thái
                                                                                 <br />
-                                                                                hóa đơn
+                                                                                hóa
+                                                                                đơn
                                                                             </span>
                                                                         </span>
                                                                         <span className="ant-table-column-sorter" />
@@ -534,16 +570,21 @@ const BillElectronic = (props) => {
                                                             <th
                                                                 className="ant-table-align-center ant-table-row-cell-break-word"
                                                                 style={{
-                                                                    textAlign: "center",
+                                                                    textAlign:
+                                                                        "center",
                                                                 }}
                                                             >
                                                                 <span className="ant-table-header-column">
                                                                     <div>
                                                                         <span className="ant-table-column-title">
                                                                             <span>
-                                                                                Kết quả
+                                                                                Kết
+                                                                                quả
                                                                                 <br />
-                                                                                kiểm tra hóa đơn
+                                                                                kiểm
+                                                                                tra
+                                                                                hóa
+                                                                                đơn
                                                                             </span>
                                                                         </span>
                                                                         <span className="ant-table-column-sorter" />
@@ -553,13 +594,17 @@ const BillElectronic = (props) => {
                                                             <th
                                                                 className="ant-table-align-center ant-table-row-cell-break-word"
                                                                 style={{
-                                                                    textAlign: "center",
+                                                                    textAlign:
+                                                                        "center",
                                                                 }}
                                                             >
                                                                 <span className="ant-table-header-column">
                                                                     <div>
                                                                         <span className="ant-table-column-title">
-                                                                            Hóa đơn liên quan
+                                                                            Hóa
+                                                                            đơn
+                                                                            liên
+                                                                            quan
                                                                         </span>
                                                                         <span className="ant-table-column-sorter" />
                                                                     </div>
@@ -568,13 +613,17 @@ const BillElectronic = (props) => {
                                                             <th
                                                                 className="ant-table-align-center ant-table-row-cell-break-word ant-table-row-cell-last"
                                                                 style={{
-                                                                    textAlign: "center",
+                                                                    textAlign:
+                                                                        "center",
                                                                 }}
                                                             >
                                                                 <span className="ant-table-header-column">
                                                                     <div>
                                                                         <span className="ant-table-column-title">
-                                                                            Thông tin liên quan
+                                                                            Thông
+                                                                            tin
+                                                                            liên
+                                                                            quan
                                                                         </span>
                                                                         <span className="ant-table-column-sorter" />
                                                                     </div>
@@ -696,99 +745,154 @@ const BillElectronic = (props) => {
                                                         />
                                                     </colgroup>
                                                     <tbody className="ant-table-tbody">
-
                                                         {
                                                             // eslint-disable-next-line react/prop-types
                                                             props.data
-                                                                // eslint-disable-next-line react/prop-types
-                                                                ? props.data?.map((item, index) => {
-                                                                    // console.log(item)
-                                                                    return (
-                                                                        <tr
-                                                                            key={index}
-                                                                            className={`cursor-pointer py-3 ${index === selectedRow
-                                                                                ? "bg-neutral-200"
-                                                                                : ""
-                                                                                }`}
-                                                                            onClick={() =>
-                                                                                handleRowClick(index)
-                                                                            }
-                                                                        >
-                                                                            <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
-                                                                                <span>{index + 1}</span>
-                                                                            </td>
-                                                                            <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
-                                                                                {item.Ký_hiệu}
-                                                                            </td>
-                                                                            <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
-                                                                                <span>{item.Số}</span>
-                                                                            </td>
-                                                                            <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
-                                                                                {item.Mã_số_thuế_buyer}
-                                                                            </td>
-                                                                            <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
-                                                                                <span>{item.Ngày_thành_lập}</span>
-                                                                            </td>
-                                                                            <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
-                                                                                <span>{item.Tên_người_bán}</span>
-                                                                            </td>
-                                                                            <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
-                                                                                <span>
-                                                                                    {
-                                                                                        item.tables[0].rows[0]
-                                                                                            .Đơn_giá
-                                                                                    }
-                                                                                </span>
-                                                                            </td>
-                                                                            <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
-                                                                                <span>
-                                                                                    {
-                                                                                        item.tables[0].rows[0]
-                                                                                            .Đơn_giá
-                                                                                    }
-                                                                                </span>
-                                                                            </td>
-                                                                            <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
-                                                                                <span>
-                                                                                    {
-                                                                                        item.tables[0].rows[0]
-                                                                                            .Thành_tiền_chưa_có_thuế_GTGT
-                                                                                    }
-                                                                                </span>
-                                                                            </td>
-                                                                            <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
-                                                                                <span>
-                                                                                    {
-                                                                                        formatCurrency(Math.floor(Math.random() * 10000))
-                                                                                    }
-                                                                                </span>
-                                                                            </td>
-                                                                            <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
-                                                                                <span>
-                                                                                    {
-                                                                                        item.tables[0].rows[0]
-                                                                                            .Đơn_giá
-                                                                                    }
-                                                                                </span>
-                                                                            </td>
-                                                                            <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
-                                                                                VND
-                                                                            </td>
-                                                                            <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
-                                                                                <span>{item.Trạng_thái}</span>
-                                                                            </td>
-                                                                            <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
-                                                                                <span>{item.Hình_thức_thanh_toán}</span>
-                                                                            </td>
-                                                                            <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
-                                                                                Xem danh sách hóa đơn
-                                                                            </td>
-                                                                            <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
-                                                                                Thông tin liên quan
-                                                                            </td>
-                                                                        </tr>
-                                                                    );
-                                                                })
+                                                                ? // eslint-disable-next-line react/prop-types
+                                                                  props.data?.map(
+                                                                      (
+                                                                          item,
+                                                                          index
+                                                                      ) => {
+                                                                          // console.log(item)
+                                                                          return (
+                                                                              <tr
+                                                                                  key={
+                                                                                      index
+                                                                                  }
+                                                                                  className={`cursor-pointer py-3 ${
+                                                                                      index ===
+                                                                                      selectedRow
+                                                                                          ? "bg-neutral-200"
+                                                                                          : ""
+                                                                                  }`}
+                                                                                  onClick={() =>
+                                                                                      handleRowClick(
+                                                                                          index
+                                                                                      )
+                                                                                  }
+                                                                              >
+                                                                                  <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
+                                                                                      <span>
+                                                                                          {index +
+                                                                                              1}
+                                                                                      </span>
+                                                                                  </td>
+                                                                                  <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
+                                                                                      {
+                                                                                          item.Ký_hiệu
+                                                                                      }
+                                                                                  </td>
+                                                                                  <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
+                                                                                      <span>
+                                                                                          {
+                                                                                              item.Số
+                                                                                          }
+                                                                                      </span>
+                                                                                  </td>
+                                                                                  <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
+                                                                                      {
+                                                                                          item.Mã_số_thuế_buyer
+                                                                                      }
+                                                                                  </td>
+                                                                                  <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
+                                                                                      <span>
+                                                                                          {
+                                                                                              item.Ngày_thành_lập
+                                                                                          }
+                                                                                      </span>
+                                                                                  </td>
+                                                                                  <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
+                                                                                      <span>
+                                                                                          {
+                                                                                              item.Tên_người_bán
+                                                                                          }
+                                                                                      </span>
+                                                                                  </td>
+                                                                                  <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
+                                                                                      <span>
+                                                                                          {
+                                                                                              item
+                                                                                                  .tables[0]
+                                                                                                  .rows[0]
+                                                                                                  .Đơn_giá
+                                                                                          }
+                                                                                      </span>
+                                                                                  </td>
+                                                                                  <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
+                                                                                      <span>
+                                                                                          {
+                                                                                              item
+                                                                                                  .tables[0]
+                                                                                                  .rows[0]
+                                                                                                  .Đơn_giá
+                                                                                          }
+                                                                                      </span>
+                                                                                  </td>
+                                                                                  <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
+                                                                                      <span>
+                                                                                          {
+                                                                                              item
+                                                                                                  .tables[0]
+                                                                                                  .rows[0]
+                                                                                                  .Thành_tiền_chưa_có_thuế_GTGT
+                                                                                          }
+                                                                                      </span>
+                                                                                  </td>
+                                                                                  <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
+                                                                                      <span>
+                                                                                          {formatCurrency(
+                                                                                              Math.floor(
+                                                                                                  Math.random() *
+                                                                                                      10000
+                                                                                              )
+                                                                                          )}
+                                                                                      </span>
+                                                                                  </td>
+                                                                                  <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
+                                                                                      <span>
+                                                                                          {
+                                                                                              item
+                                                                                                  .tables[0]
+                                                                                                  .rows[0]
+                                                                                                  .Đơn_giá
+                                                                                          }
+                                                                                      </span>
+                                                                                  </td>
+                                                                                  <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
+                                                                                      VND
+                                                                                  </td>
+                                                                                  <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
+                                                                                      <span>
+                                                                                          {
+                                                                                              item.Trạng_thái
+                                                                                          }
+                                                                                      </span>
+                                                                                  </td>
+                                                                                  <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
+                                                                                      <span>
+                                                                                          {
+                                                                                              item.Hình_thức_thanh_toán
+                                                                                          }
+                                                                                      </span>
+                                                                                  </td>
+                                                                                  <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
+                                                                                      Xem
+                                                                                      danh
+                                                                                      sách
+                                                                                      hóa
+                                                                                      đơn
+                                                                                  </td>
+                                                                                  <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
+                                                                                      Thông
+                                                                                      tin
+                                                                                      liên
+                                                                                      quan
+                                                                                  </td>
+                                                                              </tr>
+                                                                          );
+                                                                      }
+                                                                  )
                                                                 : undefined
                                                         }
                                                     </tbody>

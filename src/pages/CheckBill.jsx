@@ -4,94 +4,82 @@ import BillBuying from "../components/bill/BillBuying";
 import BillOfSale from "../components/bill/BillOfSale";
 
 const items = [
-    {
-        key: "1",
-        label: "Tra cứu hóa đơn điện tử bán ra",
-        children: <BillOfSale />,
-    },
-    {
-        key: "2",
-        label: "Tra cứu hóa đơn điện tử mua vào",
-        children: <BillBuying />,
-    },
+  {
+    key: "1",
+    label: "Tra cứu hóa đơn điện tử bán ra",
+    children: <BillOfSale />,
+  },
+  {
+    key: "2",
+    label: "Tra cứu hóa đơn điện tử mua vào",
+    children: <BillBuying />,
+  },
 ];
 
 const CheckBill = () => {
-    const [activeKey, setActiveKey] = useState("1");
+  const [activeKey, setActiveKey] = useState("1");
 
-    const CustomTabs = ({ items, activeKey, onChange }) => {
-        return (
-            <>
-                <div>
-                    <div>
-                        <div>
-                            <div>
-                                <div>
-                                    <div className="custom-tabs flex">
-                                        {/* <div className="custom-tabs flex"> */}
-                                        {items?.map((item) => (
-                                            <div
-                                                key={item.key}
-                                                className={`custom-tab ${
-                                                    activeKey === item.key
-                                                        ? "active"
-                                                        : ""
-                                                } border py-2 px-2 mt-4 mb-4 cursor-pointer`}
-                                                onClick={() =>
-                                                    onChange(item.key)
-                                                }
-                                            >
-                                                <span>{item.label}</span>
-                                            </div>
-                                        ))}
-                                        {/* </div> */}
-                                    </div>
-
-                                    <div></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </>
-        );
-    };
-
-    const onChange = (key) => {
-        console.log(key);
-        setActiveKey(key);
-    };
-
+  const CustomTabs = ({ items, activeKey, onChange }) => {
     return (
-        <>
-            <main>
+      <>
+        <div>
+          <div>
+            <div>
+              <div>
                 <div>
-                    <div>
-                        <div>
-                            <div>
-                                {/* <Tabs id={null} defaultActiveKey="1" items={items} onChange={onChange} /> */}
+                  <div className="custom-tabs flex">
+                    {/* <div className="custom-tabs flex"> */}
+                    {items?.map((item) => (
+                      <div
+                        key={item.key}
+                        className={`custom-tab ${
+                          activeKey === item.key ? "active" : ""
+                        } border py-2 px-2 mt-4 mb-4 cursor-pointer`}
+                        onClick={() => onChange(item.key)}
+                      >
+                        <span>{item.label}</span>
+                      </div>
+                    ))}
+                    {/* </div> */}
+                  </div>
 
-                                <CustomTabs
-                                    items={items}
-                                    activeKey={activeKey}
-                                    onChange={onChange}
-                                />
-
-                                <div></div>
-
-                                {activeKey === "1" ? (
-                                    <BillOfSale />
-                                ) : (
-                                    <BillBuying />
-                                )}
-                                {/* {activeKey === "2" && } */}
-                            </div>
-                        </div>
-                    </div>
+                  <div></div>
                 </div>
-            </main>
+              </div>
+            </div>
+          </div>
+        </div>
+      </>
+    );
+  };
 
-            {/* <main className="styles__ContentWrapper-sc-1mp373d-1 hPlCCR ant-layout-content">
+  const onChange = (key) => {
+    console.log(key);
+    setActiveKey(key);
+  };
+
+  return (
+    <>
+      <main>
+        <div>
+          <div>
+            <div>
+              <div>
+                {/* <Tabs id={null} defaultActiveKey="1" items={items} onChange={onChange} /> */}
+
+                <CustomTabs items={items} activeKey={activeKey} onChange={onChange} />
+
+                <div></div>
+
+                {activeKey === "1" ? <BillOfSale /> : <BillBuying />}
+                {/* {activeKey === "2" && } */}
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      {/* <main className="styles__ContentWrapper-sc-1mp373d-1 hPlCCR ant-layout-content">
         <div className="styles__PageWrapper-sc-eevgvg-1 bKhKhj">
           <div className="ant-row-flex ant-row-flex-center">
             <div className="ant-col ld-tabs ant-col-xs-24 ant-col-sm-24 ant-col-md-24 ant-col-lg-22">
@@ -2496,8 +2484,8 @@ const CheckBill = () => {
           </div>
         </div>
       </main> */}
-        </>
-    );
+    </>
+  );
 };
 
 export default CheckBill;

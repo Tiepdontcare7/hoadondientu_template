@@ -1,18 +1,17 @@
 /* eslint-disable react/prop-types */
 import BillElectronic from "./BillElectronic";
-import generateMultipleRandomInvoices from "../../utils/bill";
 import { BsPrinter } from "react-icons/bs";
 import { FaFileInvoice } from "react-icons/fa";
 import { CiExport } from "react-icons/ci";
-import { useContext, useEffect, useMemo, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Pagination } from "antd";
 import { BillContext } from "../../context/BillContext";
 import { Modal } from "antd";
 
-const BillTable = () => {
+const BillTable = ({ invoices }) => {
     const { idBill, setIdBill } = useContext(BillContext);
     const [dataBill, setDataBill] = useState(null);
-    const invoices = useMemo(() => generateMultipleRandomInvoices(10), []);
+    // const invoices = useMemo(() => generateMultipleRandomInvoices(10), []);
     const [current, setCurrent] = useState(1);
     const [open, setOpen] = useState(false);
     const [activeKey, setActiveKey] = useState("1");
@@ -76,14 +75,14 @@ const BillTable = () => {
     };
 
     const viewBill = () => {
-        if (idBill) {
+        if (idBill >= 0) {
             setDataBill(invoices[idBill]);
             setOpen(true);
         }
     };
 
     useEffect(() => {
-        return () => setIdBill(0);
+        return () => setIdBill(-1);
     }, [setIdBill]);
 
     return (

@@ -1,13 +1,16 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { Modal } from "antd";
 import { IoReload } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
 import { Form, Input } from "antd";
 import { BillContext } from "../context/BillContext";
+import { generateCaptcha } from "../utils/generateCaptcha";
+import { Account } from "../data/AccountMST";
 
 const Header = () => {
     const [isModalOpen, setIsModalOpen] = useState([false, false]);
-    const [captchaText, setCaptchaText] = useState("");
+    // const [captchaText, setCaptchaText] = useState("");
+    const [captcha, setCaptcha] = useState(generateCaptcha);
     const [userInput, setUserInput] = useState("");
     const next = useNavigate();
 
@@ -36,31 +39,43 @@ const Header = () => {
     };
 
     // Hàm tạo mã captcha ngẫu nhiên
-    const generateCaptcha = () => {
-        const characters =
-            "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-        let captcha = "";
-        for (let i = 0; i < 6; i++) {
-            captcha += characters.charAt(
-                Math.floor(Math.random() * characters.length)
-            );
-        }
-        setCaptchaText(captcha);
+    // const generateCaptcha = () => {
+    //   const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    //   let captcha = "";
+    //   for (let i = 0; i < 6; i++) {
+    //     captcha += characters.charAt(Math.floor(Math.random() * characters.length));
+    //   }
+    //   setCaptchaText(captcha);
+    // };
+
+    // useEffect(() => {
+    //   generateCaptcha();
+    // }, []);
+
+    // Hàm random img captcha
+    const resetCaptcha = () => {
+        setCaptcha(generateCaptcha);
     };
 
-    useEffect(() => {
-        generateCaptcha();
-    }, []);
-
     const onFinish = (values) => {
-        console.log("Success:", values);
 
-        if (userInput.toUpperCase() === captchaText.toUpperCase()) {
+        if (userInput.toUpperCase() === captcha.text.toUpperCase()) {
+            let isValidAccount = false;
+
+            // Duyệt qua danh sách các tài khoản
+            Account.forEach((account) => {
+                if (values.username === account.username && values.password === account.password) {
+                    // Nếu tìm thấy tài khoản khớp, đánh dấu là hợp lệ
+                    isValidAccount = true;
+                }
+            });
+
             // Xử lý khi captcha hợp lệ
-            if (values.username === "123456" && values.password === "123456") {
-                // Xử lý nếu nhập đúng username và password (fix cứng username và password là 123456)
+            if (isValidAccount) {
                 next("/home");
                 toggleModal(0, false);
+                // setIsToasting(true);
+                // setToastMessage("Đăng nhập thành công!");
             } else {
                 // Xử lý khi nhập sai username hoặc password
                 setIsToasting(true);
@@ -70,7 +85,7 @@ const Header = () => {
             // Toast error message
             setIsToasting(true);
             setToastMessage("Mã captcha không đúng.");
-            generateCaptcha(); // Tạo lại captcha mới
+            resetCaptcha(); // Tạo lại captcha mới
         }
         setUserInput("");
     };
@@ -80,7 +95,7 @@ const Header = () => {
             {/* <!-- Navigation--> */}
             <header
                 className="bg-[url('https://hoadondientu.gdt.gov.vn/static/images/bg_hd.png')] navbar navbar-expand-lg navbar-light bg-white z-10 fixed-top py-3 shadow-sm"
-                // id="mainNav"
+            // id="mainNav"
             >
                 <div className="container px-4 px-lg-5">
                     <a href="/">
@@ -97,7 +112,7 @@ const Header = () => {
                     >
                         <span className="navbar-toggler-icon"></span>
                     </button>
-                    <div className="navbar-nav ms-auto my-2 my-lg-0">
+                    <div className="my-2 navbar-nav ms-auto my-lg-0">
                         <div className="nav-item">
                             <a
                                 className="nav-link text-[20px] text-black"
@@ -162,8 +177,7 @@ const Header = () => {
                 footer=""
                 styles={modalStyles}
             >
-
-                {/* <div className="mx-auto max-w-screen-xl px-4 py-3 sm:px-6 lg:px-8"> */}
+                {/* <div className="max-w-screen-xl px-4 py-3 mx-auto sm:px-6 lg:px-8"> */}
                 <Form onFinish={onFinish} autoComplete="off">
                     <div className="grid grid-cols-2 gap-4">
                         <div>
@@ -211,22 +225,24 @@ const Header = () => {
                                 </div>
 
                                 <div className="Captcha__ImageWrapper-sc-1up1k1e-0 hkCCjI">
-
                                     <div>
                                         <span>
                                             <div>
                                                 <img
                                                     className="filter grayscale Captcha__Image-sc-1up1k1e-1 cmYBSe"
-                                                    src={`https://dummyimage.com/200x38/444/fff&text=${captchaText}`}
+                                                    // src={`https://dummyimage.com/200x38/444/fff&text=${captchaText}`}
+                                                    src={captcha.src}
                                                     alt="captcha"
                                                 />
                                             </div>
                                         </span>
                                     </div>
 
-                                    <button type="button"
+                                    <button
+                                        type="button"
                                         className="cursor-pointer text-[20px] relative text-white bottom-8 left-[170px] inline-block ant-btn ButtonAnt__IconButton-sc-p5q16s-1 kgBiib ant-btn-icon-only"
-                                        onClick={generateCaptcha}
+                                        // onClick={generateCaptcha}
+                                        onClick={resetCaptcha}
                                     >
                                         <i className="anticon">
                                             <IoReload />
@@ -242,7 +258,7 @@ const Header = () => {
                                     Nhập mã captcha
                                 </label>
                             </div>
-                            
+
                             <div className="ant-col ant-col-24 ant-form-item-control-wrapper">
                                 <div className="ant-form-item-control">
                                     <span className="ant-form-item-children">
@@ -253,7 +269,7 @@ const Header = () => {
                                             onChange={(event) =>
                                                 setUserInput(event.target.value)
                                             }
-                                            className="w-full rounded-sm border-gray-200 p-2 pe-12 text-sm shadow-sm ant-input Input-sc-16b2ylx-0 ggIKll"
+                                            className="w-full p-2 text-sm border-gray-200 rounded-sm shadow-sm pe-12 ant-input Input-sc-16b2ylx-0 ggIKll"
                                         />
                                     </span>
                                 </div>
@@ -272,7 +288,6 @@ const Header = () => {
                                 Đăng nhập
                             </button>
                         </div>
-
                     </div>
                 </Form>
                 {/* </div> */}

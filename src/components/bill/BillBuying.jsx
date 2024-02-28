@@ -1,6 +1,7 @@
 import BillTable from "./BillTable";
 import { DatePicker, Select } from "antd";
 import dayjs from "dayjs";
+import { BuyingInvoices } from "../../data/data";
 
 const BillBuying = () => {
     const dateFormatList = ["DD/MM/YYYY", "DD/MM/YY", "DD-MM-YYYY", "DD-MM-YY"];
@@ -203,7 +204,7 @@ const BillBuying = () => {
                     </div>
                 </div>
 
-                <BillTable />
+                <BillTable invoices={BuyingInvoices} />
             </div>
         </div>
     );
