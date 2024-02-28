@@ -2,6 +2,7 @@ import dayjs from "dayjs";
 import { DatePicker } from "antd";
 import BillTable from "./BillTable";
 import { Select } from "antd";
+import { SaleInvoices } from "../../data/data";
 
 const BillOfSale = () => {
     const dateFormatList = ["DD/MM/YYYY", "DD/MM/YY", "DD-MM-YYYY", "DD-MM-YY"];
@@ -31,7 +32,6 @@ const BillOfSale = () => {
                                     data-__field="[object Object]"
                                     className="w-[70%] border-b ml-5 "
                                     type="text"
-                                    value=""
                                 ></input>
                             </div>
                             <div className="my-3">
@@ -337,7 +337,7 @@ const BillOfSale = () => {
                         </div>
                     </div>
 
-                    <BillTable />
+                    <BillTable invoices={SaleInvoices} />
                 </div>
                 <div></div>
             </div>
