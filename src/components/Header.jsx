@@ -224,7 +224,7 @@ const Header = () => {
                                         </span>
                                     </div>
 
-                                    <button
+                                    <button type="button"
                                         className="cursor-pointer text-[20px] relative text-white bottom-8 left-[170px] inline-block ant-btn ButtonAnt__IconButton-sc-p5q16s-1 kgBiib ant-btn-icon-only"
                                         onClick={generateCaptcha}
                                     >
@@ -242,6 +242,7 @@ const Header = () => {
                                     Nhập mã captcha
                                 </label>
                             </div>
+                            
                             <div className="ant-col ant-col-24 ant-form-item-control-wrapper">
                                 <div className="ant-form-item-control">
                                     <span className="ant-form-item-children">

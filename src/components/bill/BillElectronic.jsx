@@ -7,6 +7,7 @@ const BillElectronic = (props) => {
     const { setIdBill } = useContext(BillContext);
 
     const handleRowClick = (index) => {
+        console.log(index)
         setSelectedRow(index === selectedRow ? null : index);
         setIdBill(index);
     };
