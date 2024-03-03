@@ -13,7 +13,7 @@ const BillBuying = () => {
     };
 
     const handleFromDateChange = (value) => {
-        value && setToday(value.add(1, "day"));
+        value && setToday(value.add(1, "month"));
     };
 
     return (
