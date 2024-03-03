@@ -58,13 +58,15 @@ const Header = () => {
     };
 
     const onFinish = (values) => {
-
         if (userInput.toUpperCase() === captcha.text.toUpperCase()) {
             let isValidAccount = false;
 
             // Duyệt qua danh sách các tài khoản
             Account.forEach((account) => {
-                if (values.username === account.username && values.password === account.password) {
+                if (
+                    values.username === account.username &&
+                    values.password === account.password
+                ) {
                     // Nếu tìm thấy tài khoản khớp, đánh dấu là hợp lệ
                     isValidAccount = true;
                 }
@@ -95,7 +97,7 @@ const Header = () => {
             {/* <!-- Navigation--> */}
             <header
                 className="bg-[url('https://hoadondientu.gdt.gov.vn/static/images/bg_hd.png')] navbar navbar-expand-lg navbar-light bg-white z-10 fixed-top py-3 shadow-sm"
-            // id="mainNav"
+                // id="mainNav"
             >
                 <div className="container px-4 px-lg-5">
                     <a href="/">
@@ -155,7 +157,7 @@ const Header = () => {
                         </div>
                         <div
                             onClick={() => toggleModal(0, true)}
-                            className="nav-item text-[20px] text-black hover:cursor-pointer"
+                            className="nav-item text-[20px] text-black hover:cursor-pointer flex items-center ml-1"
                         >
                             {/* <a
                                 className="nav-link text-[20px] text-black"

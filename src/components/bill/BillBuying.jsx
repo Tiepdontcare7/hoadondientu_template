@@ -2,12 +2,18 @@ import BillTable from "./BillTable";
 import { DatePicker, Select } from "antd";
 import dayjs from "dayjs";
 import { BuyingInvoices } from "../../data/data";
+import { useState } from "react";
 
 const BillBuying = () => {
     const dateFormatList = ["DD/MM/YYYY", "DD/MM/YY", "DD-MM-YYYY", "DD-MM-YY"];
+    const [toDay, setToday] = useState(dayjs());
 
     const handleChange = (value) => {
         console.log(`selected ${value}`);
+    };
+
+    const handleFromDateChange = (value) => {
+        value && setToday(value.add(1, "day"));
     };
 
     return (
@@ -112,6 +118,9 @@ const BillBuying = () => {
                                                     }}
                                                     defaultValue={dayjs()}
                                                     format={dateFormatList}
+                                                    onChange={
+                                                        handleFromDateChange
+                                                    }
                                                 />
                                             </span>
                                         </div>
@@ -138,6 +147,7 @@ const BillBuying = () => {
                                                     }}
                                                     defaultValue={dayjs()}
                                                     format={dateFormatList}
+                                                    value={toDay}
                                                 />
                                             </span>
                                         </div>
