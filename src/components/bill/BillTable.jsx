@@ -263,8 +263,11 @@ const BillTable = ({ invoices }) => {
                                         <div className="ant-row-flex ant-row-flex-center day">
                                             <div className="ant-col ant-col-24">
                                                 <div className="ant-row-flex ant-row-flex-center flex justify-center">
-                                                    <div>01</div> /<div>02</div>{" "}
-                                                    /<div>2025</div>
+                                                    <div>
+                                                        {
+                                                            dataBill?.Ngày_thành_lập
+                                                        }
+                                                    </div>
                                                 </div>
 
                                                 <div className="ant-row-flex ant-row-flex-center">
