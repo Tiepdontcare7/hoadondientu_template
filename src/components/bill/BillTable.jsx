@@ -227,7 +227,6 @@ const BillTable = ({ invoices }) => {
             <div></div>
 
             {/* Modal */}
-
             <Modal
                 centered
                 open={open}
