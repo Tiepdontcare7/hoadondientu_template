@@ -3,15 +3,19 @@ import { DatePicker } from "antd";
 import BillTable from "./BillTable";
 import { Select } from "antd";
 import { SaleInvoices } from "../../data/data";
+import { useState } from "react";
 
 const BillOfSale = () => {
     const dateFormatList = ["DD/MM/YYYY", "DD/MM/YY", "DD-MM-YYYY", "DD-MM-YY"];
+    const [toDay, setToday] = useState(dayjs());
 
     const handleChange = (value) => {
         console.log(`selected ${value}`);
     };
 
-    // console.log(dataBill)
+    const handleFromDateChange = (value) => {
+        value && setToday(value.add(1, "month"));
+    };
 
     return (
         <>
@@ -192,6 +196,9 @@ const BillOfSale = () => {
                                                                             30,
                                                                             "days"
                                                                         )}
+                                                                        onChange={
+                                                                            handleFromDateChange
+                                                                        }
                                                                         format={
                                                                             dateFormatList
                                                                         }
@@ -249,6 +256,9 @@ const BillOfSale = () => {
                                                                             borderRadius:
                                                                                 "0", // Không có đường cong
                                                                         }}
+                                                                        value={
+                                                                            toDay
+                                                                        }
                                                                         defaultValue={dayjs()}
                                                                         format={
                                                                             dateFormatList
