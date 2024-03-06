@@ -1,8 +1,10 @@
 import { useContext, useState } from "react";
 import { BillContext } from "../../context/BillContext";
+import invoiceData from '../../data/copyx_1.json'; // Import dữ liệu từ file JSON
 
 const BillElectronic = (props) => {
     const [selectedRow, setSelectedRow] = useState(null);
+    console.log(invoiceData.invoices)
 
     const { setIdBill } = useContext(BillContext);
 
@@ -604,9 +606,9 @@ const BillElectronic = (props) => {
                                                     <tbody className="ant-table-tbody">
                                                         {
                                                             // eslint-disable-next-line react/prop-types
-                                                            props.data
+                                                            invoiceData.invoices
                                                                 ? // eslint-disable-next-line react/prop-types
-                                                                props.data?.map(
+                                                                invoiceData.invoices?.map(
                                                                     (
                                                                         item,
                                                                         index
@@ -636,52 +638,60 @@ const BillElectronic = (props) => {
                                                                                 </td>
                                                                                 <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
                                                                                     {
-                                                                                        item.Ký_hiệu
+                                                                                        item['Ki_hieu']
                                                                                     }
                                                                                 </td>
                                                                                 <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
                                                                                     <span>
                                                                                         {
-                                                                                            item.Số
+                                                                                            item['So']
+                                                                                        }
+                                                                                    </span>
+                                                                                </td>
+                                                                                <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
+                                                                                    <span>
+                                                                                        {
+                                                                                            item['Ki_hieu']
+                                                                                        }
+                                                                                    </span>
+                                                                                </td>
+                                                                                <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
+                                                                                    <span>
+                                                                                        {
+                                                                                            item['Ngày'] + '-'+ item['Tháng'] + '-' + item['Năm']
+                                                                                        }
+                                                                                    </span>
+                                                                                </td>
+                                                                                <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
+                                                                                    <span>
+                                                                                        {
+                                                                                            item['Địa chỉ:buyer']
                                                                                         }
                                                                                     </span>
                                                                                 </td>
                                                                                 <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
                                                                                     {
-                                                                                        item.Mã_số_thuế_buyer
+                                                                                        item?.tables_1[0].row[0]['Thành tiền chưa có thuế GTGT']
                                                                                     }
                                                                                 </td>
                                                                                 <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
                                                                                     <span>
                                                                                         {
-                                                                                            item.Ngày_thành_lập
+                                                                                           item?.tables_1[0].row[0]['Đơn giá']
                                                                                         }
                                                                                     </span>
                                                                                 </td>
                                                                                 <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
                                                                                     <span>
                                                                                         {
-                                                                                            item.Tên_người_bán
+                                                                                            item['Tên người mua']
                                                                                         }
                                                                                     </span>
                                                                                 </td>
                                                                                 <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
                                                                                     <span>
                                                                                         {
-                                                                                            item
-                                                                                                .tables[0]
-                                                                                                .rows[0]
-                                                                                                .Đơn_giá
-                                                                                        }
-                                                                                    </span>
-                                                                                </td>
-                                                                                <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
-                                                                                    <span>
-                                                                                        {
-                                                                                            item
-                                                                                                .tables[0]
-                                                                                                .rows[0]
-                                                                                                .Đơn_giá
+                                                                                            item['Địa chỉ']
                                                                                         }
                                                                                     </span>
                                                                                 </td>
@@ -689,9 +699,17 @@ const BillElectronic = (props) => {
                                                                                     <span>
                                                                                         {
                                                                                             item
-                                                                                                .tables[0]
-                                                                                                .rows[0]
-                                                                                                .Thành_tiền_chưa_có_thuế_GTGT
+                                                                                                .tables_1[0]
+                                                                                                .row[0]['Điện thoại']
+                                                                                        }
+                                                                                    </span>
+                                                                                </td>
+                                                                                <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
+                                                                                    <span>
+                                                                                        {
+                                                                                            item
+                                                                                                .tables_1[0]['Địa chỉ:buyer']
+                                
                                                                                         }
                                                                                     </span>
                                                                                 </td>
@@ -709,9 +727,8 @@ const BillElectronic = (props) => {
                                                                                     <span>
                                                                                         {
                                                                                             item
-                                                                                                .tables[0]
-                                                                                                .rows[0]
-                                                                                                .Đơn_giá
+                                                                                                .tables_1[0]
+                                                                                                .row[0]['Số tài khoản:buyer']
                                                                                         }
                                                                                     </span>
                                                                                 </td>
@@ -721,14 +738,14 @@ const BillElectronic = (props) => {
                                                                                 <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
                                                                                     <span>
                                                                                         {
-                                                                                            item.Trạng_thái
+                                                                                            item['Trạng thái']
                                                                                         }
                                                                                     </span>
                                                                                 </td>
                                                                                 <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
                                                                                     <span>
                                                                                         {
-                                                                                            item.Hình_thức_thanh_toán
+                                                                                            item['Hình thức thanh toán']
                                                                                         }
                                                                                     </span>
                                                                                 </td>
