@@ -1,15 +1,15 @@
 import { useContext, useState } from "react";
 import { BillContext } from "../../context/BillContext";
-import invoiceData from '../../data/copyx_1.json'; // Import dữ liệu từ file JSON
+import invoiceData from "../../data/copyx_1.json"; // Import dữ liệu từ file JSON
 
-const BillElectronic = (props) => {
+const BillElectronic = () => {
     const [selectedRow, setSelectedRow] = useState(null);
-    console.log(invoiceData.invoices)
+    console.log(invoiceData.invoices);
 
     const { setIdBill } = useContext(BillContext);
 
     const handleRowClick = (index) => {
-        console.log(index)
+        console.log(index);
         setSelectedRow(index === selectedRow ? null : index);
         setIdBill(index);
     };
@@ -27,7 +27,6 @@ const BillElectronic = (props) => {
 
     return (
         <>
-
             <div></div>
             <div>
                 {/* <div></div>
@@ -608,164 +607,202 @@ const BillElectronic = (props) => {
                                                             // eslint-disable-next-line react/prop-types
                                                             invoiceData.invoices
                                                                 ? // eslint-disable-next-line react/prop-types
-                                                                invoiceData.invoices?.map(
-                                                                    (
-                                                                        item,
-                                                                        index
-                                                                    ) => {
-                                                                        // console.log(item)
-                                                                        return (
-                                                                            <tr
-                                                                                key={
-                                                                                    index
-                                                                                }
-                                                                                className={`cursor-pointer py-3 ${index ===
-                                                                                        selectedRow
-                                                                                        ? "bg-neutral-200"
-                                                                                        : ""
-                                                                                    }`}
-                                                                                onClick={() =>
-                                                                                    handleRowClick(
-                                                                                        index
-                                                                                    )
-                                                                                }
-                                                                            >
-                                                                                <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
-                                                                                    <span>
-                                                                                        {index +
-                                                                                            1}
-                                                                                    </span>
-                                                                                </td>
-                                                                                <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
-                                                                                    {
-                                                                                        item['Ki_hieu']
-                                                                                    }
-                                                                                </td>
-                                                                                <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
-                                                                                    <span>
-                                                                                        {
-                                                                                            item['So']
-                                                                                        }
-                                                                                    </span>
-                                                                                </td>
-                                                                                <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
-                                                                                    <span>
-                                                                                        {
-                                                                                            item['Ki_hieu']
-                                                                                        }
-                                                                                    </span>
-                                                                                </td>
-                                                                                <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
-                                                                                    <span>
-                                                                                        {
-                                                                                            item['Ngày'] + '-'+ item['Tháng'] + '-' + item['Năm']
-                                                                                        }
-                                                                                    </span>
-                                                                                </td>
-                                                                                <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
-                                                                                    <span>
-                                                                                        {
-                                                                                            item['Địa chỉ:buyer']
-                                                                                        }
-                                                                                    </span>
-                                                                                </td>
-                                                                                <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
-                                                                                    {
-                                                                                        item?.tables_1[0].row[0]['Thành tiền chưa có thuế GTGT']
-                                                                                    }
-                                                                                </td>
-                                                                                <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
-                                                                                    <span>
-                                                                                        {
-                                                                                           item?.tables_1[0].row[0]['Đơn giá']
-                                                                                        }
-                                                                                    </span>
-                                                                                </td>
-                                                                                <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
-                                                                                    <span>
-                                                                                        {
-                                                                                            item['Tên người mua']
-                                                                                        }
-                                                                                    </span>
-                                                                                </td>
-                                                                                <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
-                                                                                    <span>
-                                                                                        {
-                                                                                            item['Địa chỉ']
-                                                                                        }
-                                                                                    </span>
-                                                                                </td>
-                                                                                <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
-                                                                                    <span>
-                                                                                        {
-                                                                                            item
-                                                                                                .tables_1[0]
-                                                                                                .row[0]['Điện thoại']
-                                                                                        }
-                                                                                    </span>
-                                                                                </td>
-                                                                                <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
-                                                                                    <span>
-                                                                                        {
-                                                                                            item
-                                                                                                .tables_1[0]['Địa chỉ:buyer']
-                                
-                                                                                        }
-                                                                                    </span>
-                                                                                </td>
-                                                                                <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
-                                                                                    <span>
-                                                                                        {formatCurrency(
-                                                                                            Math.floor(
-                                                                                                Math.random() *
-                                                                                                10000
-                                                                                            )
-                                                                                        )}
-                                                                                    </span>
-                                                                                </td>
-                                                                                <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
-                                                                                    <span>
-                                                                                        {
-                                                                                            item
-                                                                                                .tables_1[0]
-                                                                                                .row[0]['Số tài khoản:buyer']
-                                                                                        }
-                                                                                    </span>
-                                                                                </td>
-                                                                                <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
-                                                                                    VND
-                                                                                </td>
-                                                                                <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
-                                                                                    <span>
-                                                                                        {
-                                                                                            item['Trạng thái']
-                                                                                        }
-                                                                                    </span>
-                                                                                </td>
-                                                                                <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
-                                                                                    <span>
-                                                                                        {
-                                                                                            item['Hình thức thanh toán']
-                                                                                        }
-                                                                                    </span>
-                                                                                </td>
-                                                                                <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
-                                                                                    Xem
-                                                                                    danh
-                                                                                    sách
-                                                                                    hóa
-                                                                                    đơn
-                                                                                </td>
-                                                                                <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
-                                                                                    Thông
-                                                                                    tin
-                                                                                    liên
-                                                                                    quan
-                                                                                </td>
-                                                                            </tr>
-                                                                        );
-                                                                    }
-                                                                )
+                                                                  invoiceData.invoices?.map(
+                                                                      (
+                                                                          item,
+                                                                          index
+                                                                      ) => {
+                                                                          // console.log(item)
+                                                                          return (
+                                                                              <tr
+                                                                                  key={
+                                                                                      index
+                                                                                  }
+                                                                                  className={`cursor-pointer py-3 ${
+                                                                                      index ===
+                                                                                      selectedRow
+                                                                                          ? "bg-neutral-200"
+                                                                                          : ""
+                                                                                  }`}
+                                                                                  onClick={() =>
+                                                                                      handleRowClick(
+                                                                                          index
+                                                                                      )
+                                                                                  }
+                                                                              >
+                                                                                  <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
+                                                                                      <span>
+                                                                                          {index +
+                                                                                              1}
+                                                                                      </span>
+                                                                                  </td>
+                                                                                  <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
+                                                                                      {
+                                                                                          item[
+                                                                                              "Ki_hieu"
+                                                                                          ]
+                                                                                      }
+                                                                                  </td>
+                                                                                  <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
+                                                                                      <span>
+                                                                                          {
+                                                                                              item[
+                                                                                                  "So"
+                                                                                              ]
+                                                                                          }
+                                                                                      </span>
+                                                                                  </td>
+                                                                                  <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
+                                                                                      <span>
+                                                                                          {
+                                                                                              item[
+                                                                                                  "Ki_hieu"
+                                                                                              ]
+                                                                                          }
+                                                                                      </span>
+                                                                                  </td>
+                                                                                  <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
+                                                                                      <span>
+                                                                                          {item[
+                                                                                              "Ngày"
+                                                                                          ] +
+                                                                                              "-" +
+                                                                                              item[
+                                                                                                  "Tháng"
+                                                                                              ] +
+                                                                                              "-" +
+                                                                                              item[
+                                                                                                  "Năm"
+                                                                                              ]}
+                                                                                      </span>
+                                                                                  </td>
+                                                                                  <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
+                                                                                      <span>
+                                                                                          {
+                                                                                              item[
+                                                                                                  "Địa chỉ:buyer"
+                                                                                              ]
+                                                                                          }
+                                                                                      </span>
+                                                                                  </td>
+                                                                                  <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
+                                                                                      {
+                                                                                          item
+                                                                                              ?.tables_1[0]
+                                                                                              .row[0][
+                                                                                              "Thành tiền chưa có thuế GTGT"
+                                                                                          ]
+                                                                                      }
+                                                                                  </td>
+                                                                                  <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
+                                                                                      <span>
+                                                                                          {
+                                                                                              item
+                                                                                                  ?.tables_1[0]
+                                                                                                  .row[0][
+                                                                                                  "Đơn giá"
+                                                                                              ]
+                                                                                          }
+                                                                                      </span>
+                                                                                  </td>
+                                                                                  <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
+                                                                                      <span>
+                                                                                          {
+                                                                                              item[
+                                                                                                  "Tên người mua"
+                                                                                              ]
+                                                                                          }
+                                                                                      </span>
+                                                                                  </td>
+                                                                                  <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
+                                                                                      <span>
+                                                                                          {
+                                                                                              item[
+                                                                                                  "Địa chỉ"
+                                                                                              ]
+                                                                                          }
+                                                                                      </span>
+                                                                                  </td>
+                                                                                  <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
+                                                                                      <span>
+                                                                                          {
+                                                                                              item
+                                                                                                  .tables_1[0]
+                                                                                                  .row[0][
+                                                                                                  "Điện thoại"
+                                                                                              ]
+                                                                                          }
+                                                                                      </span>
+                                                                                  </td>
+                                                                                  <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
+                                                                                      <span>
+                                                                                          {
+                                                                                              item
+                                                                                                  .tables_1[0][
+                                                                                                  "Địa chỉ:buyer"
+                                                                                              ]
+                                                                                          }
+                                                                                      </span>
+                                                                                  </td>
+                                                                                  <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
+                                                                                      <span>
+                                                                                          {formatCurrency(
+                                                                                              Math.floor(
+                                                                                                  Math.random() *
+                                                                                                      10000
+                                                                                              )
+                                                                                          )}
+                                                                                      </span>
+                                                                                  </td>
+                                                                                  <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
+                                                                                      <span>
+                                                                                          {
+                                                                                              item
+                                                                                                  .tables_1[0]
+                                                                                                  .row[0][
+                                                                                                  "Số tài khoản:buyer"
+                                                                                              ]
+                                                                                          }
+                                                                                      </span>
+                                                                                  </td>
+                                                                                  <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
+                                                                                      VND
+                                                                                  </td>
+                                                                                  <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
+                                                                                      <span>
+                                                                                          {
+                                                                                              item[
+                                                                                                  "Trạng thái"
+                                                                                              ]
+                                                                                          }
+                                                                                      </span>
+                                                                                  </td>
+                                                                                  <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
+                                                                                      <span>
+                                                                                          {
+                                                                                              item[
+                                                                                                  "Hình thức thanh toán"
+                                                                                              ]
+                                                                                          }
+                                                                                      </span>
+                                                                                  </td>
+                                                                                  <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
+                                                                                      Xem
+                                                                                      danh
+                                                                                      sách
+                                                                                      hóa
+                                                                                      đơn
+                                                                                  </td>
+                                                                                  <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
+                                                                                      Thông
+                                                                                      tin
+                                                                                      liên
+                                                                                      quan
+                                                                                  </td>
+                                                                              </tr>
+                                                                          );
+                                                                      }
+                                                                  )
                                                                 : undefined
                                                         }
                                                     </tbody>
