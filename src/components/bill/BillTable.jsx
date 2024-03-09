@@ -710,8 +710,9 @@ const BillTable = ({ invoices }) => {
                                                         <th className=" border px-3 py-2 font-medium text-gray-900">
                                                             {
                                                                 dataBill
-                                                                    ?.tables[3]
-                                                                    ?.Tổng_tiền_thanh_toán_bằng_số
+                                                                    ?.tables[3]?.[
+                                                                    "Tổng_tiền_chưa_thuế\n(Tổng_cộng_thành_tiền_chưa_có_thuế)"
+                                                                ]
                                                             }{" "}
                                                         </th>
                                                     </tr>
@@ -723,11 +724,75 @@ const BillTable = ({ invoices }) => {
                                                             Tổng giảm trừ không
                                                             chịu thuế
                                                         </td>
+                                                        <td className=" border px-3 py-2 text-gray-700"></td>
+                                                    </tr>
+                                                    <tr className="border">
+                                                        <td className=" border px-3 py-2 font-medium text-gray-900">
+                                                            Tổng tiền thuế (Tổng
+                                                            cộng tiền thuế)
+                                                        </td>
                                                         <td className=" border px-3 py-2 text-gray-700">
                                                             {
                                                                 dataBill
                                                                     ?.tables[3]
                                                                     ?.Tổng_tiền_thuế
+                                                            }
+                                                        </td>
+                                                    </tr>
+                                                    <tr className="border">
+                                                        <td className=" border px-3 py-2 font-medium text-gray-900">
+                                                            Tổng tiền phí
+                                                        </td>
+                                                        <td className=" border px-3 py-2 text-gray-700">
+                                                            {
+                                                                dataBill
+                                                                    ?.tables[3]
+                                                                    ?.Tổng_tiền_phí
+                                                            }
+                                                        </td>
+                                                    </tr>
+                                                    <tr className="border">
+                                                        <td className=" border px-3 py-2 font-medium text-gray-900">
+                                                            Tổng tiền chiết khấu
+                                                            thương mại
+                                                        </td>
+                                                        <td className=" border px-3 py-2 text-gray-700">
+                                                            {
+                                                                dataBill
+                                                                    ?.tables[3]
+                                                                    ?.Tổng_tiền_chiết_khấu_thương_mại
+                                                            }
+                                                        </td>
+                                                    </tr>
+                                                    <tr className="border">
+                                                        <td className=" border px-3 py-2 font-medium text-gray-900">
+                                                            Tổng giảm trừ khác
+                                                        </td>
+                                                        <td className=" border px-3 py-2 text-gray-700"></td>
+                                                    </tr>
+                                                    <tr className="border">
+                                                        <td className=" border px-3 py-2 font-medium text-gray-900">
+                                                            Tổng tiền thanh toán
+                                                            bằng số
+                                                        </td>
+                                                        <td className=" border px-3 py-2 text-gray-700">
+                                                            {
+                                                                dataBill
+                                                                    ?.tables[3]
+                                                                    ?.Tổng_tiền_thanh_toán_bằng_số
+                                                            }
+                                                        </td>
+                                                    </tr>
+                                                    <tr className="border">
+                                                        <td className=" border px-3 py-2 font-medium text-gray-900">
+                                                            Tổng tiền thanh toán
+                                                            bằng chữ
+                                                        </td>
+                                                        <td className=" border px-3 py-2 text-gray-700">
+                                                            {
+                                                                dataBill
+                                                                    ?.tables[3]
+                                                                    ?.Tổng_tiền_thanh_toán_bằng_chữ
                                                             }
                                                         </td>
                                                     </tr>

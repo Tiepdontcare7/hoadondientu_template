@@ -11,7 +11,7 @@ const BillElectronic = () => {
     const { setIdBill } = useContext(BillContext);
 
     const handleRowClick = (index) => {
-        console.log(index)
+        console.log(index);
         setSelectedRow(index === selectedRow ? null : index);
         setIdBill(index);
     };
@@ -38,7 +38,6 @@ const BillElectronic = () => {
 
     return (
         <>
-
             <div></div>
             <div>
                 {/* <div></div>
@@ -632,9 +631,9 @@ const BillElectronic = () => {
                                                                                     index
                                                                                 }
                                                                                 className={`cursor-pointer py-3 ${index ===
-                                                                                    selectedRow
-                                                                                    ? "bg-neutral-200"
-                                                                                    : ""
+                                                                                        selectedRow
+                                                                                        ? "bg-neutral-200"
+                                                                                        : ""
                                                                                     }`}
                                                                                 onClick={() =>
                                                                                     handleRowClick(
@@ -650,60 +649,88 @@ const BillElectronic = () => {
                                                                                 </td>
                                                                                 <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
                                                                                     {
-                                                                                        item['Ki_hieu']
+                                                                                        item[
+                                                                                        "Ki_hieu"
+                                                                                        ]
                                                                                     }
                                                                                 </td>
                                                                                 <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
                                                                                     <span>
                                                                                         {
-                                                                                            item['So']
+                                                                                            item[
+                                                                                            "So"
+                                                                                            ]
                                                                                         }
                                                                                     </span>
                                                                                 </td>
                                                                                 <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
                                                                                     <span>
                                                                                         {
-                                                                                            item['Ki_hieu']
+                                                                                            item[
+                                                                                            "Ki_hieu"
+                                                                                            ]
                                                                                         }
                                                                                     </span>
                                                                                 </td>
                                                                                 <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
                                                                                     <span>
-                                                                                        {
-                                                                                            item['Ngày'] + '-' + item['Tháng'] + '-' + item['Năm']
-                                                                                        }
+                                                                                        {item[
+                                                                                            "Ngày"
+                                                                                        ] +
+                                                                                            "-" +
+                                                                                            item[
+                                                                                            "Tháng"
+                                                                                            ] +
+                                                                                            "-" +
+                                                                                            item[
+                                                                                            "Năm"
+                                                                                            ]}
                                                                                     </span>
                                                                                 </td>
                                                                                 <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
                                                                                     <span>
                                                                                         {
-                                                                                            item['Địa chỉ:buyer']
+                                                                                            item[
+                                                                                            "Địa chỉ:buyer"
+                                                                                            ]
                                                                                         }
                                                                                     </span>
                                                                                 </td>
                                                                                 <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
                                                                                     {
-                                                                                        item?.tables_1[0].row[0]['Thành tiền chưa có thuế GTGT']
+                                                                                        item
+                                                                                            ?.tables_1[0]
+                                                                                            .row[0][
+                                                                                        "Thành tiền chưa có thuế GTGT"
+                                                                                        ]
                                                                                     }
                                                                                 </td>
                                                                                 <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
                                                                                     <span>
                                                                                         {
-                                                                                            item?.tables_1[0].row[0]['Đơn giá']
+                                                                                            item
+                                                                                                ?.tables_1[0]
+                                                                                                .row[0][
+                                                                                            "Đơn giá"
+                                                                                            ]
                                                                                         }
                                                                                     </span>
                                                                                 </td>
                                                                                 <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
                                                                                     <span>
                                                                                         {
-                                                                                            item['Tên người mua']
+                                                                                            item[
+                                                                                            "Tên người mua"
+                                                                                            ]
                                                                                         }
                                                                                     </span>
                                                                                 </td>
                                                                                 <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
                                                                                     <span>
                                                                                         {
-                                                                                            item['Địa chỉ']
+                                                                                            item[
+                                                                                            "Địa chỉ"
+                                                                                            ]
                                                                                         }
                                                                                     </span>
                                                                                 </td>
@@ -712,7 +739,9 @@ const BillElectronic = () => {
                                                                                         {
                                                                                             item
                                                                                                 .tables_1[0]
-                                                                                                .row[0]['Điện thoại']
+                                                                                                .row[0][
+                                                                                            "Điện thoại"
+                                                                                            ]
                                                                                         }
                                                                                     </span>
                                                                                 </td>
@@ -720,8 +749,9 @@ const BillElectronic = () => {
                                                                                     <span>
                                                                                         {
                                                                                             item
-                                                                                                .tables_1[0]['Địa chỉ:buyer']
-
+                                                                                                .tables_1[0][
+                                                                                            "Địa chỉ:buyer"
+                                                                                            ]
                                                                                         }
                                                                                     </span>
                                                                                 </td>
@@ -740,7 +770,9 @@ const BillElectronic = () => {
                                                                                         {
                                                                                             item
                                                                                                 .tables_1[0]
-                                                                                                .row[0]['Số tài khoản:buyer']
+                                                                                                .row[0][
+                                                                                            "Số tài khoản:buyer"
+                                                                                            ]
                                                                                         }
                                                                                     </span>
                                                                                 </td>
@@ -750,14 +782,18 @@ const BillElectronic = () => {
                                                                                 <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
                                                                                     <span>
                                                                                         {
-                                                                                            item['Trạng thái']
+                                                                                            item[
+                                                                                            "Trạng thái"
+                                                                                            ]
                                                                                         }
                                                                                     </span>
                                                                                 </td>
                                                                                 <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
                                                                                     <span>
                                                                                         {
-                                                                                            item['Hình thức thanh toán']
+                                                                                            item[
+                                                                                            "Hình thức thanh toán"
+                                                                                            ]
                                                                                         }
                                                                                     </span>
                                                                                 </td>
@@ -797,6 +833,7 @@ const BillElectronic = () => {
                                                     showSizeChanger
                                                     onChange={onShowSizeChange}
                                                     defaultCurrent={1}
+                                                    defaultPageSize={20}
                                                     total={invoiceData?.invoices?.length}
                                                 />
                                             </div>
