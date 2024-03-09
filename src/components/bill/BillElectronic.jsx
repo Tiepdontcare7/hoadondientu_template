@@ -1,10 +1,12 @@
 import { useContext, useState } from "react";
 import { BillContext } from "../../context/BillContext";
 import invoiceData from '../../data/copyx_1.json'; // Import dữ liệu từ file JSON
+// import PaginationBill from "../Pagination";
+import { Pagination } from 'antd';
 
-const BillElectronic = (props) => {
+const BillElectronic = () => {
     const [selectedRow, setSelectedRow] = useState(null);
-    console.log(invoiceData.invoices)
+    const [invoiceData2, setInvoiceData] = useState(invoiceData.invoices.slice(0, 50));
 
     const { setIdBill } = useContext(BillContext);
 
@@ -24,6 +26,15 @@ const BillElectronic = (props) => {
         // Sử dụng hàm format của formatter để định dạng giá
         return formatter.format(price);
     }
+
+    // console.log(invoiceData.invoices)
+    const onShowSizeChange = (current, pageSize) => {
+        console.log(current, pageSize);
+        const startIndex = (current - 1) * pageSize;
+        const endIndex = startIndex + pageSize;
+        const newData = invoiceData.invoices.slice(startIndex, endIndex);
+        setInvoiceData(newData);
+    };
 
     return (
         <>
@@ -603,12 +614,13 @@ const BillElectronic = (props) => {
                                                             }}
                                                         />
                                                     </colgroup>
+
                                                     <tbody className="ant-table-tbody">
                                                         {
                                                             // eslint-disable-next-line react/prop-types
-                                                            invoiceData.invoices
+                                                            invoiceData2
                                                                 ? // eslint-disable-next-line react/prop-types
-                                                                invoiceData.invoices?.map(
+                                                                invoiceData2?.map(
                                                                     (
                                                                         item,
                                                                         index
@@ -620,9 +632,9 @@ const BillElectronic = (props) => {
                                                                                     index
                                                                                 }
                                                                                 className={`cursor-pointer py-3 ${index ===
-                                                                                        selectedRow
-                                                                                        ? "bg-neutral-200"
-                                                                                        : ""
+                                                                                    selectedRow
+                                                                                    ? "bg-neutral-200"
+                                                                                    : ""
                                                                                     }`}
                                                                                 onClick={() =>
                                                                                     handleRowClick(
@@ -658,7 +670,7 @@ const BillElectronic = (props) => {
                                                                                 <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
                                                                                     <span>
                                                                                         {
-                                                                                            item['Ngày'] + '-'+ item['Tháng'] + '-' + item['Năm']
+                                                                                            item['Ngày'] + '-' + item['Tháng'] + '-' + item['Năm']
                                                                                         }
                                                                                     </span>
                                                                                 </td>
@@ -677,7 +689,7 @@ const BillElectronic = (props) => {
                                                                                 <td className="whitespace-nowrap px-[20px] py-2 font-medium text-gray-900">
                                                                                     <span>
                                                                                         {
-                                                                                           item?.tables_1[0].row[0]['Đơn giá']
+                                                                                            item?.tables_1[0].row[0]['Đơn giá']
                                                                                         }
                                                                                     </span>
                                                                                 </td>
@@ -709,7 +721,7 @@ const BillElectronic = (props) => {
                                                                                         {
                                                                                             item
                                                                                                 .tables_1[0]['Địa chỉ:buyer']
-                                
+
                                                                                         }
                                                                                     </span>
                                                                                 </td>
@@ -769,6 +781,7 @@ const BillElectronic = (props) => {
                                                                 : undefined
                                                         }
                                                     </tbody>
+
                                                 </table>
                                             </div>
                                             {/* <div className="ant-table-placeholder">
@@ -778,6 +791,15 @@ const BillElectronic = (props) => {
                                                     Không có dữ liệu hiển thị
                                                 </div>
                                             </div> */}
+
+                                            <div className="my-10 ml-[30%]">
+                                                <Pagination
+                                                    showSizeChanger
+                                                    onChange={onShowSizeChange}
+                                                    defaultCurrent={1}
+                                                    total={invoiceData?.invoices?.length}
+                                                />
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
