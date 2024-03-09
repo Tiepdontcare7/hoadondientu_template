@@ -6,7 +6,7 @@ import { Pagination } from 'antd';
 
 const BillElectronic = () => {
     const [selectedRow, setSelectedRow] = useState(null);
-    const [invoiceData2, setInvoiceData] = useState(invoiceData.invoices.slice(0, 50));
+    const [invoiceData2, setInvoiceData] = useState(invoiceData.invoices.slice(0, 20));
 
     const { setIdBill } = useContext(BillContext);
 
