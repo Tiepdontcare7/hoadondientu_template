@@ -11,7 +11,7 @@ const BillElectronic = () => {
     const { setIdBill } = useContext(BillContext);
 
     const handleRowClick = (index) => {
-        console.log(index);
+        // console.log(index);
         setSelectedRow(index === selectedRow ? null : index);
         setIdBill(index);
     };
@@ -33,6 +33,7 @@ const BillElectronic = () => {
         const startIndex = (current - 1) * pageSize;
         const endIndex = startIndex + pageSize;
         const newData = invoiceData.invoices.slice(startIndex, endIndex);
+        console.log(newData)
         setInvoiceData(newData);
     };
 

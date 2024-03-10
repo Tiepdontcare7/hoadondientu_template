@@ -2,7 +2,7 @@ import dayjs from "dayjs";
 import { DatePicker } from "antd";
 import BillTable from "./BillTable";
 import { Select } from "antd";
-import { SaleInvoices } from "../../data/data";
+// import invoiceData from '../../data/copyx_1.json'; // Import dữ liệu từ file JSON
 import { useState } from "react";
 
 const BillOfSale = () => {
@@ -347,7 +347,7 @@ const BillOfSale = () => {
                         </div>
                     </div>
 
-                    <BillTable invoices={SaleInvoices} />
+                    <BillTable />
                 </div>
                 <div></div>
             </div>

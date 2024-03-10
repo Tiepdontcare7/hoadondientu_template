@@ -7,8 +7,10 @@ import { useContext, useEffect, useState } from "react";
 import { Pagination } from "antd";
 import { BillContext } from "../../context/BillContext";
 import { Modal } from "antd";
+import invoiceData from '../../data/copyx_1.json'; // Import dữ liệu từ file JSON
 
-const BillTable = ({ invoices }) => {
+const BillTable = () => {
+    // console.log(invoices)
     const { idBill, setIdBill } = useContext(BillContext);
     const [dataBill, setDataBill] = useState(null);
     // const invoices = useMemo(() => generateMultipleRandomInvoices(10), []);
@@ -24,7 +26,7 @@ const BillTable = ({ invoices }) => {
         {
             key: "1",
             label: "Hóa đơn điện tử",
-            children: <BillElectronic data={invoices} />,
+            children: <BillElectronic />,
             class: "ant-tabs-tab ant-tabs-tab-active",
         },
         {
@@ -46,11 +48,10 @@ const BillTable = ({ invoices }) => {
                                         {items?.map((item) => (
                                             <div
                                                 key={item.key}
-                                                className={`custom-tab ${
-                                                    activeKey === item.key
-                                                        ? "active"
-                                                        : ""
-                                                } border py-2 px-2 mt-4 mb-4 cursor-pointer`}
+                                                className={`custom-tab ${activeKey === item.key
+                                                    ? "active"
+                                                    : ""
+                                                    } border py-2 px-2 mt-4 mb-4 cursor-pointer`}
                                                 onClick={() =>
                                                     onChange(item.key)
                                                 }
@@ -76,7 +77,7 @@ const BillTable = ({ invoices }) => {
 
     const viewBill = () => {
         if (idBill >= 0) {
-            setDataBill(invoices[idBill]);
+            setDataBill(invoiceData.invoices[idBill]);
             setOpen(true);
         }
     };
@@ -84,6 +85,8 @@ const BillTable = ({ invoices }) => {
     useEffect(() => {
         return () => setIdBill(-1);
     }, [setIdBill]);
+
+    console.log(dataBill)
 
     return (
         <>
@@ -106,11 +109,10 @@ const BillTable = ({ invoices }) => {
                                 <span
                                     onClick={viewBill}
                                     title="Xem hoa đơn"
-                                    className={`${
-                                        idBill
-                                            ? "cursor-pointer hover:bg-slate-500 hover:text-white"
-                                            : "cursor-not-allowed select-none"
-                                    } border p-[8px] border-[#000] rounded `}
+                                    className={`${idBill
+                                        ? "cursor-pointer hover:bg-slate-500 hover:text-white"
+                                        : "cursor-not-allowed select-none"
+                                        } border p-[8px] border-[#000] rounded `}
                                 >
                                     {/* <GrView /> */}
                                     <button
@@ -220,8 +222,8 @@ const BillTable = ({ invoices }) => {
                         activeKey={activeKey}
                         onChange={onChange}
                     />
-                    {activeKey === "1" && <BillElectronic data={invoices} />}
-                    {activeKey === "2" && <BillElectronic data={invoices} />}
+                    {activeKey === "1" && <BillElectronic />}
+                    {activeKey === "2" && <BillElectronic />}
                 </div>
             </div>
             <div></div>
@@ -246,13 +248,13 @@ const BillTable = ({ invoices }) => {
                                         </div>
                                         <div className="code-content text-base font-bold text-left">
                                             <b className="code-ms">
-                                                Mẫu số {dataBill?.Mẫu_số}
+                                                Mẫu số: {dataBill ? dataBill['Mẫu_số'] : undefined}
                                             </b>
                                             <b className="code-ms">
-                                                Ký hiệu: {dataBill?.Ký_hiệu}
+                                                Ký hiệu: {dataBill ? dataBill['Ki_hieu'] : undefined}
                                             </b>
                                             <b className="code-ms">
-                                                Số: {dataBill?.Số}
+                                                Số: {dataBill ? dataBill['So'] : undefined}
                                             </b>
                                         </div>
                                     </div>
@@ -265,7 +267,7 @@ const BillTable = ({ invoices }) => {
                                                 <div className="ant-row-flex ant-row-flex-center flex justify-center">
                                                     <div>
                                                         {
-                                                            dataBill?.Ngày_thành_lập
+                                                            dataBill ? dataBill['Ngày'] + "-" + dataBill['Tháng'] + "-" + dataBill['Năm'] : undefined
                                                         }
                                                     </div>
                                                 </div>
@@ -281,7 +283,7 @@ const BillTable = ({ invoices }) => {
                                                             <div>
                                                                 <div>
                                                                     {
-                                                                        dataBill?.MCCQT
+                                                                        dataBill ? dataBill['MCCQT'] : undefined
                                                                     }
                                                                 </div>
                                                             </div>
@@ -312,7 +314,7 @@ const BillTable = ({ invoices }) => {
                                                     <div>
                                                         <div className="di-value">
                                                             {
-                                                                dataBill?.Tên_người_bán
+                                                                 dataBill ? dataBill['Tên người bán'] : undefined
                                                             }
                                                         </div>
                                                     </div>
@@ -329,7 +331,7 @@ const BillTable = ({ invoices }) => {
                                                     <div>
                                                         <div className="di-value">
                                                             {
-                                                                dataBill?.Mã_số_thuế
+                                                              dataBill ?  dataBill["Mã số thuế"] : undefined
                                                             }
                                                         </div>
                                                     </div>
@@ -345,7 +347,7 @@ const BillTable = ({ invoices }) => {
                                                     </div>
                                                     <div>
                                                         <div className="di-value">
-                                                            {dataBill?.Địa_chỉ}
+                                                            {dataBill ? dataBill['Địa chỉ'] : undefined}
                                                         </div>
                                                     </div>
                                                 </div>
@@ -361,7 +363,7 @@ const BillTable = ({ invoices }) => {
                                                     <div>
                                                         <div className="di-value">
                                                             {
-                                                                dataBill?.Điện_thoại
+                                                               dataBill? dataBill['Điện thoại'] : undefined
                                                             }
                                                         </div>
                                                     </div>
@@ -380,7 +382,7 @@ const BillTable = ({ invoices }) => {
                                                     <div>
                                                         <div className="di-value">
                                                             {
-                                                                dataBill?.Số_tài_khoản
+                                                                dataBill? dataBill['Số tài khoản'] : undefined
                                                             }
                                                         </div>
                                                     </div>
@@ -400,9 +402,9 @@ const BillTable = ({ invoices }) => {
                                                     </div>
                                                     <div>
                                                         <div className="di-value">
-                                                            CÔNG TY TNHH MỘT
-                                                            THÀNH VIÊN CÔNG NGHỆ
-                                                            VÀ TRUYỀN THÔNG 3I
+                                                            {
+                                                                dataBill? dataBill['Tên người mua'] : undefined
+                                                            }
                                                         </div>
                                                     </div>
                                                 </div>
@@ -420,7 +422,7 @@ const BillTable = ({ invoices }) => {
                                                     <div>
                                                         <div className="di-value">
                                                             {
-                                                                dataBill?.Tên_người_mua
+                                                                dataBill? dataBill['Họ tên người mua'] : undefined
                                                             }
                                                         </div>
                                                     </div>
@@ -437,7 +439,7 @@ const BillTable = ({ invoices }) => {
                                                     <div>
                                                         <div className="di-value">
                                                             {
-                                                                dataBill?.Mã_số_thuế_buyer
+                                                                dataBill? dataBill['Mã Số thuế'] : undefined
                                                             }
                                                         </div>
                                                     </div>
@@ -454,7 +456,7 @@ const BillTable = ({ invoices }) => {
                                                     <div>
                                                         <div className="di-value">
                                                             {
-                                                                dataBill?.Địa_chỉ_buyer
+                                                                dataBill? dataBill['Địa chỉ:buyer'] : undefined
                                                             }
                                                         </div>
                                                     </div>
@@ -472,7 +474,9 @@ const BillTable = ({ invoices }) => {
                                                     </div>
                                                     <div>
                                                         <div className="di-value">
-                                                            {dataBill?.Số}
+                                                            {
+                                                                dataBill? dataBill['Số tài khoản:buyer'] : undefined
+                                                            }
                                                         </div>
                                                     </div>
                                                 </div>
@@ -491,7 +495,7 @@ const BillTable = ({ invoices }) => {
                                                     <div>
                                                         <div className="di-value">
                                                             {
-                                                                dataBill?.Hình_thức_thanh_toán
+                                                                dataBill? dataBill['Hình thức thanh toán'] : undefined
                                                             }
                                                         </div>
                                                     </div>
@@ -510,7 +514,7 @@ const BillTable = ({ invoices }) => {
                                                     <div>
                                                         <div className="di-value">
                                                             {
-                                                                dataBill?.Đơn_vị_tiền_tệ
+                                                                dataBill? dataBill['Số bảng kê'] : undefined
                                                             }
                                                         </div>
                                                     </div>
@@ -529,7 +533,7 @@ const BillTable = ({ invoices }) => {
                                                     <div>
                                                         <div className="di-value">
                                                             {
-                                                                dataBill?.Đơn_vị_tiền_tệ
+                                                                dataBill? dataBill['Số bảng kê'] : undefined
                                                             }
                                                         </div>
                                                     </div>
@@ -548,7 +552,7 @@ const BillTable = ({ invoices }) => {
                                                             </span>
                                                         </div>
                                                         <div className="di-value">
-                                                            <div></div>
+                                                            <div>{dataBill? dataBill['So'] : undefined}</div>
                                                         </div>
                                                     </div>
 
@@ -560,7 +564,7 @@ const BillTable = ({ invoices }) => {
                                                             </span>
                                                         </div>
                                                         <div className="di-value">
-                                                            <div></div>
+                                                            <div>{dataBill? dataBill['Số bảng kê'] : undefined}</div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -611,7 +615,7 @@ const BillTable = ({ invoices }) => {
                                             </thead>
 
                                             <tbody className="divide-y divide-gray-200">
-                                                {dataBill?.tables[0]?.rows?.map(
+                                                {dataBill?.tables_1?.map(
                                                     (item, i) => {
                                                         return (
                                                             <tr
@@ -619,16 +623,16 @@ const BillTable = ({ invoices }) => {
                                                                 className="border"
                                                             >
                                                                 <td className=" border px-3 py-2 font-medium text-gray-900">
-                                                                    {item?.STT}
+                                                                    {item.row[0]['STT']}
                                                                 </td>
                                                                 <td className=" border px-3 py-2 text-gray-700">
                                                                     {
-                                                                        item?.Tính_chất
+                                                                       item.row[0]['Tính chất']
                                                                     }
                                                                 </td>
                                                                 <td className=" border px-3 py-2 text-gray-700">
                                                                     {
-                                                                        item?.Tên_hàng_hóa_dịch_vụ
+                                                                        item.row[0]['Tên hàng hóa, dịch vụ']
                                                                     }
                                                                 </td>
                                                                 <td className=" border px-3 py-2 text-gray-700">
@@ -639,22 +643,22 @@ const BillTable = ({ invoices }) => {
                                                                 </td>
                                                                 <td className=" border px-3 py-2 text-gray-700">
                                                                     {
-                                                                        item?.Đơn_giá
+                                                                        item.row[0]['Đơn giá']
                                                                     }
                                                                 </td>
                                                                 <td className=" border px-3 py-2 text-gray-700">
                                                                     {
-                                                                        item?.Chiết_khấu
+                                                                        item.row[0]['Chiết khấu']
                                                                     }
                                                                 </td>
                                                                 <td className=" border px-3 py-2 text-gray-700">
                                                                     {
-                                                                        item?.Thuế_suất
+                                                                        item.row[0]['Thuế suất']
                                                                     }
                                                                 </td>
                                                                 <td className=" border px-3 py-2 font-medium text-gray-900">
                                                                     {
-                                                                        item?.Đơn_giá
+                                                                        item.row[0]['Thành tiền chưa có thuế GTGT']
                                                                     }
                                                                 </td>
                                                             </tr>
@@ -710,9 +714,7 @@ const BillTable = ({ invoices }) => {
                                                         <th className=" border px-3 py-2 font-medium text-gray-900">
                                                             {
                                                                 dataBill
-                                                                    ?.tables[3]?.[
-                                                                    "Tổng_tiền_chưa_thuế\n(Tổng_cộng_thành_tiền_chưa_có_thuế)"
-                                                                ]
+                                                                    ?.tables_1[3]?.row[0]
                                                             }{" "}
                                                         </th>
                                                     </tr>
@@ -734,8 +736,7 @@ const BillTable = ({ invoices }) => {
                                                         <td className=" border px-3 py-2 text-gray-700">
                                                             {
                                                                 dataBill
-                                                                    ?.tables[3]
-                                                                    ?.Tổng_tiền_thuế
+                                                                ?.tables_1[3]?.row[0]
                                                             }
                                                         </td>
                                                     </tr>
@@ -746,8 +747,7 @@ const BillTable = ({ invoices }) => {
                                                         <td className=" border px-3 py-2 text-gray-700">
                                                             {
                                                                 dataBill
-                                                                    ?.tables[3]
-                                                                    ?.Tổng_tiền_phí
+                                                                ?.tables_1[3]?.row[0]
                                                             }
                                                         </td>
                                                     </tr>
@@ -759,8 +759,7 @@ const BillTable = ({ invoices }) => {
                                                         <td className=" border px-3 py-2 text-gray-700">
                                                             {
                                                                 dataBill
-                                                                    ?.tables[3]
-                                                                    ?.Tổng_tiền_chiết_khấu_thương_mại
+                                                                ?.tables_1[3]?.row[0]
                                                             }
                                                         </td>
                                                     </tr>
@@ -778,8 +777,7 @@ const BillTable = ({ invoices }) => {
                                                         <td className=" border px-3 py-2 text-gray-700">
                                                             {
                                                                 dataBill
-                                                                    ?.tables[3]
-                                                                    ?.Tổng_tiền_thanh_toán_bằng_số
+                                                                ?.tables_1[3]?.row[0]
                                                             }
                                                         </td>
                                                     </tr>
@@ -791,8 +789,7 @@ const BillTable = ({ invoices }) => {
                                                         <td className=" border px-3 py-2 text-gray-700">
                                                             {
                                                                 dataBill
-                                                                    ?.tables[3]
-                                                                    ?.Tổng_tiền_thanh_toán_bằng_chữ
+                                                                ?.tables_1[3]?.row[0]
                                                             }
                                                         </td>
                                                     </tr>
